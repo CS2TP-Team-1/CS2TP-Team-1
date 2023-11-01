@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Homepage
 Route::get('/', function () {
-    return ['Laravel' => app()->version()];
+    return view('home');
 });
 
 require __DIR__.'/auth.php';
