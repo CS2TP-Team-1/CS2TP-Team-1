@@ -18,4 +18,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+//contact us page 
+Route::get('/contact', function(){
+    return view('contact');
+});
+
 require __DIR__.'/auth.php';
