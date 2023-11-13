@@ -20,6 +20,6 @@ class Order extends Model
     // One basket can have multiple products (Has to be a Many-to-Many relationship and as one product could be in multiple baskets the same way one basket can have multiple products)
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'orders_products', 'product_id', 'order_id');
     }
 }
