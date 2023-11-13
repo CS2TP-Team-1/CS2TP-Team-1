@@ -6,7 +6,7 @@
 }
 */
 
-body {
+body, html {
   background-color: purple;
 }
 
@@ -15,7 +15,7 @@ h1, h2, h3 {
 	color: white;
 }
 
-p {
+p, pre { 
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
 }
@@ -38,14 +38,13 @@ p {
   float: left;
 
 }
+
 .primary_nav a {
   display: block;
   color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-
-
 }
 
 /*css for icons*/
