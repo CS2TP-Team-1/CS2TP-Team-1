@@ -15,4 +15,11 @@ class Product extends Model
     {
         return $this->belongsToMany(Basket::class);
     }
+
+    // One product can be in multiple orders (Has to be a many-to-many relationship as one product could be in multiple orders the same way as one order can have multiple products)
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }
