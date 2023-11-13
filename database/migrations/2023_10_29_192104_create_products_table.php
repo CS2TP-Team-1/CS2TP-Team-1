@@ -16,6 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string("name");
             $table->float("price");
+            $table->boolean('promotion');
+            $table->enum('metalType',['Silver','Gold']);
+            $table->enum('category',['earrings','necklaces','watches','bracelets','rings']);
         });
     }
 
