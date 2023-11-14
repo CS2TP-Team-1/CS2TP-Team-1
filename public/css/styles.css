@@ -35,7 +35,7 @@ p, pre {
 }
 
 .main-header ul li {
-  /* float: left; */
+  float: left;
   width: 25%;
 }
 
@@ -62,10 +62,19 @@ p, pre {
 /*css for icons*/
 
 .icons{
-  float: right;
   display: block;
   padding: 5px;
   
+}
+
+.icons ul {
+  list-style-type: none;
+}
+
+.icons ul li {
+  float: right;
+  margin-left: 10px;
+  padding-bottom: 15px;
 }
 
 header{
