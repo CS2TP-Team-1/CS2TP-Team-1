@@ -24,3 +24,8 @@ Route::get('/contact', function(){
 });
 
 require __DIR__.'/auth.php';
+
+//navbar page
+Route::get('/navbar', function(){
+    return view('navBar');
+})->name('navBar');

@@ -22,37 +22,66 @@ p, pre {
 
 /* css for nav bar */
 
-.primary-header {
+/*Styling for the unorder list which is part of the nav bar */
+.main-header ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  top: 200px;
   overflow: hidden;
   background-color: #dda0dd;
-  justify-content: space-around;
-  
+  height: auto;
 }
 
-
-.primary_nav {
-
+.main-header ul li {
   float: left;
-
 }
 
+<<<<<<< Updated upstream
 .primary_nav a {
+=======
+/*Styling for the actual text in the nav bar */
+.main-header li a {
+  width: 350px;
+>>>>>>> Stashed changes
   display: block;
-  color: black;
+  font-family: Helvetica;
+  color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 4px;
   text-decoration: none;
+<<<<<<< Updated upstream
+=======
+}
+
+/*styling for when the mouse hovers over the text options in the nav bar */
+.main-header li a:hover {
+  background-color: #111;
+  color: white;
+
+  
+  text-decoration: underline;
+>>>>>>> Stashed changes
 }
 
 /*css for icons*/
 
 .icons{
   float: right;
-  align-items: center;
+  display: block;
   padding: 5px;
   
 }
 
+header{
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+/*Logo css*/
+
+.logoimg{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
