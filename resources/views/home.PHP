@@ -49,10 +49,10 @@ Here you can check search by categories and view
 bestselling items.
     </pre>
     <h2>Categories</h2>
-    <a href="ring_search"> <img src="resources/images/homepage/ring.png" alt="Ring" style="width:200px;height:200px;"><a>
-    <a href="bracelet_search"><img src="resources/images/homepage/bracelet.png" alt="Bracelet" style="width:200px;height:200px;"><a>
-    <a href="earring_search"><img src="resources/images/homepage/earring.jpg" alt="Earring" style="width:200px;height:200px;"><a>
-    <a href="watch_search"><img src="resources/images/homepage/watch.jpg" alt="Watch" style="width:200px;height:200px;"><a>
+    <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.png')?>" alt="Ring" style="width:200px;height:200px;"><a>
+    <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelet" style="width:200px;height:200px;"><a>
+    <a href="earring_search"><img src="<?php echo asset('images/homepage/earring.jpg')?>" alt="Earring" style="width:200px;height:200px;"><a>
+    <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watch" style="width:200px;height:200px;"><a>
     <!--<img src="img_girl.jpg" alt="Necklace" style="width:200px;height:200px;">-->
     <h2>Best-selling items</h2>
 
