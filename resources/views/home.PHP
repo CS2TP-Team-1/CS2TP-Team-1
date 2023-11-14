@@ -41,7 +41,6 @@
             });  
         </script>
     </nav>
-<<<<<<< Updated upstream:home.html
     
     <h1>Welcome to The Jewellery Store</h1>
     <pre>
@@ -55,22 +54,6 @@ bestselling items.
     <img src="resources/images/homepage/watch.jpg" alt="Watch" style="width:200px;height:200px;">    
     <!--<img src="img_girl.jpg" alt="Necklace" style="width:200px;height:200px;">-->
     <h2>Best-selling items</h2>
-=======
-
-
-
-    <div class="logoimg">
-        <a target="#" href="logo.img.jpg">
-            <img src="logo.img.jpg" alt="logo image" width="50" height="50">
-            
-        </a>
-    </div>
-    
-    
-    
-    
-
->>>>>>> Stashed changes:resources/views/home.php
 
 </body>
 
