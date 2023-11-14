@@ -37,21 +37,15 @@ p, pre {
   float: left;
 }
 
-<<<<<<< Updated upstream
-.primary_nav a {
-=======
 /*Styling for the actual text in the nav bar */
 .main-header li a {
   width: 350px;
->>>>>>> Stashed changes
   display: block;
   font-family: Helvetica;
   color: white;
   text-align: center;
   padding: 4px;
   text-decoration: none;
-<<<<<<< Updated upstream
-=======
 }
 
 /*styling for when the mouse hovers over the text options in the nav bar */
@@ -61,7 +55,6 @@ p, pre {
 
   
   text-decoration: underline;
->>>>>>> Stashed changes
 }
 
 /*css for icons*/
