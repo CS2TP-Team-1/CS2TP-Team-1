@@ -16,6 +16,11 @@
 
 
 <body>
+
+    <div class="logoimg">
+        <img src='{{asset("/logo.img.jpg)}}' alt = ""  height="50" width="50">
+    </div>
+
     <!--icons-->
     <div class="icons">
         <ul>

@@ -36,6 +36,7 @@ p, pre {
 
 .main-header ul li {
   float: left;
+  width: 25%;
 }
 
 /*Styling for the actual text in the nav bar */
@@ -76,6 +77,8 @@ header{
 
 .logoimg{
   position: fixed;
+  padding: 0;
+  margin: 0;
   top: 0;
   left: 0;
 }
