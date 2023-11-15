@@ -29,3 +29,9 @@ require __DIR__.'/auth.php';
 Route::get('/navbar', function(){
     return view('navBar');
 })->name('navBar');
+
+// products page basic route
+
+Route::Get('/products', function(){
+    return view('products');
+})->name('products');
