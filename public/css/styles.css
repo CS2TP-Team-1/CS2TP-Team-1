@@ -36,6 +36,7 @@ p, pre {
 
 .main-header ul li {
   float: left;
+  width: 25%;
 }
 
 /*Styling for the actual text in the nav bar */
@@ -61,10 +62,19 @@ p, pre {
 /*css for icons*/
 
 .icons{
-  float: right;
   display: block;
   padding: 5px;
   
+}
+
+.icons ul {
+  list-style-type: none;
+}
+
+.icons ul li {
+  float: right;
+  margin-left: 10px;
+  padding-bottom: 15px;
 }
 
 header{
@@ -76,6 +86,8 @@ header{
 
 .logoimg{
   position: fixed;
+  padding: 0;
+  margin: 0;
   top: 0;
   left: 0;
 }
