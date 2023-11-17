@@ -58,7 +58,7 @@ bestselling items.
     <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelet" style="width:200px;height:200px;"><a>
     <a href="earring_search"><img src="<?php echo asset('images/homepage/earring.jpg')?>" alt="Earring" style="width:200px;height:200px;"><a>
     <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watch" style="width:200px;height:200px;"><a>
-    <!--<a href="necklace_search"><img src="<?php /*echo asset('images/homepage/necklace.jpg')*/?>" alt="Watch" style="width:200px;height:200px;"><a>-->
+    <a href="necklace_search"><img src="<?php echo asset('images/homepage/necklace.jpg')?>" alt="Watch" style="width:200px;height:200px;"><a>
     <h2>Best-selling items</h2>
 
 </body>
