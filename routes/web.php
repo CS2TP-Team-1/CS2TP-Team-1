@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,9 @@ Route::get('/navbar', function(){
 
 // products page basic route
 
-Route::Get('/products', function(){
-    return view('products');
-})->name('products');
+//Route::Get('/products', function(){
+  //  return view('products');
+//})->name('products');
+
+Route::resource('products', ProductController::class)
+    ->only(['index','show']);
