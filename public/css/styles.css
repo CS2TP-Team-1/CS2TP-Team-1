@@ -20,6 +20,11 @@ p, pre {
     color: #dda0dd;
 }
 
+.productImg{
+  width:200px;
+  height:200px;
+}
+
 /* css for nav bar */
 
 /*Styling for the unorder list which is part of the nav bar */
