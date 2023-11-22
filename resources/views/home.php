@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- 
-    <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"/>
-    -->
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
     <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />  
 
@@ -49,10 +45,9 @@
     </nav>
     
     <h1>Welcome to The Jewellery Store</h1>
-    <pre>
-Here you can check search by categories and view 
-bestselling items.
-    </pre>
+    <p>
+        Here you can search by categories and view bestselling items.
+    </p>
     <h2>Categories</h2>
     <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.png')?>" alt="Ring" class="productImg"><a>
     <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelet" class="productImg"><a>
