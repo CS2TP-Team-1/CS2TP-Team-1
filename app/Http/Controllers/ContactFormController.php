@@ -2,23 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use Illuminate\View\View;
 
 class ContactFormController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
-        $form = new ContactForm();
-        $form->name = $request->name;
-        $form->email = $request->email;
-        $form->message =$request->message;
-        $form->save();
-        return redirect('contact')->with('status', 'Blog Post Form Data Has Been inserted');
+
+        $request->validate([
+        'name' => 'required|string|max:100',
+        'email' => 'required|string|email',
+        'message' => 'required|string'
+        ]);
+        
+        ContactForm::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
+        ]);
+
+        return redirect('contact')->with('status', 'Contact Form Data Has Been inserted');
     }
 
-    public function index():View{
+    public function create():View{
         return view('contact');
     }
 }

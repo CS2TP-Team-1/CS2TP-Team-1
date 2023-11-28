@@ -64,7 +64,7 @@
                   
         <p><u>Email Address?</u></p>
         <input  type="text" name="email"    />     
-        <p><u>Phone number?*</u></p>
+        <p><u>Message</u></p>
         <!--<input  type="text" name="Number"   />   
         <p> product </p>
         <input type="product" name="product" placeholder="title"/>  

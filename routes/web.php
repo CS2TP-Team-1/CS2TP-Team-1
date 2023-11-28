@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 //contact us page 
 
-Route::get('contact', [ContactFormController::class, 'index']);
+Route::get('contact', [ContactFormController::class, 'create']);
 Route::post('contact', [ContactFormController::class, 'store']);
 //Route::post('store-form', [ContactFormController::class, 'store']);
 
