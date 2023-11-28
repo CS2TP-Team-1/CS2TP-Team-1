@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+use App\Models\Product
+?>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
     <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />
@@ -30,9 +32,11 @@
     </nav>
 
     <h1>Welcome to The Jewellery Store</h1>
+
     <p>
         Here you can search by categories and view bestselling items.
     </p>
+
     <h2>Categories</h2>
     <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.jpg')?>" alt="Ring" class="productImg"><a>
     <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelet" class="productImg"><a>
@@ -40,6 +44,14 @@
     <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watch" class="productImg"><a>
     <a href="necklace_search"><img src="<?php echo asset('images/homepage/necklace.jpg')?>" alt="Watch" class="productImg"><a>
     <h2>Best-selling items</h2>
+
+    <?php
+    $bestsellingProducts = Product::where('promotion','=', 1)->get();
+
+    foreach ($bestsellingProducts as $product) {
+        echo $product->name .' | Price £'. $product->price .'<br>';
+    }
+    ?>
 
 </body>
 
