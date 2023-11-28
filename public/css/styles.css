@@ -92,9 +92,9 @@ header{
 /*Logo css*/
 
 .logoimg{
-  position: fixed;
+  position: fixed; 
   padding: 0;
-  margin: 0;
+  margin: 15;
   top: 0;
-  left: 0;
+  left: 20;
 }
