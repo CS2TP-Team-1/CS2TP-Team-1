@@ -19,7 +19,7 @@ use App\Models\Product;
 
 //Homepage
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 //contact us page 
