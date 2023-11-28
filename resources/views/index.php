@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
     <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />  
@@ -9,7 +10,6 @@
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 
 <body>
 
@@ -38,12 +38,12 @@
         </div>
 
         <script>
-            $(document).ready(function(){
+            $(document).ready(function () {
                 $('#nav-placeholder').load('/navbar');
             });  
         </script>
     </nav>
-    
+
     <h1>Welcome to The Jewellery Store</h1>
     <p>
         Here you can search by categories and view bestselling items.
