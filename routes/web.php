@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Contact_Form;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,10 @@ Route::get('/', function () {
 });
 
 //contact us page 
-Route::get('/contact', function(){
-    return view('contact');
-});
+
+Route::get('contact', [ContactFormController::class, 'index']);
+Route::post('contact', [ContactFormController::class, 'store']);
+//Route::post('store-form', [ContactFormController::class, 'store']);
 
 require __DIR__.'/auth.php';
 

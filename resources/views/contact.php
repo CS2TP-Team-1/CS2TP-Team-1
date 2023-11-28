@@ -57,23 +57,23 @@
 <div class="contact">
     <header><h1><u>contact</u></h1></header>
     <p>complete the form below and we will get back to you within 24 hours</p>
-    <form class="contact">
+    <form class="contact" action="<?php echo url('contact'); ?>" method="POST" >
+        <?php echo csrf_field(); ?>
         <p><u>tell us your name</u></p>
-        <input type="text" name="tell us your name"/>      
-            <p><u>LastName?*</u></p>
-            <input type="text" name=" tell us your Lastname"  />      
-            <p><u>Email Address?</u></p>
-            <input  type="text" name="Email"    />     
-            <p><u>Phone number?*</u></p>
-            <input  type="text" name="Number"   />   
-            <p> product </p>
-            <input type="product" name="product" placeholder="title"/>  
-            <p> Comment:</p>
-            <textarea name="Comment" rows="15" cols="40"></textarea>
-            <button type="submit">Submit</button>
-            </form>
-        </div>
+        <input type="text" name="name"/>      
+                  
+        <p><u>Email Address?</u></p>
+        <input  type="text" name="email"    />     
+        <p><u>Phone number?*</u></p>
+        <!--<input  type="text" name="Number"   />   
+        <p> product </p>
+        <input type="product" name="product" placeholder="title"/>  
+        <p> Comment:</p>-->
+        <textarea name="message" rows="15" cols="40"></textarea>
+        <button type="submit">Submit</button>
     </form>
+ </div>
+    
 
 
 
