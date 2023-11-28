@@ -49,7 +49,7 @@
         Here you can search by categories and view bestselling items.
     </p>
     <h2>Categories</h2>
-    <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.png')?>" alt="Ring" class="productImg"><a>
+    <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.jpg')?>" alt="Ring" class="productImg"><a>
     <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelet" class="productImg"><a>
     <a href="earring_search"><img src="<?php echo asset('images/homepage/earring.jpg')?>" alt="Earring" class="productImg"><a>
     <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watch" class="productImg"><a>
