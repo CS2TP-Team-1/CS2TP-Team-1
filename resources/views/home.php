@@ -14,20 +14,20 @@
 <body>
 
     <div class="logoimg">
-        <img src='{{asset("/logo.img.jpg)}}' alt = ""  height="50" width="50">
+        <img src=" <?php echo asset('logo.img.jpg')?>" alt="Ring" class="productImg" alt = ""  height="400" width="500">
     </div>
 
     <!--icons-->
     <div class="icons">
         <ul>
             <li>
-                <a href="#"><i class="fa fa-search"></i></a>
+                <a href="#"><i class="fa fa-search" style="color: #9b26b6;"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-user"></i></a>
+                <a href="#"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-shopping-basket"></i></a>
+                <a href="#"><i class="fa fa-shopping-basket" style="color: #9b26b6;"></i></a>
             </li>
         </ul>
     </div>
