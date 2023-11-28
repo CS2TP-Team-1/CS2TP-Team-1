@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_forms', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('number');
-            $table->string('email');
-            $table->string('product');
-            $table->string('message');
+            $table->unsignedBigInteger('product_id')->unsigned();
+            $table->string('image_link');
+
+            $table->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_forms');
+        Schema::dropIfExists('product_images');
     }
 };

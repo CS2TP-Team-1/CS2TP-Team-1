@@ -3,6 +3,8 @@
 use App\Models\Contact_Form;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,12 @@ require __DIR__.'/auth.php';
 Route::get('/navbar', function(){
     return view('navBar');
 })->name('navBar');
+
+// products page basic route
+
+//Route::Get('/products', function(){
+  //  return view('products');
+//})->name('products');
+
+Route::resource('products', ProductController::class)
+    ->only(['index','show']);
