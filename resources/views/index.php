@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-use App\Models\Product
+use App\Models\Product;
 ?>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>

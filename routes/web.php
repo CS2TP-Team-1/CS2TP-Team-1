@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-//contact us page 
+//contact us page
 
 Route::get('contact', [ContactFormController::class, 'create']);
 Route::post('contact', [ContactFormController::class, 'store']);
@@ -42,4 +42,4 @@ Route::get('/navbar', function(){
 //})->name('products');
 
 Route::resource('products', ProductController::class)
-    ->only(['index','show']);
+    ->only(['index','show','store','create']);
