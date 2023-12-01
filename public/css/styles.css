@@ -66,6 +66,7 @@ p, pre {
 /*css for icons*/
 
 .icons{
+  float: right;
   display: block;
   padding: 5px;
 
@@ -100,45 +101,36 @@ header{
 /* contact page CSS */
 
 .contact{
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .contact input{
-    margin-right: 10px;
-    border-radius: 5px;
-    width: 40%;
-    border: none;
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 40%;
+  border: none;
 
 }
 
 .contact button{
-    color: white;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-    width: 10%;
-    size: 50px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  size: 50px;
 
 }
 
 .contact button:hover{
-    background-color: #111;
+  background-color: #111;
 }
 
 .contact textarea{
-    width: 40%;
-    border-radius: 5px;
+  width: 40%;
+  border-radius: 5px;
 }
 
 .contact label{
-    font-family:Arial,Helvetica,sans-serif;
-    color: #dda0dd;
+  font-family:Arial,Helvetica,sans-serif;
+  color: #dda0dd;
 }
-
-/* If the screen size is 600px wide or less, set the font-size of p to 30px
-@media screen and (max-width: 600px) {
-  h1.intro {
-    font-size: 16px;
-    font-family: cursive;
-  }
-}
-*/
