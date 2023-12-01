@@ -27,7 +27,8 @@
 
 <h1>Create a New Product</h1>
 
-<form method="post" action="{{route('projects.store') }}">
+<form action="{{route('projects.store')}}" enctype="multipart/form-data" method="POST">
+    <?php echo csrf_field();?>
     <label for="name">Product Name</label>
     <input type="text" name="name" placeholder="Product Name" required> </input>
 
@@ -41,21 +42,23 @@
     <input type="radio" value="0" name="promotion">
 
     <p>Metal Type</p>
-    <input list="metals">
-    <datalist id="metals">
-        <option value="Silver"></option>
-        <option value="Gold"></option>
-    </datalist>
+    <label for="silver">Silver</label>
+    <input type="radio" value="silver" name="metalType">
+    <label for="gold">Gold</label>
+    <input type="radio" value="gold" name="metalType">
 
     <p>Category</p>
-    <input list="category">
-    <datalist id="category">
-        <option value="Earrings"></option>
-        <option value="Necklaces"></option>
-        <option value="Watches"></option>
-        <option value="Bracelets"></option>
-        <option value="Rings"></option>
-    </datalist>
+    <label for="earrings">Earrings</label>
+    <input type="radio" value="earrings" name="category">
+    <label for="necklaces">Necklaces</label>
+    <input type="radio" value="necklaces" name="category">
+    <label for="watches">Watches</label>
+    <input type="radio" value="watches" name="category">
+    <label for="bracelets">Bracelets</label>
+    <input type="radio" value="bracelets" name="category">
+    <label for="rings">Rings</label>
+    <input type="radio" value="rings" name="category">
+
     <br>
     <label for="mainImage">Upload Main Product Image</label>
     <input type="file" id="mainImage" name="mainImage">
