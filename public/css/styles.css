@@ -96,3 +96,13 @@ header{
   top: 0;
   left: 20;
 }
+
+/* If the screen size is 600px wide or less, set the font-size of p to 30px 
+@media screen and (max-width: 600px) {
+  h1.intro {
+    font-size: 16px;
+    font-family: cursive;
+  }
+}
+*/
+
