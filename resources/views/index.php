@@ -3,7 +3,7 @@
 
 <head>
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
-    <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />  
+    <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />
 
     <!-- adding library for icons for top right -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,21 +17,6 @@
         <img src=" <?php echo asset('logo.img.jpg')?>" alt="Ring" class="productImg" alt = ""  height="400" width="500">
     </div>
 
-    <!--icons-->
-    <div class="icons">
-        <ul>
-            <li>
-                <a href="#"><i class="fa fa-search" style="color: #9b26b6;"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-shopping-basket" style="color: #9b26b6;"></i></a>
-            </li>
-        </ul>
-    </div>
-
     <nav>
         <div id="nav-placeholder">
 
@@ -40,7 +25,7 @@
         <script>
             $(document).ready(function () {
                 $('#nav-placeholder').load('/navbar');
-            });  
+            });
         </script>
     </nav>
 
