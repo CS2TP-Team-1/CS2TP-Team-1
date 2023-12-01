@@ -15,24 +15,6 @@ use App\Models\Product
 
 <body>
 
-    <div class="logoimg">
-        <img src=" <?php echo asset('logo.img.jpg')?>" alt="Ring" class="productImg" alt = ""  height="400" width="500">
-    </div>
-
-    <!--icons-->
-    <div class="icons">
-        <ul>
-            <li>
-                <a href="#"><i class="fa fa-search" style="color: #9b26b6;"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-shopping-basket" style="color: #9b26b6;"></i></a>
-            </li>
-        </ul>
-    </div>
 
     <nav>
         <div id="nav-placeholder">
@@ -45,9 +27,14 @@ use App\Models\Product
             });  
         </script>
     </nav>
+<<<<<<< Updated upstream:resources/views/index.php
 
     <h1>Welcome to The Jewellery Store</h1>
 
+=======
+    
+    <h1 class="intro">Welcome to The Jewellery Store</h1>
+>>>>>>> Stashed changes:resources/views/home.PHP
     <p>
         Here you can search by categories and view bestselling items.
     </p>
