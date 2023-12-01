@@ -20,12 +20,6 @@ p, pre {
     color: #dda0dd;
 }
 
-.productImg{
-  max-width: 15%;
-  max-height: 15%;
-  height: auto;
-}
-
 /* css for nav bar */
 
 /*Styling for the unorder list which is part of the nav bar */
@@ -35,14 +29,12 @@ p, pre {
   padding: 0;
   top: 200px;
   overflow: hidden;
-  background-color: #9B26B6;
+  background-color: #dda0dd;
   height: auto;
-  width: 100%;
 }
 
 .main-header ul li {
   float: left;
-  width: 25%;
 }
 
 /*Styling for the actual text in the nav bar */
@@ -66,20 +58,10 @@ p, pre {
 /*css for icons*/
 
 .icons{
+  float: right;
   display: block;
   padding: 5px;
   
-}
-
-.icons ul {
-  list-style-type: none;
-}
-
-.icons ul li {
-  float: right;
-  margin-left: 10px;
-  padding-bottom: 15px;
-
 }
 
 header{
@@ -90,19 +72,44 @@ header{
 /*Logo css*/
 
 .logoimg{
-  position: fixed; 
-  padding: 0;
-  margin: 15;
+  position: fixed;
   top: 0;
-  left: 20;
+  left: 0;
 }
 
-/* If the screen size is 600px wide or less, set the font-size of p to 30px 
-@media screen and (max-width: 600px) {
-  h1.intro {
-    font-size: 16px;
-    font-family: cursive;
-  }
-}
-*/
+/* contact page CSS */
 
+.contact{
+  margin-left: 20px;
+}
+.contact input{
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 40%;
+  border: none;
+  
+}
+
+.contact button{
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  size: 50px;
+
+}
+
+.contact button:hover{
+  background-color: #111;
+}
+
+.contact textarea{
+  width: 40%;
+  border-radius: 5px;
+}
+
+.contact label{
+  font-family:Arial,Helvetica,sans-serif;
+  color: #dda0dd;
+}
