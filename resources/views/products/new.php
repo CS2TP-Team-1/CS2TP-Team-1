@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-        <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
-    <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />
+    <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('css/styles.css') ?>"/>
 
     <!-- adding library for icons for top right -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Product</title>
 </head>
 
 
@@ -19,7 +20,7 @@
     </div>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#nav-placeholder').load('/navbar');
         });
     </script>
@@ -27,13 +28,13 @@
 
 <h1>Create a New Product</h1>
 
-<form action="{{route('projects.store')}}" enctype="multipart/form-data" method="POST">
-    <?php echo csrf_field();?>
+<form action="<?php echo route('products.store'); ?>" enctype="multipart/form-data" method="POST">
+    <?php echo csrf_field(); ?>
     <label for="name">Product Name</label>
-    <input type="text" name="name" placeholder="Product Name" required> </input>
+    <input type="text" name="name" placeholder="Product Name" required>
 
     <label for="price">Price</label>
-    <input type="number" name="price" placeholder="##.##" required> </input>
+    <input type="number" name="price" placeholder="##.##" required>
 
     <p>On promotion?</p>
     <label for="1">Yes</label>
@@ -64,7 +65,6 @@
     <input type="file" id="mainImage" name="mainImage">
     <br>
     <input type="submit">
-
 
 
 </form>

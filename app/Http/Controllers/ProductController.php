@@ -31,23 +31,26 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string',
-            'price' => 'required|float',
+            'price' => 'required|numeric',
             'promotion' => 'required',
             'metalType' => 'required',
             'category' => 'required',
-           // 'mainImage' => 'required|mimes:jpg,jpeg,png,svg'
+            'mainImage' => 'required|mimes:jpg,jpeg,png,svg'
         ]);
 
-        //$newImageName = time() . '-' . $request->name . '.' . $request->mainImage->extension();
-        //$request->mainImage->move(public_path('images/products'), $newImageName);
+        $mainImage = $request->file("mainImage");
+        $newImageName = time() . '-' . $request->name . '.' . $mainImage->extension();
+        $destinationPath = "images/products";
+        $mainImage->move($destinationPath,$newImageName);
+
 
         $product = Product::create([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'promotion' => $request->input('promotion'),
-            'metalType' => $request->input('metaltype'),
+            'metalType' => $request->input('metalType'),
             'category' => $request->input('category'),
-           // 'mainImage' => $newImageName
+            'mainImage' => $newImageName
         ]);
 
         return redirect(route('products.index'));
