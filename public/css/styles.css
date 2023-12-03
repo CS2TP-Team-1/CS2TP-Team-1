@@ -15,7 +15,7 @@ h1, h2, h3 {
 	color: white;
 }
 
-p, pre { 
+p, pre {
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
 }
@@ -66,9 +66,10 @@ p, pre {
 /*css for icons*/
 
 .icons{
+  float: right;
   display: block;
   padding: 5px;
-  
+
 }
 
 .icons ul {
@@ -90,9 +91,46 @@ header{
 /*Logo css*/
 
 .logoimg{
-  position: fixed; 
+  position: fixed;
   padding: 0;
-  margin: 15;
+  margin: 15px;
   top: 0;
-  left: 20;
+  left: 20px;
+}
+
+/* contact page CSS */
+
+.contact{
+  margin-left: 20px;
+}
+.contact input{
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 40%;
+  border: none;
+
+}
+
+.contact button{
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  size: 50px;
+
+}
+
+.contact button:hover{
+  background-color: #111;
+}
+
+.contact textarea{
+  width: 40%;
+  border-radius: 5px;
+}
+
+.contact label{
+  font-family:Arial,Helvetica,sans-serif;
+  color: #dda0dd;
 }

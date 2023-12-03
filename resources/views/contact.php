@@ -51,26 +51,34 @@
             });   
         </script>
     </nav>
+    <br>
 
     
 
-<div class="contact">
-    <header><h1><u>contact</u></h1></header>
-    <p>complete the form below and we will get back to you within 24 hours</p>
-    <form class="contact" action="<?php echo url('contact'); ?>" method="POST" >
+<div class="contact" style="box-shadow: 0 0 10px; width:50%; margin: 50px auto;">
+    <header>
+        <h1><u>contact</u></h1>
+        <p >Complete the form below and we will get back to you within 24 hours.</p>
+    </header>
+   
+    <form class="contact" action="<?php echo url('contact'); ?>" method="POST" style="display: flex; flex-direction:column; align-items: left; " >
         <?php echo csrf_field(); ?>
-        <p><u>tell us your name</u></p>
-        <input type="text" name="name"/>      
+       <!--<p><u>tell us your name</u></p>-->
+        <label for="name">Tell us your name:</label> <br>
+        <input type="text" name="name"/><br>    
                   
-        <p><u>Email Address?</u></p>
-        <input  type="text" name="email"    />     
-        <p><u>Message</u></p>
+        <!--<p><u>Email Address?</u></p>-->
+        <label for="email" styles>Email:</label><br>
+        <input  type="text" name="email" /> <br>    
+        
         <!--<input  type="text" name="Number"   />   
         <p> product </p>
         <input type="product" name="product" placeholder="title"/>  
         <p> Comment:</p>-->
-        <textarea name="message" rows="15" cols="40"></textarea>
-        <button type="submit">Submit</button>
+        <!--<p><u>Message</u></p>-->
+        <label for="message">Message:</label><br>
+        <textarea name="message" rows="15" cols="40"></textarea><br>
+        <button type="submit">Submit</button><br>
     </form>
  </div>
     
