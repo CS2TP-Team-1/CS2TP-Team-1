@@ -134,3 +134,38 @@ header{
   font-family:Arial,Helvetica,sans-serif;
   color: #dda0dd;
 }
+
+/* Products Page */
+
+#product_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+#product-info {
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    padding: 5px;
+    width: 20%;
+    margin: 5px;
+}
+
+.product-gallery-image {
+    width: 100%;
+    padding-left: initial;
+    padding-right: initial;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+    #product_container {
+        flex-direction: column;
+    }
+
+    #product-info {
+        width:90%;
+    }
+}
