@@ -37,3 +37,4 @@ Route::get('/navbar', function(){
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
 
+    

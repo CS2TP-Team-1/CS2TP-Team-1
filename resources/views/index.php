@@ -52,7 +52,6 @@ use App\Models\Product;
         echo $product->name .' | Price £'. $product->price .'<br>';
     }
     ?>
-
 </body>
 
 </html>
