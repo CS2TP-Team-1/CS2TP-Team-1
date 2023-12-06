@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
 </head>
 
 
@@ -33,6 +34,10 @@
 
 <div id="product_container">
     <?php
+    if ($products->isEmpty()) {
+        echo "<h2>There are no products. </h2>";
+    }
+
     foreach ($products as $product) {
         $imgPath = "images/products/" . $product->mainImage;
         ?>

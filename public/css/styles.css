@@ -13,6 +13,7 @@ body, html {
 h1, h2, h3 {
 	font-family: 'Libre Baskerville';
 	color: white;
+    text-align: center;
 }
 
 p, pre {
@@ -155,8 +156,7 @@ header{
 
 .product-gallery-image {
     width: 100%;
-    padding-left: initial;
-    padding-right: initial;
+    margin: auto;
 }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
@@ -168,4 +168,30 @@ header{
     #product-info {
         width:90%;
     }
+}
+
+/* Individual Product View Page */
+
+#product-view-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+#product-view-container-image {
+    width: 40%;
+    display: flex;
+}
+
+#product-view-image {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#product-view-container-info {
+    width:60%;
+    text-align: center;
 }

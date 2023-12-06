@@ -16,8 +16,8 @@
 <nav class="main-header">
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/products">products</a></li>
-        <li><a href="/about">about Us</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/about">About Us</a></li>
         <li><a href="/contact">Contact Us</a></li>
     </ul>
 </nav>

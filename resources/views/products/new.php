@@ -59,7 +59,9 @@
     <input type="radio" value="bracelets" name="category">
     <label for="rings">Rings</label>
     <input type="radio" value="rings" name="category">
-
+    <br>
+    <label for="description">Product Description</label>
+    <textarea name="description"></textarea>
     <br>
     <label for="mainImage">Upload Main Product Image</label>
     <input type="file" id="mainImage" name="mainImage">

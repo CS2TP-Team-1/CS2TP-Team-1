@@ -16,10 +16,8 @@ class ProductController extends Controller
 
     public function show(string $id): View
     {
-        $product = Product::find($id);
-        return view('products.view',[
-            'product' => $product
-        ]);
+//        $product = Product::find($id);
+        return view('products.view',['product' => Product::where('id', '=', $id)->first()]);
     }
 
     public function create(): View
@@ -35,7 +33,8 @@ class ProductController extends Controller
             'promotion' => 'required',
             'metalType' => 'required',
             'category' => 'required',
-            'mainImage' => 'required|mimes:jpg,jpeg,png,svg'
+            'mainImage' => 'required|mimes:jpg,jpeg,png,svg',
+            'description' => 'required|string'
         ]);
 
         $mainImage = $request->file("mainImage");
@@ -50,7 +49,8 @@ class ProductController extends Controller
             'promotion' => $request->input('promotion'),
             'metalType' => $request->input('metalType'),
             'category' => $request->input('category'),
-            'mainImage' => $newImageName
+            'mainImage' => $newImageName,
+            'description' => $request->input('description')
         ]);
 
         return redirect(route('products.index'));
