@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-use App\Models\Product
+use App\Models\Product;
 ?>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
@@ -52,7 +52,6 @@ use App\Models\Product
         echo $product->name .' | Price £'. $product->price .'<br>';
     }
     ?>
-
 </body>
 
 </html>

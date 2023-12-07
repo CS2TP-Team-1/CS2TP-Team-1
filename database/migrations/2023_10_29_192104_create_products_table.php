@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string("name");
             $table->float("price");
             $table->boolean('promotion');
-            $table->enum('metalType',['Silver','Gold']);
+            $table->enum('metal-type',['Silver','Gold']);
             $table->enum('category',['earrings','necklaces','watches','bracelets','rings']);
+            $table->string("main-image");
         });
     }
 
