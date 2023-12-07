@@ -134,3 +134,29 @@ header{
   font-family:Arial,Helvetica,sans-serif;
   color: #dda0dd;
 }
+
+
+/* CSS for the login/logout button */
+.button{
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Libre Baskerville';
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+
+
+ 
+
+}
+
+.login{
+  background-color: #9b26b6;
+  color: white;
+ 
+}
