@@ -22,11 +22,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-//contact us page 
+//contact us page
 
 Route::get('contact', [ContactFormController::class, 'create']);
 Route::post('contact', [ContactFormController::class, 'store']);
-//Route::post('store-form', [ContactFormController::class, 'store']);
 
 require __DIR__.'/auth.php';
 
@@ -35,11 +34,7 @@ Route::get('/navbar', function(){
     return view('navBar');
 })->name('navBar');
 
-// products page basic route
-
-//Route::Get('/products', function(){
-  //  return view('products');
-//})->name('products');
-
 Route::resource('products', ProductController::class)
-    ->only(['index','show']);
+    ->only(['index','show','create', 'store']);
+
+    

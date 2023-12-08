@@ -19,6 +19,8 @@ return new class extends Migration
             $table->boolean('promotion');
             $table->enum('metalType',['Silver','Gold']);
             $table->enum('category',['earrings','necklaces','watches','bracelets','rings']);
+            $table->string("description");
+            $table->string("mainImage");
         });
     }
 
