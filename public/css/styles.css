@@ -79,7 +79,7 @@ p, pre {
 }
 
 .icons ul li {
-  
+
   float: right;
   margin-left: 10px;
   padding-bottom: 10px;
@@ -93,13 +93,19 @@ p, pre {
 
   display: block;
   float: left;
-  
+
   padding: 0;
   margin: 0;
   top: 0;
   left: 0;
 
-  
+
+}
+
+.logoimg img{
+    max-width: 15%;
+    max-height: 15%;
+    height: auto;
 }
 
 header{
@@ -158,7 +164,7 @@ header{
   border-radius: 5px;
   width: 40%;
   border: none;
-  
+
 }
 
 .contact button{
@@ -260,14 +266,14 @@ header{
   border-radius: 4px;
 
 
- 
+
 
 }
 
 .login{
   background-color: #9b26b6;
   color: white;
- 
+
 }
 
 @media screen and (max-width: 1000px) {
