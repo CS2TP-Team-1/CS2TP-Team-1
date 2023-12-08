@@ -11,7 +11,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','price','promotion','metalType','category','mainImage'];
+    protected $fillable = ['name', 'price', 'promotion', 'metalType', 'category', 'mainImage', 'description'];
 
     // One product can be in multiple baskets (Has to be a Many-to-Many relationship and as one product could be in multiple baskets the same way one basket can have multiple products)
     public function baskets(): BelongsToMany
@@ -26,10 +26,4 @@ class Product extends Model
         return $this->belongsToMany(Order::class, 'orders_products', 'order_id', 'product_id');
     }
 
-    // One product can have multiple images
-
-    public function productImages() : HasMany
-    {
-        return $this->hasMany(ProductImage::class);
-    }
 }

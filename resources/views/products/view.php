@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <!--
     <link rel="stylesheet" type="text/css"
@@ -12,10 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $product->name ?></title>
 </head>
 
 
 <body>
+
+<?php
+    $img = asset('images/products/' . $product->mainImage);
+?>
 
 <nav>
     <div id="nav-placeholder">
@@ -28,6 +33,20 @@
         });
     </script>
 </nav>
+
+<h1> <?php echo $product->name ?> </h1>
+
+<div id="product-view-container">
+    <div id="product-view-container-image">
+        <img src="<?php echo $img ?>" alt="Image of the Product" width="400px" id="product-view-image">
+    </div>
+    <div id="product-view-container-info">
+        <h2><?php echo $product->name ?></h2>
+        <h3>£<?php echo $product->price ?></h3>
+        <p><?php echo $product->description ?></p>
+    </div>
+
+</div>
 
 </body>
 
