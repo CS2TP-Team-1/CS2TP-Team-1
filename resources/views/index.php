@@ -44,7 +44,7 @@ use App\Models\Product;
     <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watch" class="productImg"><a>
     <a href="necklace_search"><img src="<?php echo asset('images/homepage/necklace.jpg')?>" alt="Watch" class="productImg"><a>
     <h2>Best-selling items</h2>
-
+    <p>
     <?php
     $bestsellingProducts = Product::where('promotion','=', 1)->get();
 
