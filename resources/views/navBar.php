@@ -3,6 +3,8 @@
 <?php
     use Illuminate\Support\Facades\Auth;
 ?>
+
+
 <div class="icons">
     <ul>
 
@@ -33,6 +35,11 @@
         <li>
             <input type="text" placeholder="Search...">
         </li>
+        <li2>
+            <div class="logoimg">
+                <img src="logo.png" alt="Ring" class="productImg" alt = ""  height="400" width="500">
+            </div>
+        </li2>
 
     </ul>
 </div>

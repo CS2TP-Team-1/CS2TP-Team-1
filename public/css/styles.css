@@ -70,6 +70,7 @@ p, pre {
   float: right;
   display: block;
   padding: 5px;
+  width: 100%;
 
 }
 
@@ -78,10 +79,27 @@ p, pre {
 }
 
 .icons ul li {
+  
   float: right;
   margin-left: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 
+
+}
+
+/*Logo css*/
+
+.icons ul li2 div{
+
+  display: block;
+  float: left;
+  
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+
+  
 }
 
 header{
@@ -89,15 +107,9 @@ header{
   flex-wrap: wrap;
 }
 
-/*Logo css*/
 
-.logoimg{
-  position: fixed;
-  padding: 0;
-  margin: 10px;
-  top: 0;
-  left: 0;
-}
+
+
 
 /* contact page CSS */
 
@@ -222,7 +234,7 @@ header{
  
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .main-header ul li a  {
     float: none;
     display: block;
