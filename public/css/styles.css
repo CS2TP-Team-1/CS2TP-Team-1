@@ -13,11 +13,18 @@ body, html {
 h1, h2, h3 {
 	font-family: 'Libre Baskerville';
 	color: white;
+    text-align: center;
 }
 
-p, pre { 
+p, pre {
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
+}
+
+.productImg{
+  max-width: 15%;
+  max-height: 15%;
+  height: auto;
 }
 
 /* css for nav bar */
@@ -29,12 +36,14 @@ p, pre {
   padding: 0;
   top: 200px;
   overflow: hidden;
-  background-color: #dda0dd;
+  background-color: #9B26B6;
   height: auto;
+  width: 100%;
 }
 
 .main-header ul li {
   float: left;
+  width: 25%;
 }
 
 /*Styling for the actual text in the nav bar */
@@ -61,7 +70,18 @@ p, pre {
   float: right;
   display: block;
   padding: 5px;
-  
+
+}
+
+.icons ul {
+  list-style-type: none;
+}
+
+.icons ul li {
+  float: right;
+  margin-left: 10px;
+  padding-bottom: 15px;
+
 }
 
 header{
@@ -73,6 +93,8 @@ header{
 
 .logoimg{
   position: fixed;
+  padding: 0;
+  margin: 10px;
   top: 0;
   left: 0;
 }
@@ -87,7 +109,7 @@ header{
   border-radius: 5px;
   width: 40%;
   border: none;
-  
+
 }
 
 .contact button{
@@ -113,3 +135,101 @@ header{
   font-family:Arial,Helvetica,sans-serif;
   color: #dda0dd;
 }
+
+
+/* Products Page */
+
+#product_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+#product-info {
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    padding: 5px;
+    width: 20%;
+    margin: 5px;
+}
+
+.product-gallery-image {
+    width: 100%;
+    margin: auto;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+    #product_container {
+        flex-direction: column;
+    }
+
+    #product-info {
+        width:90%;
+    }
+}
+
+/* Individual Product View Page */
+
+#product-view-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+#product-view-container-image {
+    width: 40%;
+    display: flex;
+}
+
+#product-view-image {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#product-view-container-info {
+    width:60%;
+    text-align: center;
+}
+
+/* CSS for the login/logout button */
+.button{
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Libre Baskerville';
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+
+
+ 
+
+}
+
+.login{
+  background-color: #9b26b6;
+  color: white;
+ 
+}
+
+@media screen and (max-width: 600px) {
+  .main-header ul li a  {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+}
+

@@ -3,6 +3,8 @@
 use App\Models\Contact_Form;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,13 @@ use App\Http\Controllers\ContactFormController;
 
 //Homepage
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
-//contact us page 
+//contact us page
 
 Route::get('contact', [ContactFormController::class, 'create']);
 Route::post('contact', [ContactFormController::class, 'store']);
-//Route::post('store-form', [ContactFormController::class, 'store']);
 
 require __DIR__.'/auth.php';
 
@@ -32,3 +33,8 @@ require __DIR__.'/auth.php';
 Route::get('/navbar', function(){
     return view('navBar');
 })->name('navBar');
+
+Route::resource('products', ProductController::class)
+    ->only(['index','show','create', 'store']);
+
+    
