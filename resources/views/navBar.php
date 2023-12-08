@@ -1,4 +1,8 @@
 <!--icons-->
+
+<?php
+    use Illuminate\Support\Facades\Auth;
+?>
 <div class="icons">
     <ul>
 
@@ -17,7 +21,12 @@
         <!--log in/ log out button page -->
         <li>
             <div>
-                <button class="login">login</button>
+                <?php 
+                if (Auth::check()) { ?>
+                    <button class='logout' onclick = "/logout">Log Out</button>
+                <?php } else { ?>
+                    <button class='login' onclick = "/login">login</button>
+                <?php } ?>
             </div>
         </li>
 
@@ -34,8 +43,8 @@
 <!-- nav bar -->
 <nav class="main-header">
     <ul>
-        <li><a href="#">Home</a></li>                <li><a href="#">products</a></li>
-        <li><a href="#">about Us</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/">Home</a></li>                <li><a href="/products">products</a></li>
+        <li><a href="/about">about Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
     </ul>
 </nav>
