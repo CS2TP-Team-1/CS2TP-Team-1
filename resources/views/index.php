@@ -15,9 +15,7 @@ use App\Models\Product;
 
 <body>
 
-    <div class="logoimg">
-        <img src=" <?php echo asset('logo.img.jpg')?>" alt="Ring" class="productImg" alt = ""  height="400" width="500">
-    </div>
+
 
     <nav>
         <div id="nav-placeholder">
