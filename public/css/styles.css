@@ -15,9 +15,15 @@ h1, h2, h3 {
 	color: white;
 }
 
-p, pre { 
+p, pre {
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
+}
+
+.productImg{
+  max-width: 15%;
+  max-height: 15%;
+  height: auto;
 }
 
 /* css for nav bar */
@@ -29,12 +35,14 @@ p, pre {
   padding: 0;
   top: 200px;
   overflow: hidden;
-  background-color: #dda0dd;
+  background-color: #9B26B6;
   height: auto;
+  width: 100%;
 }
 
 .main-header ul li {
   float: left;
+  width: 25%;
 }
 
 /*Styling for the actual text in the nav bar */
@@ -61,7 +69,18 @@ p, pre {
   float: right;
   display: block;
   padding: 5px;
-  
+
+}
+
+.icons ul {
+  list-style-type: none;
+}
+
+.icons ul li {
+  float: right;
+  margin-left: 10px;
+  padding-bottom: 15px;
+
 }
 
 header{
@@ -73,8 +92,47 @@ header{
 
 .logoimg{
   position: fixed;
+  padding: 0;
+  margin: 15px;
   top: 0;
-  left: 0;
+  left: 20px;
+}
+
+/* contact page CSS */
+
+.contact{
+  margin-left: 20px;
+}
+.contact input{
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 40%;
+  border: none;
+
+}
+
+.contact button{
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  size: 50px;
+
+}
+
+.contact button:hover{
+  background-color: #111;
+}
+
+.contact textarea{
+  width: 40%;
+  border-radius: 5px;
+}
+
+.contact label{
+  font-family:Arial,Helvetica,sans-serif;
+  color: #dda0dd;
 }
 
 /* contact page CSS */
