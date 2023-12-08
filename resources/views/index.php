@@ -48,10 +48,31 @@ use App\Models\Product;
     <?php
     $bestsellingProducts = Product::where('promotion','=', 1)->get();
 
-    foreach ($bestsellingProducts as $product) {
+    /*foreach ($bestsellingProducts as $product) {
         echo $product->name .' | Price £'. $product->price .'<br>';
+    }*/
+    ?>
+    <div id="product_container">
+    <?php
+    if ($bestsellingProducts->isEmpty()) {
+        echo "<h2>There are no products. </h2>";
+    }
+
+    foreach ($bestsellingProducts as $product) {
+        $imgPath = "images/products/" . $product->mainImage;
+        ?>
+
+        <div id="product-info">
+            <img src="<?php echo $imgPath ?>" alt="Product Image" class="product-gallery-image">
+            <h3><?php echo $product->name ?></h3>
+            <p>£<?php echo $product->price ?></p>
+            <p><a href="<?php echo "/products/$product->id" ?>">View Product Details</a>  </p>
+        </div>
+        <?php
     }
     ?>
+
+</div>
 </body>
 
 </html>
