@@ -125,10 +125,6 @@ header {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
-
-
-
-
 }
 
 .login {
@@ -342,4 +338,16 @@ header {
 #product-view-container-info {
     width: 60%;
     text-align: center;
+}
+
+#add-to-basket-button button {
+    background-color: #9B26B6;
+    padding: 10px;
+    margin: 3px;
+    size: 50px;
+
+}
+
+#add-to-basket-button:hover {
+    background-color: #111;
 }

@@ -40,6 +40,9 @@ $imgPath = '/images/products/' . $product->mainImage;
         <h2><?php echo $product->name ?></h2>
         <h3>£<?php echo $product->price ?></h3>
         <p><?php echo $product->description ?></p>
+
+        <button id="add-to-basket-button">Add to Basket</button>
+
     </div>
 
 </div>
