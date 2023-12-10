@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest')
+    ->name('register-store');
+
+Route::get('register', [RegisteredUserController::class, 'create'])
     ->name('register');
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])

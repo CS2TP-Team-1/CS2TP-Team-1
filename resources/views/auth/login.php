@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('/css/styles.css') ?>"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
 
     <!-- adding library for icons for top right -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,5 +35,6 @@
 
     <button type="submit">Sign In</button>
 </form>
+<p><a href="<?php echo route("register") ?>">Need an account?</a></p>
 </body>
 </html>
