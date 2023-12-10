@@ -35,6 +35,6 @@
 
     <button type="submit">Sign In</button>
 </form>
-<p><a href="<?php echo route("register") ?>">Need an account?</a></p>
+<p><a href="/register">Need an account?</a></p>
 </body>
 </html>
