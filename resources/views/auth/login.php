@@ -34,7 +34,8 @@
     <input type="password" id="password" name="password" required>
 
     <button type="submit">Sign In</button>
+    <p><a href="/register">Need an account?</a></p>
 </form>
-<p><a href="/register">Need an account?</a></p>
+
 </body>
 </html>
