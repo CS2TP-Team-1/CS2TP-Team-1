@@ -127,8 +127,6 @@ header {
     border-radius: 4px;
 
 
-
-
 }
 
 .login {
@@ -349,7 +347,7 @@ header {
     padding: 10px;
     margin: 3px;
     size: 50px;
-
+    color: #fff;
 }
 
 #add-to-basket-button:hover {
