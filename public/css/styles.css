@@ -472,3 +472,61 @@ header {
     border-radius: 4px;
     cursor: pointer;
 }
+
+/* Register Page Formatting */
+
+/*register page CSS*/
+.signup-f{
+    display: flex;
+    justify-content: center;
+  }
+  .register{
+    box-shadow: 0 0 10px;
+    width: 40%;
+    margin: 50px auto;
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 2%;
+    
+  }
+  .register input,
+  .register textarea{
+    margin-bottom: 10px;
+    padding: 5px;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    width: 40%;
+    box-sizing: border-box;
+    
+    
+  }
+  
+  .register input:focus,
+  .register textarea:focus{
+    outline: 2px solid #9B26B6;
+    box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
+  }
+  
+  .register button{
+    background-color: #9B26B6;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 20%;
+    size: 50px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  .register button:hover{
+    background-color: #111;
+  }
+  
+  .register label{
+    font-family:Arial,Helvetica,sans-serif;
+    color: #dda0dd;
+    
+  }
