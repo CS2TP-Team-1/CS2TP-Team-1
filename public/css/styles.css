@@ -281,6 +281,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: initial;
+    margin: 20px;
 }
 
 /* Products Page Formatting*/
