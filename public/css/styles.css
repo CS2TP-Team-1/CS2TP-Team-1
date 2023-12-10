@@ -1,22 +1,21 @@
-/*
-{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-*/
+/* Site-wdie Formatting */
 
-body, html {
+body,
+html {
     background-color: purple;
 }
 
-h1, h2, h3 {
-    font-family: 'Libre Baskerville';
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Libre Baskerville', sans-serif;
     color: white;
     text-align: center;
 }
 
-p, pre {
+p,
+pre {
     font-family: Arial, Helvetica, sans-serif;
     color: #dda0dd;
 }
@@ -27,10 +26,10 @@ p, pre {
     height: auto;
 }
 
-/* css for nav bar */
+/* Nav Bar Formatting */
 
-/*Styling for the unorder list which is part of the nav bar */
 .main-header ul {
+    /*Styling for the unorder list which is part of the nav bar */
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -46,25 +45,26 @@ p, pre {
     width: 25%;
 }
 
-/*Styling for the actual text in the nav bar */
+
 .main-header li a {
+    /*Styling for the links in the nav bar */
     width: 350px;
     display: block;
-    font-family: Helvetica;
+    font-family: Helvetica, sans-serif;
     color: white;
     text-align: center;
     padding: 4px;
     text-decoration: none;
 }
 
-/*styling for when the mouse hovers over the text options in the nav bar */
 .main-header li a:hover {
+    /*styling for when the mouse hovers over a link in the nav bar */
     background-color: #111;
     color: white;
     text-decoration: underline;
 }
 
-/*css for icons*/
+/* Icons in Header */
 
 .icons {
     float: right;
@@ -86,7 +86,7 @@ p, pre {
 
 }
 
-/*Logo css*/
+/* Logo In Header */
 
 .icons ul li2 div {
 
@@ -112,11 +112,51 @@ header {
     flex-wrap: wrap;
 }
 
+/* CSS for the login/logout button in Header*/
+.button {
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
 
-/* contact page CSS */
+
+}
+
+.login {
+    background-color: #9b26b6;
+    color: white;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .main-header ul li a {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+}
+
+/* Contact Page Formating */
 
 .contact {
-    margin-left: 20px;
+    box-shadow: 0 0 10px;
+    width: 40%;
+    margin: 50px auto;
+}
+
+.contact-c {
+    display: flex;
+    justify-content: center;
 }
 
 .contact input {
@@ -133,7 +173,6 @@ header {
     border: none;
     transition: background-color 0.3s ease;
     width: 10%;
-    size: 50px;
 
 }
 
@@ -151,11 +190,6 @@ header {
     color: #dda0dd;
 }
 
-/* contact page CSS */
-
-.contact {
-    margin-left: 20px;
-}
 
 .contact input,
 .contact textarea {
@@ -193,17 +227,61 @@ header {
     background-color: #111;
 }
 
-.contact textarea {
-    width: 40%;
-    border-radius: 5px;
+/* Contact Info on Side of Page */
+
+.contact-info {
+    width: 30%;
+    margin-left: 20px;
+    margin-top: 90px;
 }
 
-.contact label {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #dda0dd;
+.contact-info-item {
+    display: flex;
 }
 
-/* Products Page */
+.contact-info-icons {
+    height: 40px;
+    width: 40px;
+    background-color: #9B26B6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+}
+
+.contact-info-icons i {
+    font-size: 20px;
+    line-height: 40px;
+    color: white;
+}
+
+
+@media screen and (max-width: 480px) {
+    .container-c {
+        flex-direction: column;
+    }
+
+    .contact,
+    .contact-info {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .contact button {
+        width: 100%;
+
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+}
+
+/* Products Page Formatting*/
 
 #product_container {
     display: flex;
@@ -226,8 +304,9 @@ header {
     margin: auto;
 }
 
-/* Responsive layout - makes a one column layout instead of a two-column layout */
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
+
+    /* Responsive layout - makes a one column layout instead of a two-column layout */
     #product_container {
         flex-direction: column;
     }
@@ -237,7 +316,7 @@ header {
     }
 }
 
-/* Individual Product View Page */
+/* Individual Product View Page Formatting */
 
 #product-view-container {
     display: flex;
@@ -262,6 +341,19 @@ header {
     width: 60%;
     text-align: center;
 }
+
+#add-to-basket-button button {
+    background-color: #9B26B6;
+    padding: 10px;
+    margin: 3px;
+    size: 50px;
+    color: #fff;
+}
+
+#add-to-basket-button:hover {
+    background-color: #111;
+}
+
 
 /* CSS for the login/logout button */
 .button {
