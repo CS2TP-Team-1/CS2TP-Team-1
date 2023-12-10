@@ -38,4 +38,8 @@ class RegisteredUserController extends Controller
 
         return response()->noContent();
     }
+
+    public function create(){
+        return view('register');
+    }
 }

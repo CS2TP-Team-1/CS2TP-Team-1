@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +39,8 @@ Route::get('/navbar', function(){
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
 
+
+//sign up page
+Route::get('register', [RegisteredUserController::class, 'create']);
+Route::post('register', [RegisteredUserController::class, 'store'] );
     
