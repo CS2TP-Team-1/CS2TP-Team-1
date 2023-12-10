@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
-    <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"/>
-    -->
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
-    <link rel = "stylesheet" type="text/css" href="<?php echo asset('css/styles.css')?>" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 
     <!-- adding library for icons for top right -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $product->name ?></title>
 </head>
@@ -19,7 +15,7 @@
 <body>
 
 <?php
-    $img = asset('images/products/' . $product->mainImage);
+$imgPath = 'images/products/' . $product->mainImage;
 ?>
 
 <nav>
@@ -28,7 +24,7 @@
     </div>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#nav-placeholder').load('/navbar');
         });
     </script>
@@ -38,7 +34,7 @@
 
 <div id="product-view-container">
     <div id="product-view-container-image">
-        <img src="<?php echo $img ?>" alt="Image of the Product" width="400px" id="product-view-image">
+        <img src="<?php echo $imgPath ?>" alt="Image of the Product" width="400px" id="product-view-image">
     </div>
     <div id="product-view-container-info">
         <h2><?php echo $product->name ?></h2>

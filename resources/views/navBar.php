@@ -1,7 +1,9 @@
 <!--icons-->
 
 <?php
-    use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Auth;
+
 ?>
 
 
@@ -25,27 +27,25 @@
             <div>
                 <?php
                 if (Auth::check()) { ?>
-                    <button class='logout' onclick = "/logout">Log Out</button>
+                    <button class='logout' onclick="/logout">Log Out</button>
                 <?php } else { ?>
-                    <button class='login' onclick = "/login">Login</button>
+                    <button class='login' onclick="/login">Login</button>
                 <?php } ?>
             </div>
         </li>
 
         <li>
             <input type="text" placeholder="Search...">
-            <input type="submit" value="Search" />
+            <input type="submit" value="Search"/>
         </li>
         <li2>
             <div class="logoimg">
-                <img src="/logo.png" alt="The Jewellery Store Logo" class=""  height="400" width="500">
+                <img src="/logo.png" alt="The Jewellery Store Logo" height="400" width="500">
             </div>
         </li2>
 
     </ul>
 </div>
-
-
 
 
 <!-- nav bar -->
