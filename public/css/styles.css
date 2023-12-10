@@ -151,9 +151,8 @@ header {
 /* Contact Page Formating */
 
 .contact {
-    margin-left: 20px !important;
     box-shadow: 0 0 10px;
-    width: 50%;
+    width: 40%;
     margin: 50px auto;
 }
 
@@ -176,7 +175,6 @@ header {
     border: none;
     transition: background-color 0.3s ease;
     width: 10%;
-    size: 50px;
 
 }
 
@@ -308,7 +306,7 @@ header {
     margin: auto;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
 
     /* Responsive layout - makes a one column layout instead of a two-column layout */
     #product_container {
