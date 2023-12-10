@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Auth;
                         <button type="submit" value="Logout">Logout</button>
                     </form>
                 <?php } else { ?>
-                    <button class='login' onclick="location.href='/login'>Login</button>
+                    <button class='login' onclick="location.href='/login'">Login</button>
                 <?php } ?>
             </div>
         </li>
