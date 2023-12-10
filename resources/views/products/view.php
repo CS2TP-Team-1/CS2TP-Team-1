@@ -41,7 +41,7 @@ $imgPath = '/images/products/' . $product->mainImage;
         <h3>£<?php echo $product->price ?></h3>
         <p><?php echo $product->description ?></p>
 
-        <p id="add-to-basket-button">Add to Basket</p>
+        <button id="add-to-basket-button">Add to Basket</button>
 
     </div>
 
