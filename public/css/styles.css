@@ -344,7 +344,7 @@ header {
     text-align: center;
 }
 
-#add-to-basket-button button {
+#add-to-basket-button {
     background-color: #9B26B6;
     padding: 10px;
     margin: 3px;
@@ -352,7 +352,7 @@ header {
     color: #fff;
 }
 
-#add-to-basket-button button:hover {
+#add-to-basket-button:hover {
     background-color: #111;
 }
 
