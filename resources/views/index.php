@@ -6,6 +6,7 @@ use App\Models\Product;
 
 ?>
 <head>
+    <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 

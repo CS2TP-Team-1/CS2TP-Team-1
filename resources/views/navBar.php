@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Auth;
         </li> -->
 
         <li>
-            <a href="#"><i class="fa fa-shopping-basket" style="color: #9b26b6;"></i></a>
+            <a href="/basket"><i class="fa fa-shopping-basket" style="color: #9b26b6;"></i></a>
         </li>
 
         <li>
-            <a href="#"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
+            <a href="/profile"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
         </li>
 
         <!--log in/ log out button page -->
