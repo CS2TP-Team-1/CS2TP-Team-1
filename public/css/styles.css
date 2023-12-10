@@ -7,202 +7,200 @@
 */
 
 body, html {
-  background-color: purple;
+    background-color: purple;
 }
 
 h1, h2, h3 {
-	font-family: 'Libre Baskerville';
-	color: white;
+    font-family: 'Libre Baskerville';
+    color: white;
     text-align: center;
 }
 
 p, pre {
-    font-family:Arial,Helvetica,sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #dda0dd;
 }
 
-.productImg{
-  max-width: 15%;
-  max-height: 15%;
-  height: auto;
+.productImg {
+    max-width: 15%;
+    max-height: 15%;
+    height: auto;
 }
 
 /* css for nav bar */
 
 /*Styling for the unorder list which is part of the nav bar */
 .main-header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  top: 200px;
-  overflow: hidden;
-  background-color: #9B26B6;
-  height: auto;
-  width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: 200px;
+    overflow: hidden;
+    background-color: #9B26B6;
+    height: auto;
+    width: 100%;
 }
 
 .main-header ul li {
-  float: left;
-  width: 25%;
+    float: left;
+    width: 25%;
 }
 
 /*Styling for the actual text in the nav bar */
 .main-header li a {
-  width: 350px;
-  display: block;
-  font-family: Helvetica;
-  color: white;
-  text-align: center;
-  padding: 4px;
-  text-decoration: none;
+    width: 350px;
+    display: block;
+    font-family: Helvetica;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
 }
 
 /*styling for when the mouse hovers over the text options in the nav bar */
 .main-header li a:hover {
-  background-color: #111;
-  color: white;
-  text-decoration: underline;
+    background-color: #111;
+    color: white;
+    text-decoration: underline;
 }
 
 /*css for icons*/
 
-.icons{
-  float: right;
-  display: block;
-  padding: 5px;
-  width: 100%;
+.icons {
+    float: right;
+    display: block;
+    padding: 5px;
+    width: 100%;
 
 }
 
 .icons ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .icons ul li {
-  float: right;
-  margin-left: 10px;
-  padding-bottom: 10px;
+    float: right;
+    margin-left: 10px;
+    padding-bottom: 10px;
 
 
 }
 
 /*Logo css*/
 
-.icons ul li2 div{
+.icons ul li2 div {
 
-  display: block;
-  float: left;
+    display: block;
+    float: left;
 
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
 
 
 }
 
-.logoimg img{
+.logoimg img {
     max-width: 15%;
     max-height: 15%;
     height: auto;
 }
 
-header{
-  padding: 20px;
-  flex-wrap: wrap;
+header {
+    padding: 20px;
+    flex-wrap: wrap;
 }
-
-
-
 
 
 /* contact page CSS */
 
-.contact{
-  margin-left: 20px;
-}
-.contact input{
-  margin-right: 10px;
-  border-radius: 5px;
-  width: 40%;
-  border: none;
-
+.contact {
+    margin-left: 20px;
 }
 
-.contact button{
-  color: white;
-  border-radius: 5px;
-  border: none;
-  transition: background-color 0.3s ease;
-  width: 10%;
-  size: 50px;
+.contact input {
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 40%;
+    border: none;
 
 }
 
-.contact button:hover{
-  background-color: #111;
+.contact button {
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 10%;
+    size: 50px;
+
 }
 
-.contact textarea{
-  width: 40%;
-  border-radius: 5px;
+.contact button:hover {
+    background-color: #111;
 }
 
-.contact label{
-  font-family:Arial,Helvetica,sans-serif;
-  color: #dda0dd;
+.contact textarea {
+    width: 40%;
+    border-radius: 5px;
+}
+
+.contact label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #dda0dd;
 }
 
 /* contact page CSS */
 
-.contact{
-  margin-left: 20px;
+.contact {
+    margin-left: 20px;
 }
 
 .contact input,
 .contact textarea {
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 40%;
-  box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 40%;
+    box-sizing: border-box;
 
 }
 
 .contact input:focus,
 .contact textarea:focus {
-  outline: 2px solid #9B26B6;
-  box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
+    outline: 2px solid #9B26B6;
+    box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
 }
 
 
-.contact button{
-  background-color: #9B26B6;
-  color: white;
-  border-radius: 5px;
-  border: none;
-  transition: background-color 0.3s ease;
-  width: 20%;
-  size: 50px;
-  padding: 10px;
-  cursor: pointer;
-  box-sizing: border-box;
+.contact button {
+    background-color: #9B26B6;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 20%;
+    size: 50px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
 
 }
 
-.contact button:hover{
-  background-color: #111;
+.contact button:hover {
+    background-color: #111;
 }
 
-.contact textarea{
-  width: 40%;
-  border-radius: 5px;
+.contact textarea {
+    width: 40%;
+    border-radius: 5px;
 }
 
-.contact label{
-  font-family:Arial,Helvetica,sans-serif;
-  color: #dda0dd;
+.contact label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #dda0dd;
 }
 
 /* Products Page */
@@ -235,7 +233,7 @@ header{
     }
 
     #product-info {
-        width:90%;
+        width: 90%;
     }
 }
 
@@ -261,86 +259,124 @@ header{
 }
 
 #product-view-container-info {
-    width:60%;
+    width: 60%;
     text-align: center;
 }
 
 /* CSS for the login/logout button */
-.button{
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-family: 'Libre Baskerville';
-  font-size: 12px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-
-
+.button {
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Libre Baskerville';
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
 
 
 }
 
-.login{
-  background-color: #9b26b6;
-  color: white;
+.login {
+    background-color: #9b26b6;
+    color: white;
 
 }
 
 @media screen and (max-width: 1000px) {
-  .main-header ul li a  {
-    float: none;
+    .main-header ul li a {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+}
+
+.contact-info {
+    width: 30%;
+    margin-left: 20px;
+    margin-top: 90px;
+}
+
+.contact-info-item {
+    display: flex;
+}
+
+.contact-info-icons {
+    height: 40px;
+    width: 40px;
+    background-color: #9B26B6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+}
+
+.contact-info-icons i {
+    font-size: 20px;
+    line-height: 40px;
+    color: white;
+}
+
+
+@media screen and (max-width: 480px) {
+    .container-c {
+        flex-direction: column;
+    }
+
+    .contact,
+    .contact-info {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .contact button {
+        width: 100%;
+
+    }
+}
+
+/* Login Page */
+
+#login-form {
+    background-color: #fff;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+#login-form h2 {
+    color: #000;
+}
+
+#login-form label {
     display: block;
-    text-align: left;
+    margin-bottom: 8px;
+}
+
+#login-form input {
     width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
 }
 
-.contact-info{
-  width: 30%;
-  margin-left: 20px;
-  margin-top: 90px;
-}
-.contact-info-item{
-  display: flex;
-}
-
-.contact-info-icons{
-  height: 40px;
-  width: 40px;
-  background-color: #9B26B6;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-
-}
-
-.contact-info-icons i{
-  font-size: 20px;
-  line-height: 40px;
-  color: white;
-}
-
-
-@media screen and (max-width: 480px){
-  .container-c{
-    flex-direction: column;
-  }
-  .contact,
-  .contact-info{
-    max-width: 100%;
+#login-form button {
+    background-color: #9b26b6;
+    color: #fff;
     padding: 10px;
-  }
-
-  .contact button{
-    width: 100%;
-
-  }
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
