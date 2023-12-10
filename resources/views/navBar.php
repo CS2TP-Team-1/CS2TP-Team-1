@@ -27,9 +27,11 @@ use Illuminate\Support\Facades\Auth;
             <div>
                 <?php
                 if (Auth::check()) { ?>
-                    <button class='logout' onclick="/logout">Log Out</button>
+                    <form action="<?php url("/loutout")?>" method="post">
+                        <button type="submit" value="Logout">Logout</button>
+                    </form>
                 <?php } else { ?>
-                    <button class='login' onclick="/login">Login</button>
+                    <button class='login' onclick="location.href='/login'>Login</button>
                 <?php } ?>
             </div>
         </li>
