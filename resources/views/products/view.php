@@ -15,7 +15,7 @@
 <body>
 
 <?php
-$imgPath = 'images/products/' . $product->mainImage;
+$imgPath = '/images/products/' . $product->mainImage;
 ?>
 
 <nav>

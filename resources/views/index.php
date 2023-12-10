@@ -51,7 +51,7 @@ use App\Models\Product;
     }
 
     foreach ($bestsellingProducts as $product) {
-        $imgPath = "images/products/" . $product->mainImage;
+        $imgPath = "/images/products/" . $product->mainImage;
         ?>
 
         <div id="product-info">
