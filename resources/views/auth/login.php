@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
     <link rel="icon" href="/favicon.ico" />
@@ -9,16 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $product->name ?></title>
+    <title>Sign In</title>
 </head>
-
-
 <body>
-
-<?php
-$imgPath = '/images/products/' . $product->mainImage;
-?>
-
 <nav>
     <div id="nav-placeholder">
 
@@ -31,23 +25,18 @@ $imgPath = '/images/products/' . $product->mainImage;
     </script>
 </nav>
 
-<h1> <?php echo $product->name ?> </h1>
+<form id="login-form" method="POST" action="<?php echo route('login-store') ?>">
+    <?php echo csrf_field(); ?>
+    <h2>Sign In</h2>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
 
-<div id="product-view-container">
-    <div id="product-view-container-image">
-        <img src="<?php echo $imgPath ?>" alt="Image of the Product" width="400px" id="product-view-image">
-    </div>
-    <div id="product-view-container-info">
-        <h2><?php echo $product->name ?></h2>
-        <h3>£<?php echo $product->price ?></h3>
-        <p><?php echo $product->description ?></p>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-        <p id="add-to-basket-button">Add to Basket</p>
-
-    </div>
-
-</div>
+    <button type="submit">Sign In</button>
+    <p><a href="/register">Need an account?</a></p>
+</form>
 
 </body>
-
 </html>
