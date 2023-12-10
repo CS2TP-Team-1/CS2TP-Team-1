@@ -31,24 +31,16 @@ use App\Models\Product;
 
     <h1>Welcome to The Jewellery Store</h1>
 
-    <p>
-        Here you can search by categories and view bestselling items.
-    </p>
-
-    <h2>Categories</h2>
-    <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.jpg')?>" alt="Ring" class="productImg"><a>
-    <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelet" class="productImg"><a>
-    <a href="earring_search"><img src="<?php echo asset('images/homepage/earring.jpg')?>" alt="Earring" class="productImg"><a>
-    <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watch" class="productImg"><a>
-    <a href="necklace_search"><img src="<?php echo asset('images/homepage/necklace.jpg')?>" alt="Watch" class="productImg"><a>
-    <h2>Best-selling items</h2>
+    <h2>Product Categories</h2>
+    <a href="ring_search"> <img src="<?php echo asset('images/homepage/ring.jpg')?>" alt="Rings" class="productImg"><a>
+    <a href="bracelet_search"><img src="<?php echo asset('images/homepage/bracelet.png')?>" alt="Bracelets" class="productImg"><a>
+    <a href="earring_search"><img src="<?php echo asset('images/homepage/earring.jpg')?>" alt="Earrings" class="productImg"><a>
+    <a href="watch_search"><img src="<?php echo asset('images/homepage/watch.jpg')?>" alt="Watches" class="productImg"><a>
+    <a href="necklace_search"><img src="<?php echo asset('images/homepage/necklace.jpg')?>" alt="Necklaces" class="productImg"><a>
+    <h2>Best-selling Items</h2>
     <p>
     <?php
     $bestsellingProducts = Product::where('promotion','=', 1)->get();
-
-    /*foreach ($bestsellingProducts as $product) {
-        echo $product->name .' | Price £'. $product->price .'<br>';
-    }*/
     ?>
     <div id="product_container">
     <?php
