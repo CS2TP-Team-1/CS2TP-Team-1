@@ -41,6 +41,5 @@ Route::resource('products', ProductController::class)
 
 
 //sign up page
-Route::get('register', [RegisteredUserController::class, 'create']);
-Route::post('register', [RegisteredUserController::class, 'store'] );
-    
+//Route::get('register', [RegisteredUserController::class, 'create']);
+//Route::post('register', [RegisteredUserController::class, 'store'] );
