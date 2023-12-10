@@ -56,7 +56,7 @@
                     </div>
                     <div class="contact-info-content">
                         <h3>Address</h3>
-                        <p>The Jewellery Store, Asron st<br/>
+                        <p>The Jewellery Store, Aston St<br/>
                             Birmingham
                         </p>
                     </div>
