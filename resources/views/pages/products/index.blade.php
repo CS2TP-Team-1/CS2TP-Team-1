@@ -6,7 +6,7 @@
         <h2>There are no products. </h2>
     @endif
 
-    @foreach ($products as $product) {
+    @foreach ($products as $product)
 
     @php
         $imgPath = "images/products/" . $product->mainImage;
