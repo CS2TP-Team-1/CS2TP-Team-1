@@ -6,23 +6,24 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Product;
+use Illuminate\Support\Facades;
 
 class ProductController extends Controller
 {
     public function index(): View
     {
-        return view('products.index', array('products' => Product::all()));
+        return Facades\View::make('pages.products.index', array('products' => Product::all()));
     }
 
     public function show(string $id): View
     {
 //        $product = Product::find($id);
-        return view('products.view',['product' => Product::where('id', '=', $id)->first()]);
+        return Facades\View::make('pages.products.view',['product' => Product::where('id', '=', $id)->first()]);
     }
 
     public function create(): View
     {
-        return view('products.new');
+        return Facades\View::make('pages.products.new');
     }
 
     public function store(Request $request) : RedirectResponse

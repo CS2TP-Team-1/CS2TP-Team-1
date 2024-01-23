@@ -1,12 +1,3 @@
-<!--icons-->
-
-<?php
-
-use Illuminate\Support\Facades\Auth;
-
-?>
-
-
 <div class="icons">
     <ul>
 
@@ -25,14 +16,13 @@ use Illuminate\Support\Facades\Auth;
         <!--log in/ log out button page -->
         <li>
             <div>
-                <?php
-                if (Auth::check()) { ?>
-                    <form action="<?php url("/loutout")?>" method="post">
-                        <button type="submit" value="Logout">Logout</button>
-                    </form>
-                <?php } else { ?>
-                    <button class='login' onclick="location.href='/login'">Login</button>
-                <?php } ?>
+                @if (\Illuminate\Support\Facades\Auth::check())
+                <form action="{{ url("/logout") }}" method="post">
+                    <button type="submit" value="Logout">Logout</button>
+                </form>
+                @else
+                <button class='login' onclick="location.href='/login'">Login</button>
+                @endif
             </div>
         </li>
 
@@ -49,8 +39,6 @@ use Illuminate\Support\Facades\Auth;
     </ul>
 </div>
 
-
-<!-- nav bar -->
 <nav class="main-header">
     <ul>
         <li><a href="/">Home</a></li>

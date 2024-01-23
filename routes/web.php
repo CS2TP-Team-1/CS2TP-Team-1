@@ -20,8 +20,8 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 */
 
 //Homepage
-Route::get('/', function () {
-    return view('index');
+Route::get('/', function (){
+    return View::make('pages.index');
 });
 
 //contact us page
