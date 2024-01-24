@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Products')
+@section('title', 'Contact Us')
 
 @section('content')
     <div class="contact-c">
