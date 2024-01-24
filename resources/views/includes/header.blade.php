@@ -18,6 +18,7 @@
             <div>
                 @if (\Illuminate\Support\Facades\Auth::check())
                 <form action="{{ url("/logout") }}" method="post">
+                    @csrf
                     <button type="submit" value="Logout">Logout</button>
                 </form>
                 @else

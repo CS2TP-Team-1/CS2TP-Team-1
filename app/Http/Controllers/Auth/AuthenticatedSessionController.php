@@ -21,13 +21,14 @@ class AuthenticatedSessionController extends Controller
         return \Illuminate\Support\Facades\View::make('pages.auth.login');
     }
 
-    public function store(LoginRequest $request): Response
+    public function store(LoginRequest $request): RedirectResponse
     {
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return response()->noContent();
+        return redirect()->intended();
     }
 
     /**
