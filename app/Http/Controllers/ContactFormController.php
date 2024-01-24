@@ -17,7 +17,7 @@ class ContactFormController extends Controller
         'email' => 'required|string|email',
         'message' => 'required|string'
         ]);
-        
+
         ContactForm::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -28,6 +28,6 @@ class ContactFormController extends Controller
     }
 
     public function create():View{
-        return view('contact');
+        return \Illuminate\Support\Facades\View::make('pages.contact');
     }
 }

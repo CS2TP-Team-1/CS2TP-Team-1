@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
 
     public function create(): View
     {
-        return view('auth.login');
+        return \Illuminate\Support\Facades\View::make('pages.auth.login');
     }
 
     public function store(LoginRequest $request): Response
