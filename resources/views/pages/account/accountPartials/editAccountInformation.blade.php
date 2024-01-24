@@ -10,5 +10,6 @@
     <br>
     <label for="email">Email</label>
     <input type="email" required name="email" value="{{$user->email}}">
+    <br>
     <button type="submit">Save</button>
 </form>
