@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -14,7 +15,7 @@ class AccountController extends Controller
 {
     public function edit(Request $request): View
     {
-        return Facades\View::make('pages.account.account')->with(['user' => $request->user()]);
+        return Facades\View::make('pages.account.account')->with(['user' => $request->user()])->with(['orders' => Order::with('user')->orderBy('id')->get()]);
     }
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
