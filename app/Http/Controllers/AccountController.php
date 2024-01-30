@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class AccountController extends Controller
@@ -28,20 +29,20 @@ class AccountController extends Controller
 
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password:'],
-        ]);
-
         $user = $request->user();
+        if (Facades\Hash::check($request['password'], $user->password))
+        {
+            Auth::logout();
 
-        Facades\Auth::logout();
+            $user->delete();
 
-        $user->delete();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+            return Facades\Redirect::to('/');
+        }
 
-        return Facades\Redirect::to('/');
+        return redirect()->back();
     }
 
 }

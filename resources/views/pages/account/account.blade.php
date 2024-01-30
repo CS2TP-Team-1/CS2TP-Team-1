@@ -7,4 +7,5 @@
 
     @include('pages.account.accountPartials.editAccountInformation')
     @include('pages.account.accountPartials.changePassword')
+    @include('pages.account.accountPartials.deleteAccount')
 @endsection
