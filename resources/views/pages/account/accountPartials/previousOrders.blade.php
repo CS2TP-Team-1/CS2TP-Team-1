@@ -7,6 +7,7 @@
     <thead>
         <th>Order ID</th>
         <th>Order Value</th>
+        <th>Order Status</th>
         <th></th>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             @if($order->user_id==(auth()->user()->id))
                 <td>{{$order->id}}</td>
                 <td>{{$order->totalValue}}</td>
+                <td>{{$order->status}}</td>
                 <td><button>View Order</button></td>
             @endif
         @endforeach
