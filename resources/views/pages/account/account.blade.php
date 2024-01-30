@@ -6,5 +6,5 @@
     <h1>Your Profile</h1>
 
     @include('pages.account.accountPartials.editAccountInformation')
-
+    @include('pages.account.accountPartials.changePassword')
 @endsection

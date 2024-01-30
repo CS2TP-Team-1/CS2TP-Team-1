@@ -10,6 +10,11 @@
     <br>
     <label for="email">Email</label>
     <input type="email" required name="email" value="{{$user->email}}">
+
     <br>
     <button type="submit">Save</button>
 </form>
+
+@if(session('status') === 'account-updated')
+    <p>Account Details Updated</p>
+@endif
