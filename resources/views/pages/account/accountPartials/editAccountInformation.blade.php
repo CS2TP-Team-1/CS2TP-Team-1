@@ -5,11 +5,15 @@
     @csrf
     @method('PATCH')
 
-    <label for="name">Name</label>
-    <input type="text" required name="name" value="{{$user->name}}">
+    <label>
+        Name
+        <input type="text" required name="name" value="{{$user->name}}">
+    </label>
     <br>
-    <label for="email">Email</label>
-    <input type="email" required name="email" value="{{$user->email}}">
+    <label>
+        Email
+        <input type="email" required name="email" value="{{$user->email}}">
+    </label>
 
     <br>
     <button type="submit">Save</button>
