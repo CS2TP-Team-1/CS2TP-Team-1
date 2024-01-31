@@ -1,23 +1,27 @@
-/* Site-wdie Formatting */
+/* Site-wide Formatting */
 
-body,
-html {
-    background-color: purple;
+body, html {
+    background-color: rgb(66,50,66);
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-family: 'Libre Baskerville', sans-serif;
+    font-weight: normal;
     color: white;
     text-align: center;
 }
 
-p,
-pre {
+p, pre, label
+{
     font-family: Arial, Helvetica, sans-serif;
-    color: #dda0dd;
+    /* font-family: 'Libre Baskerville', sans-serif; */
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+a
+{
+    color: rgb(221, 160, 221);
 }
 
 .productImg {
@@ -35,7 +39,7 @@ pre {
     padding: 0;
     top: 200px;
     overflow: hidden;
-    background-color: #9B26B6;
+    background-color: rgb(85, 65, 85);
     height: auto;
     width: 100%;
 }
@@ -48,10 +52,10 @@ pre {
 
 .main-header li a {
     /*Styling for the links in the nav bar */
-    width: 350px;
+    /* width: 350px; */
     display: block;
     font-family: Helvetica, sans-serif;
-    color: white;
+    /* color: white; */
     text-align: center;
     padding: 4px;
     text-decoration: none;
@@ -59,7 +63,7 @@ pre {
 
 .main-header li a:hover {
     /*styling for when the mouse hovers over a link in the nav bar */
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
     color: white;
     text-decoration: underline;
 }
@@ -193,8 +197,7 @@ header {
 }
 
 
-.contact input,
-.contact textarea {
+.contact input, .contact textarea {
     margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #ddd;
@@ -204,8 +207,7 @@ header {
 
 }
 
-.contact input:focus,
-.contact textarea:focus {
+.contact input:focus, .contact textarea:focus {
     outline: 2px solid #9B26B6;
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
 }
