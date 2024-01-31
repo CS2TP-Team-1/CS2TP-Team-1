@@ -112,7 +112,7 @@ a
 }
 
 header {
-    padding: 20px;
+    padding-bottom: 20px;
     flex-wrap: wrap;
 }
 
@@ -158,6 +158,7 @@ header {
     box-shadow: 0 0 10px;
     width: 40%;
     margin: 50px auto;
+    background-color: rgb(85, 65, 85);
 }
 
 .contact-c {
@@ -183,7 +184,7 @@ header {
 }
 
 .contact button:hover {
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
 }
 
 .contact textarea {
@@ -228,7 +229,7 @@ header {
 }
 
 .contact button:hover {
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
 }
 
 /* Contact Info on Side of Page */
@@ -246,7 +247,7 @@ header {
 .contact-info-icons {
     height: 40px;
     width: 40px;
-    background-color: #9B26B6;
+    background-color: rgb(85, 65, 85);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -297,6 +298,7 @@ header {
 }
 
 #product-info {
+    background-color: rgb(85, 65, 85);
     border: 2px solid dimgrey;
     border-radius: 5px;
     padding: 5px;
@@ -348,7 +350,7 @@ header {
 }
 
 #add-to-basket-button {
-    background-color: #9B26B6;
+    background-color: rgb(221, 160, 221);
     padding: 10px;
     margin: 3px;
     color: #fff;
@@ -356,7 +358,7 @@ header {
 }
 
 #add-to-basket-button:hover {
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
 }
 
 
@@ -407,7 +409,6 @@ header {
 .contact-info-icons {
     height: 40px;
     width: 40px;
-    background-color: #9B26B6;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -443,7 +444,7 @@ header {
 /* Login Page */
 
 #login-form {
-    background-color: #fff;
+    background-color: rgb(85, 65, 85);
     padding: 28px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -451,10 +452,6 @@ header {
     width: 100%;
     margin: auto;
     margin-top: 5%;
-}
-
-#login-form h2 {
-    color: #000;
 }
 
 #login-form label {
@@ -527,7 +524,7 @@ header {
   }
 
   .register button:hover{
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
   }
 
   .register label{
