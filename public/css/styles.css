@@ -215,7 +215,7 @@ header {
 
 
 .contact button {
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     color: white;
     border-radius: 5px;
     border: none;
@@ -350,7 +350,7 @@ header {
 }
 
 #add-to-basket-button {
-    background-color: rgb(221, 160, 221);
+    background-color: rgb(219, 128, 219);
     padding: 10px;
     margin: 3px;
     color: #fff;
@@ -467,7 +467,7 @@ header {
 }
 
 #login-form button {
-    background-color: #9b26b6;
+    background-color: rgb(219, 128, 219);
     color: #fff;
     padding: 10px;
     border: none;
