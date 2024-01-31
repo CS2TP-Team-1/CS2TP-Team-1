@@ -32,10 +32,10 @@
             <input type="submit" class="login" value="Search"/>
         </li>
         <li2>
-            <div class="logoimg">
-                <img src="/logo.png" alt="The Jewellery Store Logo" height="400" width="500">
-                <h1>The Jewellery Store</h1>
-            </div>
+            {{-- <div class="logoimg"> --}}
+                <img src="/logo.png" alt="The Jewellery Store Logo" width="45">        
+                <h1>The Jewellery Store</h1>       
+            {{-- </div> --}}
         </li2>
 
     </ul>

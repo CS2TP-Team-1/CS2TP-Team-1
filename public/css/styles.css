@@ -92,17 +92,17 @@ a
 
 /* Logo In Header */
 
-.icons ul li2 div {
+.icons ul li2 {
 
-    display: block;
-    float: left;
-
-    padding: 0;
+    /* display: block; */
+    /* float: left; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0;
     margin: 0;
     top: 0;
-    left: 0;
-
-
+    left: 0; */
 }
 
 .logoimg img {
