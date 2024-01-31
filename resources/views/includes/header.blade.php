@@ -10,7 +10,7 @@
         </li>
 
         <li>
-            <a href="/profile"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
+            <a href="/account"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
         </li>
 
         <!--log in/ log out button page -->
@@ -18,6 +18,7 @@
             <div>
                 @if (\Illuminate\Support\Facades\Auth::check())
                 <form action="{{ url("/logout") }}" method="post">
+                    @csrf
                     <button type="submit" value="Logout">Logout</button>
                 </form>
                 @else

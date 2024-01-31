@@ -6,20 +6,18 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware('guest')
-    ->name('register-store');
+Route::post('/register', [RegisteredUserController::class, 'store']);
 
 Route::get('register', [RegisteredUserController::class, 'create'])
-    ->name('register');
+    ->name('register')->middleware('guest');
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->middleware('guest')
-    ->name('login-store');
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
-Route::get('login', [AuthenticatedSessionController::class, 'create'])
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->name('login');
 
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
@@ -41,3 +39,7 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
+
+Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+
+Route::delete('account', [AccountController::class, 'destroy'])->middleware('auth')->name('account.destroy');

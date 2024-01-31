@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\Contact_Form;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
-use App\Models\Product;
-use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\AccountController;
+use Illuminate\Support\Facades\View;
 
 
 /*
@@ -31,15 +30,12 @@ Route::post('contact', [ContactFormController::class, 'store']);
 
 require __DIR__.'/auth.php';
 
-//navbar page
-Route::get('/navbar', function(){
-    return view('navBar');
-})->name('navBar');
-
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
 
 
-//sign up page
-//Route::get('register', [RegisteredUserController::class, 'create']);
-//Route::post('register', [RegisteredUserController::class, 'store'] );
+Route::middleware('auth')->group(function () {
+    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::patch('/account', [AccountController::class, 'update'])->name('account.update');
+    Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
+});

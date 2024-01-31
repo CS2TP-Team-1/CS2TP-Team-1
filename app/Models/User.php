@@ -24,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'accountType'
     ];
 
     /**
@@ -48,7 +49,7 @@ class User extends Authenticatable
 
     // Assign a basket to a user
 
-    public function basket(): HasOne 
+    public function basket(): HasOne
     {
         return $this->hasOne(Basket::class);
     }
