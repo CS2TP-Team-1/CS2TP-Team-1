@@ -49,7 +49,6 @@ a
     width: 25%;
 }
 
-
 .main-header li a {
     /*Styling for the links in the nav bar */
     /* width: 350px; */
@@ -71,11 +70,15 @@ a
 /* Icons in Header */
 
 .icons {
-    float: right;
+    /* float: right;
     display: block;
-    padding: 5px;
-    width: 100%;
 
+    padding: 5px;
+    width: 100%; */
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 .icons ul {
@@ -85,21 +88,18 @@ a
 .icons ul li {
     float: right;
     margin-left: 10px;
-    padding-bottom: 10px;
-
-
+    /* padding-bottom: 10px; */
 }
 
 /* Logo In Header */
 
 .icons ul li2 {
-
-    /* display: block; */
-    /* float: left; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* padding: 0;
+    /* display: block;
+    float: left;
+    padding: 0;
     margin: 0;
     top: 0;
     left: 0; */
@@ -129,9 +129,6 @@ header {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
-
-
-
 
 }
 
@@ -494,8 +491,8 @@ header {
     flex-direction: column;
     align-items: left;
     padding-left: 2%;
-
   }
+
   .register input,
   .register textarea{
     margin-bottom: 10px;
@@ -504,8 +501,6 @@ header {
     border-radius: 5px;
     width: 40%;
     box-sizing: border-box;
-
-
   }
 
   .register input:focus,
@@ -515,7 +510,7 @@ header {
   }
 
   .register button{
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     color: white;
     border-radius: 5px;
     border: none;
@@ -534,5 +529,5 @@ header {
   .register label{
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
-
+    text-align: left;
   }

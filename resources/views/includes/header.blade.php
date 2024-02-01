@@ -27,10 +27,11 @@
             </div>
         </li>
 
-        <li>
+        {{-- Search function - has been commented out for home page --}}
+        {{-- <li>
             <input type="text" placeholder="Search...">
             <input type="submit" class="login" value="Search"/>
-        </li>
+        </li> --}}
         <li2>
             {{-- <div class="logoimg"> --}}
                 <img src="/logo.png" alt="The Jewellery Store Logo" width="45">        
@@ -40,8 +41,6 @@
 
     </ul>
 </div>
-
-
 
 <nav class="main-header">
     <ul>
