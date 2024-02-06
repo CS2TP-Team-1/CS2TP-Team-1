@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Basket;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -37,6 +38,9 @@ class AccountController extends Controller
         ]);
 
         Auth::logout();
+
+        $basket = Basket::where('user_id', $user->id);
+        $basket->delete();
 
         $user->delete();
 
