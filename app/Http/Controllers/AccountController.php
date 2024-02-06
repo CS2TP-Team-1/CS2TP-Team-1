@@ -31,19 +31,20 @@ class AccountController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         $user = $request->user();
-        if (Facades\Hash::check($request['password'], $user->password))
-        {
-            Auth::logout();
 
-            $user->delete();
+        $request->validate([
+            'password' => ['required', 'current_password:web'],
+        ]);
 
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
+        Auth::logout();
 
-            return Facades\Redirect::to('/');
-        }
+        $user->delete();
 
-        return redirect()->back();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Facades\Redirect::to('/');
+
     }
 
 }

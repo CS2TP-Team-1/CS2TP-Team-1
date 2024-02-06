@@ -24,7 +24,7 @@ class ContactFormController extends Controller
             'message' => $request->message
         ]);
 
-        return redirect('contact')->with('status', 'Contact Form Data Has Been inserted');
+        return redirect('contact')->with('status', 'form-submitted');
     }
 
     public function create():View{

@@ -22,3 +22,7 @@
 @if(session('status') === 'account-updated')
     <p>Account Details Updated</p>
 @endif
+
+@foreach($errors->all() as $message)
+    <p>{{$message}}</p>
+@endforeach
