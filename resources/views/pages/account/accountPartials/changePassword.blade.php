@@ -26,3 +26,7 @@
 @if(session('status') === 'password-updated')
     <p>Password Updated</p>
 @endif
+
+@foreach($errors->all() as $message)
+    <p>{{$message}}</p>
+@endforeach
