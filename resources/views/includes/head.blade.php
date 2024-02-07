@@ -8,3 +8,5 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Jewellery Store - @yield('title')</title>
+<!--adding swiper about us page -->
+<link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>

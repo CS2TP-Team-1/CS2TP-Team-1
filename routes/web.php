@@ -39,3 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/account', [AccountController::class, 'update'])->name('account.update');
     Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
 });
+
+//About Us page
+Route::get('/about', function(){
+    return view::make('pages.about');
+});

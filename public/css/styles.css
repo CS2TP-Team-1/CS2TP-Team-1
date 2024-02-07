@@ -533,3 +533,96 @@ header {
     color: #dda0dd;
 
   }
+
+
+/*ABOUT US CSS*/
+.Swiper-container{
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.about-text{
+    max-width: 500px;
+    padding-top: 40px;
+    margin: auto;
+}
+.swiper{
+    width: 70%;
+    max-width: 350px;
+    margin: auto;
+    height: 350px; 
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.swiper-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+.aboutImg{
+    width: 350px;
+    height: 350px;
+    height: auto;
+    object-fit: contain;
+    flex: 1;
+}
+
+.newsletter{
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.email-n{
+    justify-content: center;
+    height: 40px;
+    display: flex;
+    
+}
+.email-n i{
+    background-color: #9B26B6;
+    color: #fff;
+    width: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    
+}
+.n-button:hover{
+    background-color: #111;
+    transition: background-color 0.3s ease;
+}
+
+.n-button,.n-box{
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.n-box{
+    width: 0px;
+    transition: 0.6s ease;
+}
+.email-n:hover > .n-box,.n-button:focus{
+    width: 250px;
+    padding: 0 10px;
+}
+.n-button{
+    background-color: #9B26B6;
+    color: #fff;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+
+
+
+
