@@ -42,8 +42,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
+//About Us page
+Route::get('/about', function(){
+    return view::make('pages.about');
+});
+
+
 // Basket Related Routes
 
 Route::middleware('auth')->group(function () {
     Route::get('/basket', [BasketController::class, 'index']);
 });
+
