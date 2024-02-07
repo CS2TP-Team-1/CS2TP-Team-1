@@ -130,11 +130,11 @@ header {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
-
+    background-color: #9b26b6;
 }
 
 .login {
-    background-color: #9b26b6;
+    
     color: white;
 
 }
