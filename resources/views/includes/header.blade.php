@@ -6,11 +6,11 @@
         </li> -->
 
         <li>
-            <a href="/basket"><i class="fa fa-shopping-basket" style="color: #9b26b6;"></i></a>
+            <a href="/basket"><i class="fa fa-shopping-basket" style="color: rgb(221, 160, 221);"></i></a>
         </li>
 
         <li>
-            <a href="/account"><i class="fa fa-user" style="color: #9b26b6;"></i></a>
+            <a href="/account"><i class="fa fa-user" style="color: rgb(221, 160, 221);"></i></a>
         </li>
 
         <!--log in/ log out button page -->
@@ -19,7 +19,7 @@
                 @if (\Illuminate\Support\Facades\Auth::check())
                 <form action="{{ url("/logout") }}" method="post">
                     @csrf
-                    <button type="submit" value="Logout">Logout</button>
+                    <button type="submit" class="login" value="Logout">Logout</button>
                 </form>
                 @else
                 <button class='login' onclick="location.href='/login'">Login</button>
@@ -27,14 +27,16 @@
             </div>
         </li>
 
-        <li>
+        {{-- Search function - has been commented out for home page --}}
+        {{-- <li>
             <input type="text" placeholder="Search...">
-            <input type="submit" value="Search"/>
-        </li>
+            <input type="submit" class="login" value="Search"/>
+        </li> --}}
         <li2>
-            <div class="logoimg">
-                <img src="/logo.png" alt="The Jewellery Store Logo" height="400" width="500">
-            </div>
+            {{-- <div class="logoimg"> --}}
+                <img src="/logo.png" alt="The Jewellery Store Logo" width="45">        
+                <h1>The Jewellery Store</h1>       
+            {{-- </div> --}}
         </li2>
 
     </ul>
@@ -48,3 +50,4 @@
         <li><a href="/contact">Contact Us</a></li>
     </ul>
 </nav>
+
