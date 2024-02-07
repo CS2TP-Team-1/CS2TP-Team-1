@@ -35,6 +35,8 @@ class RegisteredUserController extends Controller
             'accountType' => 'user'
         ]);
 
+        $user->basket()->create();
+
         event(new Registered($user));
 
         Auth::login($user);
