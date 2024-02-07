@@ -14,14 +14,32 @@ h1, h2, h3, h4 {
 p, pre, label
 {
     font-family: Arial, Helvetica, sans-serif;
-    /* font-family: 'Libre Baskerville', sans-serif; */
     color: rgb(255, 255, 255);
     text-align: center;
 }
 
-a
+/* Link colour */
+a 
 {
-    color: rgb(221, 160, 221);
+    color: rgb(221, 160, 221); 
+}
+
+/* button {
+    background-color: rgb(219, 128, 219);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 20%;
+    size: 50px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+} */
+
+button:hover {
+    background-color: rgb(57, 43, 57) !important; 
+    transition: background-color 0.3s ease;
 }
 
 .productImg {
@@ -37,7 +55,6 @@ a
     list-style-type: none;
     margin: 0;
     padding: 0;
-    top: 200px;
     overflow: hidden;
     background-color: rgb(85, 65, 85);
     height: auto;
@@ -68,17 +85,19 @@ a
 /* Icons in Header */
 
 .icons ul {
-    list-style-type: none;
+    list-style-type: none; /* Remove bullet points from header icons  */
 }
 
-.icons ul li {
-    float: right;
-    margin-left: 10px;
+.icons ul li.account {
+    /* Places basket, sign in, and login button on right side of the screen */
+    float: right; 
+    /* Gap between symbols on right screen */
+    margin-left: 7.5px; 
 }
 
 /* Logo In Header */
 
-.icons ul li2 {
+.icons ul li.header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,11 +108,6 @@ a
     max-width: 15%;
     max-height: 15%;
     height: auto;
-}
-
-header {
-    padding-bottom: 20px;
-    flex-wrap: wrap;
 }
 
 /* CSS for the login/logout button in Header*/
@@ -146,20 +160,6 @@ header {
     border-radius: 5px;
     width: 40%;
     border: none;
-
-}
-
-.contact button {
-    color: white;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-    width: 10%;
-
-}
-
-.contact button:hover {
-    background-color: rgb(57, 43, 57);
 }
 
 .contact textarea {
@@ -168,10 +168,8 @@ header {
 }
 
 .contact label {
-    font-family: Arial, Helvetica, sans-serif;
     color: #dda0dd;
 }
-
 
 .contact input, .contact textarea {
     margin-bottom: 10px;
@@ -188,7 +186,6 @@ header {
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
 }
 
-
 .contact button {
     background-color: rgb(219, 128, 219);
     color: white;
@@ -200,7 +197,6 @@ header {
     padding: 10px;
     cursor: pointer;
     box-sizing: border-box;
-
 }
 
 /* Contact Info on Side of Page */
@@ -328,11 +324,6 @@ header {
     width: 50%;
 }
 
-#add-to-basket-button:hover {
-    background-color: rgb(57, 43, 57);
-}
-
-
 /* CSS for the login/logout button */
 .button {
     border: none;
@@ -346,14 +337,11 @@ header {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
-
-
 }
 
 .login {
     background-color: #9b26b6;
     color: white;
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -493,10 +481,6 @@ header {
     box-sizing: border-box;
   }
 
-  .register button:hover{
-    background-color: rgb(57, 43, 57);
-  }
-
   .register label{
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
@@ -564,10 +548,6 @@ header {
     border-radius: 50%;
     
 }
-.n-button:hover{
-    background-color: #111;
-    transition: background-color 0.3s ease;
-}
 
 .n-button,.n-box{
     border: none;
@@ -590,8 +570,3 @@ header {
     padding: 0 10px;
     cursor: pointer;
 }
-
-
-
-
-
