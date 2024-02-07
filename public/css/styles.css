@@ -97,6 +97,7 @@ a
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     /* display: block;
     float: left;
     padding: 0;
