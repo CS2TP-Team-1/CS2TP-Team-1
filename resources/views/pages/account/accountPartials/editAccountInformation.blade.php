@@ -17,12 +17,16 @@
 
     <br>
     <button type="submit">Save</button>
+    @if(session('status') === 'account-updated')
+        <p>Account Details Updated</p>
+    @endif
+
+    @error('name')
+    <p> {{ $message }} </p>
+    @enderror
+    @error('email')
+    <p> {{ $message }} </p>
+    @enderror
 </form>
 
-@if(session('status') === 'account-updated')
-    <p>Account Details Updated</p>
-@endif
 
-@foreach($errors->all() as $message)
-    <p>{{$message}}</p>
-@endforeach

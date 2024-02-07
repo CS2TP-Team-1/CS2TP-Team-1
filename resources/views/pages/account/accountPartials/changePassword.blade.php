@@ -27,6 +27,13 @@
     <p>Password Updated</p>
 @endif
 
-@foreach($errors->all() as $message)
-    <p>{{$message}}</p>
-@endforeach
+@error('old_password')
+<p> {{ $message }} </p>
+@enderror
+@error('new_password')
+<p> {{ $message }} </p>
+@enderror
+@error('new_password_confirmation')
+<p> {{ $message }} </p>
+@enderror
+

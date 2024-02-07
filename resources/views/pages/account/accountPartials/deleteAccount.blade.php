@@ -12,8 +12,9 @@
     <br>
     <button type="submit">Delete Account</button>
 
+    @error('password')
+    <p>{{ $message }}</p>
+    @enderror
 </form>
 
-@foreach($errors->all() as $message)
-    <p>{{$message}}</p>
-@endforeach
+
