@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
@@ -40,7 +41,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
 });
 
+
 //About Us page
 Route::get('/about', function(){
     return view::make('pages.about');
 });
+
+
+// Basket Related Routes
+
+Route::middleware('auth')->group(function () {
+    Route::get('/basket', [BasketController::class, 'index']);
+});
+

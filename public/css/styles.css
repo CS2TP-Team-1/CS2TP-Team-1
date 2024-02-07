@@ -1,23 +1,27 @@
-/* Site-wdie Formatting */
+/* Site-wide Formatting */
 
-body,
-html {
-    background-color: purple;
+body, html {
+    background-color: rgb(66,50,66);
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-family: 'Libre Baskerville', sans-serif;
+    font-weight: normal;
     color: white;
     text-align: center;
 }
 
-p,
-pre {
+p, pre, label
+{
     font-family: Arial, Helvetica, sans-serif;
-    color: #dda0dd;
+    /* font-family: 'Libre Baskerville', sans-serif; */
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+a
+{
+    color: rgb(221, 160, 221);
 }
 
 .productImg {
@@ -35,7 +39,7 @@ pre {
     padding: 0;
     top: 200px;
     overflow: hidden;
-    background-color: #9B26B6;
+    background-color: rgb(85, 65, 85);
     height: auto;
     width: 100%;
 }
@@ -45,13 +49,10 @@ pre {
     width: 25%;
 }
 
-
 .main-header li a {
     /*Styling for the links in the nav bar */
-    width: 350px;
     display: block;
     font-family: Helvetica, sans-serif;
-    color: white;
     text-align: center;
     padding: 4px;
     text-decoration: none;
@@ -59,20 +60,12 @@ pre {
 
 .main-header li a:hover {
     /*styling for when the mouse hovers over a link in the nav bar */
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
     color: white;
     text-decoration: underline;
 }
 
 /* Icons in Header */
-
-.icons {
-    float: right;
-    display: block;
-    padding: 5px;
-    width: 100%;
-
-}
 
 .icons ul {
     list-style-type: none;
@@ -81,24 +74,15 @@ pre {
 .icons ul li {
     float: right;
     margin-left: 10px;
-    padding-bottom: 10px;
-
-
 }
 
 /* Logo In Header */
 
-.icons ul li2 div {
-
-    display: block;
-    float: left;
-
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-
-
+.icons ul li2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .logoimg img {
@@ -108,7 +92,7 @@ pre {
 }
 
 header {
-    padding: 20px;
+    padding-bottom: 20px;
     flex-wrap: wrap;
 }
 
@@ -125,16 +109,7 @@ header {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
-
-
-
-
-}
-
-.login {
     background-color: #9b26b6;
-    color: white;
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -154,6 +129,11 @@ header {
     box-shadow: 0 0 10px;
     width: 40%;
     margin: 50px auto;
+    background-color: rgb(85, 65, 85);
+}
+
+.contact label {
+    text-align: left;
 }
 
 .contact-c {
@@ -179,7 +159,7 @@ header {
 }
 
 .contact button:hover {
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
 }
 
 .contact textarea {
@@ -193,8 +173,7 @@ header {
 }
 
 
-.contact input,
-.contact textarea {
+.contact input, .contact textarea {
     margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #ddd;
@@ -204,15 +183,14 @@ header {
 
 }
 
-.contact input:focus,
-.contact textarea:focus {
+.contact input:focus, .contact textarea:focus {
     outline: 2px solid #9B26B6;
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
 }
 
 
 .contact button {
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     color: white;
     border-radius: 5px;
     border: none;
@@ -223,10 +201,6 @@ header {
     cursor: pointer;
     box-sizing: border-box;
 
-}
-
-.contact button:hover {
-    background-color: #111;
 }
 
 /* Contact Info on Side of Page */
@@ -244,7 +218,7 @@ header {
 .contact-info-icons {
     height: 40px;
     width: 40px;
-    background-color: #9B26B6;
+    background-color: rgb(85, 65, 85);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -295,6 +269,7 @@ header {
 }
 
 #product-info {
+    background-color: rgb(85, 65, 85);
     border: 2px solid dimgrey;
     border-radius: 5px;
     padding: 5px;
@@ -346,7 +321,7 @@ header {
 }
 
 #add-to-basket-button {
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     padding: 10px;
     margin: 3px;
     color: #fff;
@@ -354,7 +329,7 @@ header {
 }
 
 #add-to-basket-button:hover {
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
 }
 
 
@@ -405,7 +380,6 @@ header {
 .contact-info-icons {
     height: 40px;
     width: 40px;
-    background-color: #9B26B6;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -441,7 +415,7 @@ header {
 /* Login Page */
 
 #login-form {
-    background-color: #fff;
+    background-color: rgb(85, 65, 85);
     padding: 28px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -449,10 +423,6 @@ header {
     width: 100%;
     margin: auto;
     margin-top: 5%;
-}
-
-#login-form h2 {
-    color: #000;
 }
 
 #login-form label {
@@ -468,7 +438,7 @@ header {
 }
 
 #login-form button {
-    background-color: #9b26b6;
+    background-color: rgb(219, 128, 219);
     color: #fff;
     padding: 10px;
     border: none;
@@ -491,8 +461,9 @@ header {
     flex-direction: column;
     align-items: left;
     padding-left: 2%;
-
+    background-color: rgb(85, 65, 85);
   }
+
   .register input,
   .register textarea{
     margin-bottom: 10px;
@@ -501,8 +472,6 @@ header {
     border-radius: 5px;
     width: 40%;
     box-sizing: border-box;
-
-
   }
 
   .register input:focus,
@@ -512,7 +481,7 @@ header {
   }
 
   .register button{
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     color: white;
     border-radius: 5px;
     border: none;
@@ -525,13 +494,13 @@ header {
   }
 
   .register button:hover{
-    background-color: #111;
+    background-color: rgb(57, 43, 57);
   }
 
   .register label{
     font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
-
+    text-align: left;
   }
 
 

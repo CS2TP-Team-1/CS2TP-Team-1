@@ -5,8 +5,6 @@
 @endphp
 
 @section('content')
-    <h1>Welcome to The Jewellery Store</h1>
-
     <h2>Product Categories</h2>
     <a href="ring_search"> <img src="/images/homepage/ring.jpg" alt="Rings" class="productImg"></a>
     <a href="bracelet_search"><img src="/images/homepage/bracelet.png" alt="Bracelets" class="productImg"></a>
@@ -32,7 +30,7 @@
                      class="product-gallery-image">
                 <h3>{{$product->name }}</h3>
                 <p>£{{$product->price }}</p>
-                <p><a href=/products/{{$product->id}}">View Product
+                <p><a href="/products/{{$product->id}}">View Product
                         Details</a></p>
             </div>
     @endforeach

@@ -26,3 +26,14 @@
 @if(session('status') === 'password-updated')
     <p>Password Updated</p>
 @endif
+
+@error('old_password')
+<p> {{ $message }} </p>
+@enderror
+@error('new_password')
+<p> {{ $message }} </p>
+@enderror
+@error('new_password_confirmation')
+<p> {{ $message }} </p>
+@enderror
+

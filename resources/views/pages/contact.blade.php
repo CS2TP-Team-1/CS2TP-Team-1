@@ -12,14 +12,30 @@
             <form class="contact-form" action="{{ url('contact')}}" method="POST">
                 @csrf
                 <label for="name">Tell us your name:</label> <br>
-                <input type="text" name="name"/><br>
+                <input type="text" required name="name" value="{{old('name')}}"/><br>
+                @foreach($errors->get('name') as $message)
+                    <p>{{$message}}</p>
+                @endforeach
+
                 <label for="email">Email:</label><br>
-                <input type="text" name="email"/> <br>
+                <input type="email" required name="email" value="{{old('email')}}"/> <br>
+                @foreach($errors->get('email') as $message)
+                    <p>{{$message}}</p>
+                @endforeach
+
                 <label for="message">Message:</label><br>
-                <textarea name="message" rows="15" cols="40"></textarea><br>
+                <textarea name="message" required rows="15" cols="40" >{{old('message')}}</textarea><br>
+                @foreach($errors->get('message') as $message)
+                    <p>{{$message}}</p>
+                @endforeach
+
                 <button type="submit">Submit</button>
                 <br>
             </form>
+
+            @if(session('status') === 'form-submitted')
+                <p>Your message has been sent!</p>
+            @endif
         </div>
 
         <div class="contact-info">

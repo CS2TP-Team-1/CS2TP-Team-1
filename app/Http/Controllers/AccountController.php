@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Basket;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,19 +32,23 @@ class AccountController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         $user = $request->user();
-        if (Facades\Hash::check($request['password'], $user->password))
-        {
-            Auth::logout();
 
-            $user->delete();
+        $request->validate([
+            'password' => ['required', 'current_password:web'],
+        ]);
 
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
+        Auth::logout();
 
-            return Facades\Redirect::to('/');
-        }
+        $basket = Basket::where('user_id', $user->id);
+        $basket->delete();
 
-        return redirect()->back();
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Facades\Redirect::to('/');
+
     }
 
 }
