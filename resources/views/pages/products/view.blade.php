@@ -16,7 +16,7 @@
             <h3>£{{$product->price}}</h3>
             <p>{{$product->description}}</p>
 
-            <button id="add-to-basket-button">Add to Basket</button>
+            <button class="button">Add to Basket</button>
         </div>
 
     </div>
