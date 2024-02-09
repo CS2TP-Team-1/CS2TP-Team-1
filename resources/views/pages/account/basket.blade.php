@@ -6,10 +6,12 @@
 
     @if(session('status') === 'basket-updated')
         <p>Your basket has been updated!</p>
+    @elseif (session('status') === 'item-not-found')
+        <p>Item was not found in the basket.</p>
     @endif
 
     @if(!session('cart'))
-        <h3>There are no items in your cart.</h3>
+        <h3>There are no items in your basket.</h3>
     @else
         <table>
             <thead>
@@ -41,14 +43,14 @@
                         <form method="POST" action="{{route('update.basket')}}">
                             @csrf
                             @method('PATCH')
-                            <input type="number" name="productID" hidden readonly value="{{$id}}">
+                            <input type="number" name="productID" hidden readonly value="{{$details['id']}}">
                             <input type="number" name="quantity" required min='1' value="{{$details['quantity']}}">
                             <button type="submit">Update</button>
                         </form>
                     </td>
                     <td>
 
-                        <a class="delete-product"><i class="">Delete</i></a>
+                        <a class="delete-product" href="/remove-basket-product/{{$id}}"><i class="">Delete</i></a>
                     </td>
                 </tr>
             @endforeach

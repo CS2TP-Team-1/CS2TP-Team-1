@@ -24,34 +24,21 @@ class BasketController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $id,
                 "name" => $product->name,
-                'quantity' => 1,
+                "quantity" => 1,
                 "price" => $product->price,
                 "category" => $product->category,
                 "metalType" => $product->metalType
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product has been added to the basket.');
+        return redirect()->back()->with('success', 'product-added');
     }
 
     public function updateBasket (Request $request): RedirectResponse
     {
-        $request->validate([
-            'quantity' => ['required', 'numeric', 'min:1'],
-            'id' => ['required', 'numeric']
-        ]);
 
-        $cart = session()->get('cart', []);
-
-        if (isset($cart[$request->id])) {
-            $cart[$request->id]['quantity'] = $request->quantity;
-            session()->put('cart', $cart);
-        } else {
-            return redirect('/basket')->with('failed', 'item-not-found');
-        }
-
-        return redirect('/basket')->with('success','basket-updated');
     }
 
     public function removeProduct ($id): RedirectResponse
