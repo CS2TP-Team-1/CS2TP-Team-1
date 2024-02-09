@@ -21,33 +21,25 @@ require __DIR__.'/auth.php';
 */
 
 //Homepage
-Route::get('/', function (){
-    return View::make('pages.index');
-});
+Route::get('/', function (){ return View::make('pages.index'); });
 
-//contact us page
+//Contact Us Page
+Route::resource('contact', ContactFormController::class)
+    ->only(['create', 'store']);
 
-Route::get('contact', [ContactFormController::class, 'create']);
-Route::post('contact', [ContactFormController::class, 'store']);
-
-
-
+// Products page and related routes
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
 
-
+//Account Page
 Route::middleware('auth')->group(function () {
     Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
     Route::patch('/account', [AccountController::class, 'update'])->name('account.update');
     Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
 });
 
-
 //About Us page
-Route::get('/about', function(){
-    return view::make('pages.about');
-});
-
+Route::get('/about', function(){ return view::make('pages.about'); });
 
 // Basket Related Routes
 
