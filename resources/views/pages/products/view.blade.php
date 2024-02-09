@@ -16,7 +16,9 @@
             <h3>£{{$product->price}}</h3>
             <p>{{$product->description}}</p>
 
-            <p id="add-to-basket-button">Add to Basket</p>
+            <a href="{{route('add-to-basket', $product->id)}}">
+                <p id="add-to-basket-button">Add to Basket</p>
+            </a>
 
         </div>
 

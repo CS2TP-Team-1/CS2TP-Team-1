@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
 
+require __DIR__.'/auth.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/', function (){
 Route::get('contact', [ContactFormController::class, 'create']);
 Route::post('contact', [ContactFormController::class, 'store']);
 
-require __DIR__.'/auth.php';
+
 
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
@@ -51,6 +52,10 @@ Route::get('/about', function(){
 // Basket Related Routes
 
 Route::middleware('auth')->group(function () {
-    Route::get('/basket', [BasketController::class, 'index']);
+    Route::get('/basket', [BasketController::class, 'index'])->name('basket');
+    Route::get('/add-to-basket/{id}', [BasketController::class, 'addProductToBasket'])->name('add-to-basket');
+    Route::patch('/update-basket', [BasketController::class, 'updateBasket'])->name('update.basket');
+    Route::delete('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
 });
+
 
