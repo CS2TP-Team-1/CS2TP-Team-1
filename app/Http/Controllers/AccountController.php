@@ -39,9 +39,6 @@ class AccountController extends Controller
 
         Auth::logout();
 
-        $basket = Basket::where('user_id', $user->id);
-        $basket->delete();
-
         $user->delete();
 
         $request->session()->invalidate();
