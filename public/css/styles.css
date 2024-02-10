@@ -213,12 +213,20 @@ button:hover {
 
 /* Products Page Formatting*/
 
+#product-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 #product_container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    display: inline-block;
+    
 }
 
 #product-info {
@@ -228,6 +236,8 @@ button:hover {
     padding: 5px;
     width: 20%;
     margin: 5px;
+    display: inline-block;
+    
 }
 
 .product-gallery-image {
@@ -452,6 +462,7 @@ button:hover {
     line-height: 40px;
     font-size: 20px;
     padding: 0;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     border-radius: 50%;
