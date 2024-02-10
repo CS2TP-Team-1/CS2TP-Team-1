@@ -134,6 +134,7 @@ button:hover {
 
 .contact label {
     text-align: left;
+    color: rgb(221, 160, 221);
 }
 
 .contact-c {
@@ -151,10 +152,6 @@ button:hover {
 .contact textarea {
     width: 40%;
     border-radius: 5px;
-}
-
-.contact label {
-    color: #dda0dd;
 }
 
 .contact input, .contact textarea {
@@ -205,12 +202,6 @@ button:hover {
     .container-c {
         flex-direction: column;
     }
-
-    .contact,
-    .contact-info {
-        max-width: 100%;
-        padding: 10px;
-    }
 }
 
 .contact-form {
@@ -249,10 +240,6 @@ button:hover {
     /* Responsive layout - makes a one column layout instead of a two-column layout */
     #product_container {
         flex-direction: column;
-    }
-
-    #product-info {
-        width: 90%;
     }
 }
 
@@ -373,9 +360,9 @@ button:hover {
 .signup-f{
     display: flex;
     justify-content: center;
-  }
+}
 
-  .register{
+.register{
     box-shadow: 0 0 10px;
     width: 40%;
     margin: 50px auto;
@@ -384,28 +371,28 @@ button:hover {
     align-items: left;
     padding-left: 2%;
     background-color: rgb(85, 65, 85);
-  }
+}
 
-  .register input,
-  .register textarea{
+.register input,
+.register textarea{
     margin-bottom: 10px;
     padding: 5px;
     border:1px solid #ddd;
     border-radius: 5px;
     width: 40%;
     box-sizing: border-box;
-  }
+}
 
-  .register input:focus,
-  .register textarea:focus{
+.register input:focus,
+.register textarea:focus{
     outline: 2px solid #9B26B6;
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
-  }
+}
 
-  .register label{
+.register label{
     color: #dda0dd;
     text-align: left;
-  }
+}
 
 /*About Us CSS*/
 .Swiper-container{
@@ -413,11 +400,13 @@ button:hover {
     justify-content:center;
     flex-wrap:wrap;
 }
+
 .about-text{
     max-width: 500px;
     padding-top: 40px;
     margin: auto;
 }
+
 .swiper{
     width: 70%;
     max-width: 350px;
