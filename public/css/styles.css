@@ -24,15 +24,30 @@ a
     color: rgb(221, 160, 221); 
 }
 
-button:hover {
-    background-color: rgb(57, 43, 57) !important; 
-    transition: background-color 0.3s ease;
-}
-
 .productImg {
     max-width: 15%;
     max-height: 15%;
     height: auto;
+}
+
+/* General class for all buttons except specific few*/
+.button {
+    background-color: rgb(219, 128, 219);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 20%;
+    size: 50px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+button:hover {
+    background-color: rgb(57, 43, 57) !important; 
+    transition: background-color 0.3s ease;
 }
 
 /* Nav Bar Formatting */
@@ -95,21 +110,6 @@ button:hover {
     max-width: 15%;
     max-height: 15%;
     height: auto;
-}
-
-/* CSS for the login/logout button in Header*/
-.button {
-    background-color: rgb(219, 128, 219);
-    color: white;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-    width: 20%;
-    size: 50px;
-    padding: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
-
 }
 
 @media screen and (max-width: 1000px) {
