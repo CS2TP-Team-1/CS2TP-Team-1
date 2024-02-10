@@ -193,7 +193,6 @@ button:hover {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-
 }
 
 .contact-info-icons i {
@@ -201,7 +200,6 @@ button:hover {
     line-height: 40px;
     color: white;
 }
-
 
 @media screen and (max-width: 480px) {
     .container-c {
@@ -212,11 +210,6 @@ button:hover {
     .contact-info {
         max-width: 100%;
         padding: 10px;
-    }
-
-    .contact button {
-        width: 100%;
-
     }
 }
 
@@ -323,7 +316,6 @@ button:hover {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-
 }
 
 .contact-info-icons i {
@@ -382,6 +374,7 @@ button:hover {
     display: flex;
     justify-content: center;
   }
+
   .register{
     box-shadow: 0 0 10px;
     width: 40%;
@@ -410,13 +403,11 @@ button:hover {
   }
 
   .register label{
-    font-family:Arial,Helvetica,sans-serif;
     color: #dda0dd;
     text-align: left;
   }
 
-
-/*ABOUT US CSS*/
+/*About Us CSS*/
 .Swiper-container{
     display: flex;
     justify-content:center;
@@ -464,8 +455,9 @@ button:hover {
     display: flex;
     
 }
+
 .email-n i{
-    background-color: #9B26B6;
+    background-color: rgb(85, 65, 85);
     color: #fff;
     width: 40px;
     line-height: 40px;
@@ -488,12 +480,14 @@ button:hover {
     width: 0px;
     transition: 0.6s ease;
 }
+
 .email-n:hover > .n-box,.n-button:focus{
     width: 250px;
     padding: 0 10px;
 }
+
 .n-button{
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     color: #fff;
     padding: 0 10px;
     cursor: pointer;
