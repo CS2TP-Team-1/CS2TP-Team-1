@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -77,4 +78,29 @@ class BasketController extends Controller
             return redirect()->back()->with('success','basket-updated');
 
     }
+
+    public function checkout(Request $request): RedirectResponse
+    {
+        $request->user()->orders()->create([
+            'status' => 'Ordered',
+            'totalValue' => session()->get('total'),
+        ]);
+
+        $order = Order::latest()->first();
+        $cart = session()->get('cart');
+
+        foreach($cart as $id => $details){
+            $product = Product::findOrFail($details['id']);
+
+            for ($i = 0; $i < $details['quantity']; $i++) {
+                $order->products()->attach($product);
+            }
+        }
+
+        session()->forget('cart');
+        session()->forget('total');
+
+        return redirect('/account');
+    }
+
 }

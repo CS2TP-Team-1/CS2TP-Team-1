@@ -49,6 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/remove-product/{id}', [BasketController::class, 'decreaseProductQuantity'])->name('decrease-product-quantity');
     Route::patch('/basket', [BasketController::class, 'updateBasket'])->name('update.basket');
     Route::get('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
+    Route::get('/checkout', function (){ return view::make('pages.account.checkout'); });
+    Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 });
 
 

@@ -11,6 +11,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['status', 'totalValue'];
+
     // Find the user that owns the basket
     public function user(): BelongsTo
     {
@@ -20,6 +22,6 @@ class Order extends Model
     // One basket can have multiple products (Has to be a Many-to-Many relationship and as one product could be in multiple baskets the same way one basket can have multiple products)
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'orders_products', 'product_id', 'order_id');
+        return $this->belongsToMany(Product::class, 'orders_products', 'order_id', 'product_id');
     }
 }
