@@ -28,14 +28,6 @@ a
     height: auto;
 }
 
-ul.catagories  {
-    margin: 0px;
-    padding-inline-start: 0px;
-    max-width: 100%;
-    height: auto;
-    text-align: center;
-}
-
 /* General class for all buttons except specific few*/
 .button {
     background-color: rgb(219, 128, 219);
@@ -126,6 +118,16 @@ button:hover {
         margin: 0;
         padding: 14px;
     }
+}
+
+/* Index */
+
+ul.catagories  {
+    margin: 0px;
+    padding-inline-start: 0px;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
 }
 
 /* Contact Page Formating */
@@ -409,7 +411,7 @@ button:hover {
     text-align: left;
 }
 
-/*About Us CSS*/
+/*About Us*/
 .Swiper-container{
     display: flex;
     justify-content:center;
