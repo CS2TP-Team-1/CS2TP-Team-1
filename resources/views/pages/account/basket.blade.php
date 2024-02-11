@@ -55,8 +55,14 @@
                 <tr>
                     <td>
                         <a href="{{route('products.index')}}">Continue Shopping</a>
+                    </td>
+                    <td>
+                        <p><strong>Total:</strong> £{{session()->get('total')}}</p>
+                    </td>
+                    <td>
                         <button id="checkout">Checkout</button>
                     </td>
+
                 </tr>
             </tfoot>
         </table>
