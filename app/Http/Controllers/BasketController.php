@@ -36,9 +36,19 @@ class BasketController extends Controller
         return redirect()->back()->with('success', 'product-added');
     }
 
-    public function updateBasket (Request $request): RedirectResponse
+    public function decreaseProductQuantity($id): RedirectResponse
     {
+        $cart = session()->get('cart', []);
 
+        if ($cart[$id]['quantity'] > 1){
+            $cart[$id]['quantity']--;
+        } else {
+            unset($cart[$id]);
+        }
+
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success','basket-updated');
     }
 
     public function removeProduct ($id): RedirectResponse

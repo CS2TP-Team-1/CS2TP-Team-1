@@ -46,6 +46,7 @@ Route::get('/about', function(){ return view::make('pages.about'); });
 Route::middleware('auth')->group(function () {
     Route::get('/basket', [BasketController::class, 'index'])->name('basket.show');
     Route::get('/add-to-basket/{id}', [BasketController::class, 'addProductToBasket'])->name('add-to-basket');
+    Route::get('/remove-product/{id}', [BasketController::class, 'decreaseProductQuantity'])->name('decrease-product-quantity');
     Route::patch('/basket', [BasketController::class, 'updateBasket'])->name('update.basket');
     Route::get('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
 });

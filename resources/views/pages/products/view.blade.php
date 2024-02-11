@@ -21,7 +21,7 @@
                 <p id="add-to-basket-button">Add to Basket</p>
             </a>
             @else
-                <p id="add-to-basket-button">You must be logged in to add to basket.</p>
+                <a href="{{ route('login') }}"> <p id="add-to-basket-button">You must be logged in to add to basket.</p> </a>
             @endif
 
             @if(session('success') === 'product-added')

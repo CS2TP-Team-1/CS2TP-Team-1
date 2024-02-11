@@ -40,13 +40,9 @@
                         {{$details['metalType']}}
                     </td>
                     <td>
-                        <form method="POST" action="{{route('update.basket')}}">
-                            @csrf
-                            @method('PATCH')
-                            <input type="number" name="productID" hidden readonly value="{{$details['id']}}">
-                            <input type="number" name="quantity" required min='1' value="{{$details['quantity']}}">
-                            <button type="submit">Update</button>
-                        </form>
+                        <a href="{{ route('decrease-product-quantity', $id) }}">-</a>
+                        <p>{{$details['quantity']}}</p>
+                        <a href="{{ route('add-to-basket', $id) }}">+</a>
                     </td>
                     <td>
 
