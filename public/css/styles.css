@@ -18,16 +18,22 @@ p, pre, label
     text-align: center;
 }
 
-/* Link colour */
 a 
 {
-    color: rgb(221, 160, 221); 
+    color: rgb(221, 160, 221); /* Link colour */
 }
 
 .productImg {
     max-width: 15%;
-    max-height: 15%;
     height: auto;
+}
+
+ul.catagories  {
+    margin: 0px;
+    padding-inline-start: 0px;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
 }
 
 /* General class for all buttons except specific few*/
@@ -98,7 +104,6 @@ button:hover {
 }
 
 /* Logo In Header */
-
 .icons ul li.header {
     display: flex;
     align-items: center;

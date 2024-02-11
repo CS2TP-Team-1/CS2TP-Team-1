@@ -16,7 +16,6 @@
             <div id="product-view-container-info">
                 <h3>£{{$product->price}}</h3>
                 <p>{{$product->description}}</p>
-
                 <button class="button">Add to Basket</button>
             </div>
 
