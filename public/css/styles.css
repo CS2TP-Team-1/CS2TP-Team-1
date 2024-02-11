@@ -488,7 +488,7 @@ ul.catagories  {
     transition: 0.6s ease;
 }
 
-.email-n:hover > .n-box,.n-button:focus{
+.email-n:hover > .n-box{
     width: 250px;
     padding: 0 10px;
 }
