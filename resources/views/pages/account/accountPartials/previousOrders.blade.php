@@ -18,7 +18,7 @@
                     <td>{{$order->totalValue}}</td>
                     <td>{{$order->status}}</td>
                     <td>
-                        <button>View Order</button>
+                        <button onclick="location.href='/order/{{$order->id}}'">View Order</button>
                     </td>
                 </tr>
             @endif
