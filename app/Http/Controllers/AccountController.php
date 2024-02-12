@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\Basket;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -46,6 +46,11 @@ class AccountController extends Controller
 
         return Facades\Redirect::to('/');
 
+    }
+
+
+    public function viewOrder($id) {
+        return Facades\View::make('pages.account.viewOrder', ['order' => Order::where('id', '=', $id)->first()]);
     }
 
 }

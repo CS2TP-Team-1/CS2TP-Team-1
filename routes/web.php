@@ -31,11 +31,14 @@ Route::resource('contact', ContactFormController::class)
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
 
-//Account Page
+//Account Related
 Route::middleware('auth')->group(function () {
+    // Account Page
     Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
     Route::patch('/account', [AccountController::class, 'update'])->name('account.update');
     Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
+    // View Specific Order
+    Route::get('/order/{id}', [AccountController::class, 'viewOrder'])->name('view-order');
 });
 
 //About Us page
@@ -44,11 +47,12 @@ Route::get('/about', function(){ return view::make('pages.about'); });
 // Basket Related Routes
 
 Route::middleware('auth')->group(function () {
+    // Basket Itself
     Route::get('/basket', [BasketController::class, 'index'])->name('basket.show');
     Route::get('/add-to-basket/{id}', [BasketController::class, 'addProductToBasket'])->name('add-to-basket');
     Route::get('/remove-product/{id}', [BasketController::class, 'decreaseProductQuantity'])->name('decrease-product-quantity');
-    Route::patch('/basket', [BasketController::class, 'updateBasket'])->name('update.basket');
     Route::get('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
+    // Checkout
     Route::get('/checkout', function (){ return view::make('pages.account.checkout'); });
     Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 });
