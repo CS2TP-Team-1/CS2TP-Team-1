@@ -17,11 +17,9 @@
             <p>{{$product->description}}</p>
 
             @if(\Illuminate\Support\Facades\Auth::check())
-            <a href="{{route('add-to-basket', $product->id)}}">
-                <p id="add-to-basket-button">Add to Basket</p>
-            </a>
+                <button class="button" onclick="location.href='{{route('add-to-basket', $product->id)}}'">Add to Basket</button>
             @else
-                <a href="{{ route('login') }}"> <p id="add-to-basket-button">You must be logged in to add to basket.</p> </a>
+                <button class="button" onclick="location.href='{{route('login')}}'">You must be logged in to add to basket.</button>
             @endif
 
             @if(session('success') === 'product-added')
