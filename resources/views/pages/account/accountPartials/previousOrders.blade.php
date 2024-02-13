@@ -1,5 +1,7 @@
 <h2>Your Orders</h2>
 
+<div class="form">
+<form class="account-form">
 @if($orders->isEmpty())
     <h3>You have no previous orders.</h3>
 @else
@@ -13,12 +15,16 @@
     <tbody>
         @foreach($orders as $order)
             @if($order->user_id==(auth()->user()->id))
+            <tr>
                 <td>{{$order->id}}</td>
                 <td>{{$order->totalValue}}</td>
                 <td>{{$order->status}}</td>
-                <td><button>View Order</button></td>
+                <td><button class="login">View Order</button></td>
+            </tr>
             @endif
         @endforeach
     </tbody>
 </table>
 @endif
+</form>
+</div>
