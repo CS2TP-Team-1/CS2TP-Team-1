@@ -4,6 +4,8 @@
 @section('content')
     <h1>Your Basket</h1>
 
+    <div class="form">
+    <form class="account-form">
     @if(session('status') === 'basket-updated')
         <p>Your basket has been updated!</p>
     @elseif (session('status') === 'item-not-found')
@@ -60,7 +62,7 @@
                         <p><strong>Total:</strong> £{{session()->get('total')}}</p>
                     </td>
                     <td>
-                        <button id="checkout" onclick="location.href='/checkout'">Checkout</button>
+                        <button class="login" id="checkout" onclick="location.href='/checkout'">Checkout</button>
                     </td>
 
                 </tr>
@@ -69,3 +71,5 @@
     @endif
 
 @endsection
+</form>
+</div>

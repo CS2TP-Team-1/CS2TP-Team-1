@@ -13,6 +13,8 @@
     <h3> Total Value of Order: £{{$order->totalValue}}</h3>
 <br>
     <h2>Your Order Contents:</h2>
+<div class="form">
+    <form class="account-form">
     <table>
         <thead>
         <th>Product Image</th>
@@ -34,3 +36,5 @@
 
     </table>
 @endsection
+</form>
+</div>
