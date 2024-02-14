@@ -20,7 +20,7 @@
                     <td>{{$order->totalValue}}</td>
                     <td>{{$order->status}}</td>
                     <td>
-                        <button onclick="location.href='/order/{{$order->id}}'">View Order</button>
+                        <button class="login" onclick="location.href='/order/{{$order->id}}'">View Order</button>
                     </td>
                 </tr>
 
