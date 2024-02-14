@@ -16,7 +16,15 @@
             <h3>£{{$product->price}}</h3>
             <p>{{$product->description}}</p>
 
-            <p id="add-to-basket-button">Add to Basket</p>
+            @if(\Illuminate\Support\Facades\Auth::check())
+                <button class="button" onclick="location.href='{{route('add-to-basket', $product->id)}}'">Add to Basket</button>
+            @else
+                <button class="button" onclick="location.href='{{route('login')}}'">You must be logged in to add to basket.</button>
+            @endif
+
+            @if(session('success') === 'product-added')
+                <p>This product has been added to your basket!</p>
+            @endif
 
         </div>
 

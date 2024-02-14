@@ -47,13 +47,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // Assign a basket to a user
-
-    public function basket(): HasOne
-    {
-        return $this->hasOne(Basket::class);
-    }
-
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
