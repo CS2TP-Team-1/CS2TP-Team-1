@@ -6,11 +6,13 @@
 
 @section('content')
     <h2>Product Categories</h2>
-    <a href="ring_search"> <img src="/images/homepage/ring.jpg" alt="Rings" class="productImg"></a>
+    <ul class="catagories">
+    <a href="ring_search"> <img src="/images/homepage/ring.png" alt="Rings" class="productImg"></a>
     <a href="bracelet_search"><img src="/images/homepage/bracelet.png" alt="Bracelets" class="productImg"></a>
-    <a href="earring_search"><img src="/images/homepage/earring.jpg" alt="Earrings" class="productImg"></a>
-    <a href="watch_search"><img src="/images/homepage/watch.jpg" alt="Watches" class="productImg"></a>
-    <a href="necklace_search"><img src="/images/homepage/necklace.jpg" alt="Necklaces" class="productImg"></a>
+    <a href="earring_search"><img src="/images/homepage/earrings.png" alt="Earrings" class="productImg"></a>
+    <a href="watch_search"><img src="/images/homepage/wristwatch.png" alt="Watches" class="productImg"></a>
+    <a href="necklace_search"><img src="/images/homepage/pearl-necklace.png" alt="Necklaces" class="productImg"></a>
+    </ul>
     <h2>Best-selling Items</h2>
     @php
         $bestsellingProducts = Product::where('promotion', '=', 1)->get();

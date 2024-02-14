@@ -14,7 +14,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Sign In</button>
+        <button type="submit" class="button">Sign In</button>
         <p><a href="/register">Need an account?</a></p>
     </form>
 @endsection

@@ -11,23 +11,47 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-p, pre, label
+p, pre, label, th, td
 {
     font-family: Arial, Helvetica, sans-serif;
-    /* font-family: 'Libre Baskerville', sans-serif; */
     color: rgb(255, 255, 255);
     text-align: center;
 }
 
-a
+td
 {
-    color: rgb(221, 160, 221);
+    text-align: left;
+}
+
+a 
+{
+    color: rgb(221, 160, 221); /* Link colour */
 }
 
 .productImg {
     max-width: 15%;
-    max-height: 15%;
     height: auto;
+    
+}
+
+/* General class for all buttons except specific few*/
+.button {
+    background-color: rgb(219, 128, 219);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 30%;
+    size: 50px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+button:hover {
+    background-color: rgb(57, 43, 57) !important; 
+    transition: background-color 0.3s ease;
 }
 
 /* Nav Bar Formatting */
@@ -37,7 +61,6 @@ a
     list-style-type: none;
     margin: 0;
     padding: 0;
-    top: 200px;
     overflow: hidden;
     background-color: rgb(85, 65, 85);
     height: auto;
@@ -68,17 +91,18 @@ a
 /* Icons in Header */
 
 .icons ul {
-    list-style-type: none;
+    list-style-type: none; /* Remove bullet points from header icons  */
 }
 
-.icons ul li {
-    float: right;
-    margin-left: 10px;
+.icons ul li.account {
+    /* Places basket, sign in, and login button on right side of the screen */
+    float: right; 
+    /* Gap between symbols on right screen */
+    margin-left: 7.5px; 
 }
 
 /* Logo In Header */
-
-.icons ul li2 {
+.icons ul li.header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,27 +113,6 @@ a
     max-width: 15%;
     max-height: 15%;
     height: auto;
-}
-
-header {
-    padding-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-/* CSS for the login/logout button in Header*/
-.button {
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'Libre Baskerville', sans-serif;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: #9b26b6;
 }
 
 @media screen and (max-width: 1000px) {
@@ -123,6 +126,16 @@ header {
     }
 }
 
+/* Index */
+
+ul.catagories  {
+    margin: 0px;
+    padding-inline-start: 0px;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
 /* Contact Page Formating */
 
 .contact {
@@ -134,6 +147,7 @@ header {
 
 .contact label {
     text-align: left;
+    color: rgb(221, 160, 221);
 }
 
 .contact-c {
@@ -146,32 +160,12 @@ header {
     border-radius: 5px;
     width: 40%;
     border: none;
-
-}
-
-.contact button {
-    color: white;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-    width: 10%;
-
-}
-
-.contact button:hover {
-    background-color: rgb(57, 43, 57);
 }
 
 .contact textarea {
     width: 40%;
     border-radius: 5px;
 }
-
-.contact label {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #dda0dd;
-}
-
 
 .contact input, .contact textarea {
     margin-bottom: 10px;
@@ -186,21 +180,6 @@ header {
 .contact input:focus, .contact textarea:focus {
     outline: 2px solid #9B26B6;
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
-}
-
-
-.contact button {
-    background-color: rgb(219, 128, 219);
-    color: white;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-    width: 20%;
-    size: 50px;
-    padding: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
-
 }
 
 /* Contact Info on Side of Page */
@@ -224,7 +203,6 @@ header {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-
 }
 
 .contact-info-icons i {
@@ -233,21 +211,9 @@ header {
     color: white;
 }
 
-
 @media screen and (max-width: 480px) {
     .container-c {
         flex-direction: column;
-    }
-
-    .contact,
-    .contact-info {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .contact button {
-        width: 100%;
-
     }
 }
 
@@ -260,12 +226,20 @@ header {
 
 /* Products Page Formatting*/
 
+#product-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 #product_container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    display: inline-block;
+    
 }
 
 #product-info {
@@ -275,6 +249,8 @@ header {
     padding: 5px;
     width: 20%;
     margin: 5px;
+    display: inline-block;
+    
 }
 
 .product-gallery-image {
@@ -287,10 +263,6 @@ header {
     /* Responsive layout - makes a one column layout instead of a two-column layout */
     #product_container {
         flex-direction: column;
-    }
-
-    #product-info {
-        width: 90%;
     }
 }
 
@@ -320,40 +292,9 @@ header {
     text-align: center;
 }
 
-#add-to-basket-button {
-    background-color: rgb(219, 128, 219);
-    padding: 10px;
-    margin: 3px;
-    color: #fff;
-    width: 50%;
-}
-
-#add-to-basket-button:hover {
-    background-color: rgb(57, 43, 57);
-}
-
-
-/* CSS for the login/logout button */
-.button {
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'Libre Baskerville';
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-
-
-}
-
 .login {
-    background-color: #9b26b6;
+    background-color: rgb(219, 128, 219);
     color: white;
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -385,7 +326,6 @@ header {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-
 }
 
 .contact-info-icons i {
@@ -437,23 +377,15 @@ header {
     box-sizing: border-box;
 }
 
-#login-form button {
-    background-color: rgb(219, 128, 219);
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 /* Register Page Formatting */
 
 /*register page CSS*/
 .signup-f{
     display: flex;
     justify-content: center;
-  }
-  .register{
+}
+
+.register{
     box-shadow: 0 0 10px;
     width: 40%;
     margin: 50px auto;
@@ -462,59 +394,42 @@ header {
     align-items: left;
     padding-left: 2%;
     background-color: rgb(85, 65, 85);
-  }
+}
 
-  .register input,
-  .register textarea{
+.register input,
+.register textarea{
     margin-bottom: 10px;
     padding: 5px;
     border:1px solid #ddd;
     border-radius: 5px;
     width: 40%;
     box-sizing: border-box;
-  }
+}
 
-  .register input:focus,
-  .register textarea:focus{
+.register input:focus,
+.register textarea:focus{
     outline: 2px solid #9B26B6;
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
-  }
+}
 
-  .register button{
-    background-color: rgb(219, 128, 219);
-    color: white;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-    width: 20%;
-    size: 50px;
-    padding: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-
-  .register button:hover{
-    background-color: rgb(57, 43, 57);
-  }
-
-  .register label{
-    font-family:Arial,Helvetica,sans-serif;
+.register label{
     color: #dda0dd;
     text-align: left;
-  }
+}
 
-
-/*ABOUT US CSS*/
+/*About Us*/
 .Swiper-container{
     display: flex;
     justify-content:center;
     flex-wrap:wrap;
 }
+
 .about-text{
     max-width: 500px;
     padding-top: 40px;
     margin: auto;
 }
+
 .swiper{
     width: 70%;
     max-width: 350px;
@@ -552,21 +467,19 @@ header {
     display: flex;
     
 }
+
 .email-n i{
-    background-color: #9B26B6;
+    background-color: rgb(85, 65, 85);
     color: #fff;
     width: 40px;
     line-height: 40px;
     font-size: 20px;
     padding: 0;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     border-radius: 50%;
     
-}
-.n-button:hover{
-    background-color: #111;
-    transition: background-color 0.3s ease;
 }
 
 .n-button,.n-box{
@@ -580,15 +493,36 @@ header {
     width: 0px;
     transition: 0.6s ease;
 }
-.email-n:hover > .n-box,.n-button:focus{
+
+.email-n:hover > .n-box{
     width: 250px;
     padding: 0 10px;
 }
+
 .n-button{
-    background-color: #9B26B6;
+    background-color: rgb(219, 128, 219);
     color: #fff;
     padding: 0 10px;
     cursor: pointer;
+}
+
+/* Account  */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-form {
+    width: 40%;
+    height: auto;
+    padding: 20px;
+    background-color: rgb(85, 65, 85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12.5px;
 }
 
 /*CSS for the Admin List of users*/
@@ -655,8 +589,3 @@ header {
         width:auto;
         margin-bottom: 3px;
     }
-}
-
-
-
-
