@@ -8,6 +8,8 @@ use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/basket', [BasketController::class, 'index']);
 });
 
+
+//Admin page
+use App\Http\Controllers\Auth\RegisteredUserController;
+Route::get('/admin', [RegisteredUserController::class, 'list']);
+    

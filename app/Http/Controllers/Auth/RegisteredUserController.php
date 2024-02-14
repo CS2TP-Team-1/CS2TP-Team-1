@@ -48,4 +48,11 @@ class RegisteredUserController extends Controller
     {
         return View::make('pages.auth.register');
     }
+
+    public function list()
+    {
+        $users = User::all(); // Fetch all registered users
+
+        return View::make('pages.admin.users', compact('users'));
+    }
 }

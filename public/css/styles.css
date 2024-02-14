@@ -591,6 +591,71 @@ header {
     cursor: pointer;
 }
 
+/*CSS for the Admin List of users*/
+.admin{
+    display: flex;
+}
+.table {
+    width: 100%;
+    overflow-x: auto;
+
+}
+.table-table-stripped{
+    margin: auto;
+}
+
+.table th{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    padding: 6px;
+    border: 1px solid #ddd;
+    text-align:justify;
+}
+
+
+/* Style for table cells */
+.table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f2f2f2;
+    text-align:justify;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgb(85, 65, 85);
+}
+/*styling for the button*/
+.btn {
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: inline-block;
+}
+.btn:hover{
+    background-color: rgb(57, 43, 57);
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+.btn-AE {
+    background-color: #9b26b6;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+@media screen and (max-width: 800px){
+    .table td,.table th{
+        padding: 6px;
+    }
+    .btn{
+        width:auto;
+        margin-bottom: 3px;
+    }
+}
 
 
 
