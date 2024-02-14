@@ -24,8 +24,8 @@ require __DIR__.'/auth.php';
 Route::get('/', function (){ return View::make('pages.index'); });
 
 //Contact Us Page
-Route::resource('contact', ContactFormController::class)
-    ->only(['create', 'store']);
+Route::get('/contact', [ContactFormController::class, 'create']);
+Route::post('/contact', [ContactFormController::class, 'store']);
 
 // Products page and related routes
 Route::resource('products', ProductController::class)
