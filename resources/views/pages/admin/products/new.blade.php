@@ -4,7 +4,7 @@
 @section('content')
     <h1>Create a New Product</h1>
 
-    <form action="{{ route('admin.create-products')}}" enctype="multipart/form-data" method="POST">
+    <form class='new-product-form' action="{{ route('admin.create-products')}}" enctype="multipart/form-data" method="POST">
         @csrf
 
         @foreach($errors->all() as $message)
@@ -19,13 +19,13 @@
 
         <label for="price">
             Price
-            <input type="number" step='0.01' name="price" placeholder="##.##" required>
+            <input type="number" step='0.01' min="0" name="price" placeholder="##.##" required>
         </label>
 
         <br>
 
         <label for="stock">
-            Price
+            Stock Amount
             <input type="number" step="1" name="stock" min="0" required>
         </label>
 
@@ -69,7 +69,8 @@
 
         <label for="description">
             Product Description
-            <textarea required name="description"></textarea>
+            <br>
+            <textarea required cols="30" rows="5" name="description"></textarea>
         </label>
 
         <br>

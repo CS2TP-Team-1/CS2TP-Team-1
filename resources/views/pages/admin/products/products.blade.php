@@ -3,8 +3,8 @@
 
 @section('content')
     <h1>Products Dashboard</h1>
-    <button class="button" onclick="location.href='/admin/products/create'">Create a New Product</button>
-    <table>
+    <button class="button new-product-button" onclick="location.href='/admin/products/create'">Create a New Product</button>
+    <table class="table">
         <thead>
         <th>Product ID</th>
         <th>Product Name</th>
@@ -29,9 +29,9 @@
                     @endif
                 </td>
                 <td>{{$product->description}}</td>
-                <td>
-                    <button class="button" onclick="location.href='/admin/products/edit/{{$product->id}}'">Edit</button>
-                    <button class="button" onclick="location.href='/admin/products/delete/{{$product->id}}'">Delete
+                <td class="table-button-section">
+                    <button class="button table-button" onclick="location.href='/admin/products/edit/{{$product->id}}'">Edit</button>
+                    <button class="button table-button" onclick="location.href='/admin/products/delete/{{$product->id}}'">Delete
                     </button>
                 </td>
             </tr>
