@@ -18,7 +18,7 @@
             <label for="password_confirmation">Confirm password:</label><br>
             <input type="password" name="password_confirmation" required><br>
 
-            <button type="submit">Register</button>
+            <button type="submit" class="button">Register</button>
             <br>
 
 
