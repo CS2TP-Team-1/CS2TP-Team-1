@@ -64,3 +64,5 @@ Route::middleware('auth')->group(function () {
 
 //Admin pages
 Route::get('/admin/users', [AdminController::class, 'listUsers']);
+Route::get('/admin/products', [AdminController::class, 'productsDashboard']);
+Route::get('/admin/products/edit/{id}', [AdminController::class, 'productsEditPage'])->name('admin.edit-products-page');

@@ -1,9 +1,9 @@
 @extends('layouts.default')
-@section('title', 'Admin-users')
+@section('title', 'Users Dashboard')
 
 @section('content')
     <section class="admin">
-        <div class="table"> 
+        <div class="table">
             <div class="table-body">
                 <h4 class="table-title">
                     Registered Users
@@ -39,7 +39,7 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    
+
                 </table>
             </div>
         </div>
