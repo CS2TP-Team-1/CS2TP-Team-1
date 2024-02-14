@@ -63,4 +63,7 @@ Route::middleware('auth')->group(function () {
 
 
 //Admin pages
-Route::get('/admin/users', [AdminController::class, 'listUsers']);
+
+Route::middleware('admin')->group(function (){
+    Route::get('/admin/users', [AdminController::class, 'listUsers']);
+});
