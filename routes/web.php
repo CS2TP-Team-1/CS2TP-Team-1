@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
@@ -8,6 +9,8 @@ use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
 
 require __DIR__.'/auth.php';
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +61,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+//Admin pages
+Route::get('/admin/users', [AdminController::class, 'listUsers']);
