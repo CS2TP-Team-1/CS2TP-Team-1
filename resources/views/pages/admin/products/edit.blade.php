@@ -4,7 +4,7 @@
 @section('content')
     <h1>Edit Product #{{$product->id}}</h1>
 
-    <form method="post" action="{{route('admin.edit-products')}}">
+    <form class="new-product-form" method="post" action="{{route('admin.edit-products')}}">
         @csrf
         @method('PATCH')
         @foreach($errors->all() as $message)
@@ -30,16 +30,17 @@
         <label>
             On promotion?
             <label for="1">Yes
-                <input type="radio" value="1" name="promotion">
+                <input type="radio" value="1" name="promotion" @if($product->promotion === 1) checked @endif>
             </label>
             <label for="0">No
-                <input type="radio" value="0" name="promotion">
+                <input type="radio" value="0" name="promotion" @if($product->promotion === 0) checked @endif>
             </label>
         </label>
         <br>
         <label>
-            Description:
-            <textarea name="description" required>{{$product->description}}</textarea>
+            Product Description:
+            <br>
+            <textarea name="description" cols="30" rows="5" required>{{$product->description}}</textarea>
         </label>
         <br>
         <button class="button" type="submit">Update Product</button>
