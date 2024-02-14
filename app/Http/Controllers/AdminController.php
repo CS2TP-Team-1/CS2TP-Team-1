@@ -55,4 +55,13 @@ class AdminController extends Controller
 
         return redirect(route('admin.products-dashboard'));
     }
+
+    public function productsDelete($id) : RedirectResponse
+    {
+        $product = Product::where('id', '=', $id);
+
+        $product->delete();
+
+        return redirect(route('admin.products-dashboard'));
+    }
 }

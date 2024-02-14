@@ -29,6 +29,10 @@
                         @endif
                     </td>
                     <td>{{$product->description}}</td>
+                    <td>
+                        <button class="button" onclick="location.href='/admin/products/edit/{{$product->id}}'">Edit</button>
+                        <button class="button" onclick="location.href='/admin/products/delete/{{$product->id}}'">Delete</button>
+                    </td>
                 </tr>
 
             @endforeach
