@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Edit a Product')
+@section('title', 'Edit Product #'.$product->id)
 
 @section('content')
     <h1>Edit Product #{{$product->id}}</h1>
@@ -7,9 +7,6 @@
     <form method="post" action="{{route('admin.edit-products')}}">
         @csrf
         @method('PATCH')
-
-        <p>Product ID: {{$product->id}}</p>
-
         @foreach($errors->all() as $message)
             <p>{{$message}}</p>
         @endforeach

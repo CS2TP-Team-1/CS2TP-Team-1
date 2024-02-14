@@ -64,4 +64,42 @@ class AdminController extends Controller
 
         return redirect(route('admin.products-dashboard'));
     }
+
+    public function productsCreateForm()
+    {
+        return View::make('pages.admin.products.new');
+    }
+
+    public function productsCreate(Request $request) : RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'promotion' => 'required',
+            'metalType' => 'required',
+            'stock' => 'required|numeric',
+            'category' => 'required',
+            'mainImage' => 'required|mimes:jpg,jpeg,png,svg',
+            'description' => 'required|string'
+        ]);
+
+        $mainImage = $request->file("mainImage");
+        $newImageName = time() . '-' . $request->name . '.' . $mainImage->extension();
+        $destinationPath = "images/products";
+        $mainImage->move($destinationPath,$newImageName);
+
+
+        $product = Product::create([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'promotion' => $request->input('promotion'),
+            'metalType' => $request->input('metalType'),
+            'category' => $request->input('category'),
+            'stock' => $request->input('stock'),
+            'mainImage' => $newImageName,
+            'description' => $request->input('description')
+        ]);
+
+        return redirect(route('admin.products-dashboard'));
+    }
 }
