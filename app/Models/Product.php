@@ -11,7 +11,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'price', 'promotion', 'metalType', 'category', 'mainImage', 'description'];
+    protected $fillable = ['name', 'price', 'promotion', 'metalType', 'category', 'mainImage', 'description', 'stock'];
 
     // One product can be in multiple orders (Has to be a many-to-many relationship as one product could be in multiple orders the same way as one order can have multiple products)
 
