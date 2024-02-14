@@ -10,6 +10,7 @@
             <th>Product Name</th>
             <th>Price</th>
             <th>Stock Amount</th>
+            <th>On promotion?</th>
             <th>Description</th>
             <th></th>
         </thead>
@@ -20,6 +21,13 @@
                     <td>{{$product->name}}</td>
                     <td>£{{$product->price}}</td>
                     <td>{{$product->stock}}</td>
+                    <td>
+                        @if($product->promotion === 1)
+                            Yes
+                        @else
+                            No
+                        @endif
+                    </td>
                     <td>{{$product->description}}</td>
                 </tr>
 
