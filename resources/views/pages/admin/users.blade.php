@@ -29,7 +29,13 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->password}}</td>
-                            <td>{{$user->accountType}}</td>
+                            <td>
+                                @if($user->accountType === 1)
+                                    Admin
+                                @else
+                                    User
+                                @endif
+                            </td>
                             <td>
                                 <a href="" class="btn btn-AE btn-sm">Edit</a>
                                 <a href="" class="btn btn-delete btn-sm">Delete</a>
