@@ -2,6 +2,16 @@
 @section('title', 'Products')
 
 @section('content')
+<form action="{{ route('products.index') }}" method="GET">
+        <input type="text" name="search" placeholder="Search products">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Display the search results if available -->
+    @if(isset($search))
+        <p>Search results for: <strong>{{ $search }}</strong></p>
+    @endif
+
     @if($products->isEmpty())
         <h2>There are no products. </h2>
     @endif

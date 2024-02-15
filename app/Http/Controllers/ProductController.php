@@ -10,10 +10,31 @@ use Illuminate\Support\Facades;
 
 class ProductController extends Controller
 {
+    /*
     public function index(): View
     {
         return Facades\View::make('pages.products.index', array('products' => Product::all()));
     }
+*/
+
+//modifed index function for search feature
+public function index(Request $request): View
+    {
+        //return Facades\View::make('pages.products.index', array('products' => Product::all()));
+        $search = $request->input('search');
+
+        $query = Product::query();
+    
+        if ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        }
+    
+        $products = $query->get();
+    
+        return view('pages.products.index', compact('products', 'search'));
+    }
+
+
 
     public function show(string $id): View
     {

@@ -34,6 +34,9 @@ require __DIR__.'/auth.php';
 Route::resource('products', ProductController::class)
     ->only(['index','show','create', 'store']);
 
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
