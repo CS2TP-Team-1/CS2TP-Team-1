@@ -32,10 +32,9 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'accountType' => 'user'
+            'accountType' => '0'
         ]);
 
-        $user->basket()->create();
 
         event(new Registered($user));
 
