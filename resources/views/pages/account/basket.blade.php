@@ -15,7 +15,7 @@
     @if(!session('cart'))
         <h3>There are no items in your basket.</h3>
     @else
-        <table>
+        <table class="table">
             <thead>
             <tr>
                 <th>Product Name</th>
@@ -30,7 +30,7 @@
             @foreach(session('cart') as $id => $details)
                 <tr>
                     <td>
-                        {{$details['name']}}
+                        <a href="/products/{{$id}}">{{$details['name']}} </a>
                     </td>
                     <td>
                         {{$details['price']}}

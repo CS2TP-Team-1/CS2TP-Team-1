@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Admin-users')
+@section('title', 'Users Dashboard')
 
 @section('content')
     <section class="admin">

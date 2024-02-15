@@ -20,10 +20,10 @@ p, pre, label, th, td
 
 td
 {
-    text-align: left;
+    text-align: center;
 }
 
-a 
+a
 {
     color: rgb(221, 160, 221); /* Link colour */
 }
@@ -31,7 +31,7 @@ a
 .productImg {
     max-width: 15%;
     height: auto;
-    
+
 }
 
 /* General class for all buttons except specific few*/
@@ -49,8 +49,9 @@ a
 
 }
 
-button:hover {
-    background-color: rgb(57, 43, 57) !important; 
+.button:hover, button:hover
+{
+    background-color: rgb(57, 43, 57) !important;
     transition: background-color 0.3s ease;
 }
 
@@ -96,9 +97,9 @@ button:hover {
 
 .icons ul li.account {
     /* Places basket, sign in, and login button on right side of the screen */
-    float: right; 
+    float: right;
     /* Gap between symbols on right screen */
-    margin-left: 7.5px; 
+    margin-left: 7.5px;
 }
 
 /* Logo In Header */
@@ -238,8 +239,7 @@ ul.catagories  {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    display: inline-block;
-    
+
 }
 
 #product-info {
@@ -250,7 +250,7 @@ ul.catagories  {
     width: 20%;
     margin: 5px;
     display: inline-block;
-    
+
 }
 
 .product-gallery-image {
@@ -434,7 +434,7 @@ ul.catagories  {
     width: 70%;
     max-width: 350px;
     margin: auto;
-    height: 350px; 
+    height: 350px;
     overflow: hidden;
     margin-right: 20px;
     border-radius: 10px;
@@ -465,7 +465,7 @@ ul.catagories  {
     justify-content: center;
     height: 40px;
     display: flex;
-    
+
 }
 
 .email-n i{
@@ -479,7 +479,7 @@ ul.catagories  {
     display: flex;
     justify-content: center;
     border-radius: 50%;
-    
+
 }
 
 .n-button,.n-box{
@@ -532,18 +532,16 @@ ul.catagories  {
 .table {
     width: 100%;
     overflow-x: auto;
-
-}
-.table-table-stripped{
-    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .table th{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f2f2f2;
+    background-color: rgb(57, 43, 57);
     padding: 6px;
     border: 1px solid #ddd;
-    text-align:justify;
 }
 
 
@@ -552,13 +550,9 @@ ul.catagories  {
     border: 1px solid #dddddd;
     padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #f2f2f2;
-    text-align:justify;
+    /*color: #f2f2f2;*/
 }
 
-.table tbody tr:nth-child(even) {
-    background-color: rgb(85, 65, 85);
-}
 /*styling for the button*/
 .btn {
     padding: 5px 10px;
@@ -581,11 +575,49 @@ ul.catagories  {
     color: #fff;
 }
 
-@media screen and (max-width: 800px){
-    .table td,.table th{
+@media screen and (max-width: 800px) {
+    .table td, .table th {
         padding: 6px;
     }
-    .btn{
-        width:auto;
+
+    .btn {
+        width: auto;
         margin-bottom: 3px;
     }
+}
+
+/* Create Product Form */
+
+.new-product-form {
+    box-shadow: 0 0 10px;
+    width: 40%;
+    margin: 50px auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    background-color: rgb(85, 65, 85);
+}
+
+.new-product-form button {
+    left: 50%;
+}
+
+.new-product-button {
+    float: right;
+    margin-bottom: 2px;
+
+}
+
+.table-button-section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.table-button {
+    width: 90% !important;
+    margin: 3px !important;
+}
+
