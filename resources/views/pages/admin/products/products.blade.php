@@ -20,7 +20,12 @@
                 <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
                 <td>£{{$product->price}}</td>
-                <td>{{$product->stock}}</td>
+                <td><form method="post" action="{{route('admin.products-update-stock')}}">
+                        @csrf
+                        @method('PATCH')
+                        <input name="id" hidden value="{{$product->id}}">
+                        <input type="number" name="stock" min="0" required value="{{$product->stock}}" onchange="this.form.submit()">
+                    </form></td>
                 <td>
                     @if($product->promotion === 1)
                         Yes

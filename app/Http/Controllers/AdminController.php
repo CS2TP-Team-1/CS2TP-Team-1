@@ -57,6 +57,17 @@ class AdminController extends Controller
         return redirect(route('admin.products-dashboard'));
     }
 
+    public function productsUpdateStock(Request $request): RedirectResponse
+    {
+        $product = Product::where('id', '=', $request->id);
+
+        $product->update([
+            'stock' => $request->stock,
+        ]);
+
+        return redirect(route('admin.products-dashboard'));
+    }
+
     public function productsDelete($id) : RedirectResponse
     {
         $product = Product::where('id', '=', $id);
