@@ -69,6 +69,7 @@ Route::middleware('admin')->group(function (){
     Route::get('/admin/users', [AdminController::class, 'listUsers']);
     // Products
     Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
+    Route::patch('/admin/products',[AdminController::class, 'productsUpdateStock'])->name('admin.products-update-stock');
     Route::get('/admin/products/edit/{id}', [AdminController::class, 'productsEditPage'])->name('admin.edit-products-page');
     Route::patch('/admin/products/edit/', [AdminController::class, 'productsEdit'])->name('admin.edit-products');
     Route::get('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.delete-products');
