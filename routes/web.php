@@ -7,6 +7,8 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\ReviewController;
+
 
 require __DIR__.'/auth.php';
 
@@ -60,7 +62,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 });
 
-
+//Review Related Routes
+Route::resource('reviews', ReviewController::class)->middleware('auth');
+Route::delete('/reviews/{id}', 'ReviewController@destroy')->name('reviews.destroy');
 
 //Admin pages
 Route::get('/admin/users', [AdminController::class, 'listUsers']);
