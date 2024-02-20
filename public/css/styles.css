@@ -544,6 +544,7 @@ ul.catagories  {
     padding: 6px;
     border: 1px solid #ddd;
     text-align:justify;
+    color: black;
 }
 
 
@@ -589,3 +590,4 @@ ul.catagories  {
         width:auto;
         margin-bottom: 3px;
     }
+}

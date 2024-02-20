@@ -17,7 +17,6 @@
                         <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Account type</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -28,7 +27,6 @@
                             <th scope="row">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->password}}</td>
                             <td>{{$user->accountType}}</td>
                             <td>
                                 <a href="{{url('/admin/users/edit/'.$user->id)}}" class="btn btn-AE btn-sm">Edit</a>
