@@ -33,7 +33,7 @@
                         <div class="swiper-slide"><img src="/images/homepage/ring.jpg" alt="Rings" class="aboutImg"></div>
                         <div class="swiper-slide"><img src="/images/homepage/watch.jpg" alt="Watches" class="aboutImg"></div>
                         <div class="swiper-slide"><img src="/images/homepage/necklace.jpg" alt="Necklaces" class="aboutImg"></div>
-                        <div class="swiper-slide"><img src="/images/homepage/bracelet.png" alt="Bracelets" class="aboutImg"></div>
+                        <div class="swiper-slide"><img src="/images/homepage/braceletIMG.jpg" alt="Bracelets" class="aboutImg"></div>
                     
                     </div>
                     <!-- If we need pagination -->
