@@ -31,8 +31,8 @@
                             <td>{{$user->password}}</td>
                             <td>{{$user->accountType}}</td>
                             <td>
-                                <a href="" class="btn btn-AE btn-sm">Edit</a>
-                                <a href="" class="btn btn-delete btn-sm">Delete</a>
+                                <a href="{{url('/admin/users/edit/'.$user->id)}}" class="btn btn-AE btn-sm">Edit</a>
+                                <a href="{{url('/admin/delete/'.$user->id)}}" class="btn btn-delete btn-sm">Delete</a>
 
                             </td>
 

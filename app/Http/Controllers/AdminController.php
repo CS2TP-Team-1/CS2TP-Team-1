@@ -43,4 +43,34 @@ class AdminController extends Controller
     public function addPage(){
         return view('pages.admin.addUser');
     }
+    
+    public function editUsers($id){
+        $user = User::findOrFail($id);
+
+        return view('pages.admin.edit', compact('user'));
+    }
+
+    public function amendUsers($id, Request $request){
+        $user = User::findOrFail($id);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'bail'],
+            'email' => ['bail', 'required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['bail', 'required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'accountType' => 'user'
+        ]);
+
+        $user->basket()->create();
+
+
+        Auth::login($user);
+
+        return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
+    }
 }
+
