@@ -7,7 +7,7 @@
             <div class="table-body">
                 <h4 class="table-title">
                     Registered Users
-                    <a href="" class="btn btn-AE" style="float:right; margin-top: -12px;">Add new user</a>
+                    <a href="{{url('/admin/addUser')}}" class="btn btn-AE" style="float:right; margin-top: -12px;">Add new user</a>
 
                 </h4>
 
