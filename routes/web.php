@@ -68,4 +68,6 @@ Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.a
 Route::post('/admin/addUser', [AdminController::class, 'addUsers']);
 Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUsers'])->name('admin.users.edit');
 Route::post('/admin/users/edit/{id}', [AdminController::class, 'amendUsers']);
+Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser']);
+
 

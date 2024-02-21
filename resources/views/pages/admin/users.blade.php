@@ -30,7 +30,7 @@
                             <td>{{$user->accountType}}</td>
                             <td>
                                 <a href="{{url('/admin/users/edit/'.$user->id)}}" class="btn btn-AE btn-sm">Edit</a>
-                                <a href="{{url('/admin/delete/'.$user->id)}}" class="btn btn-delete btn-sm">Delete</a>
+                                <a onclick="return confirm('Continue to delete the user')" href="{{url('/admin/delete/'.$user->id)}}" class="btn btn-delete btn-sm">Delete</a>
 
                             </td>
 

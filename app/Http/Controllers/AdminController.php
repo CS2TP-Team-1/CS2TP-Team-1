@@ -72,5 +72,13 @@ class AdminController extends Controller
 
         return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
     }
+
+    public function deleteUser($id){
+        $user = User::findOrFail($id);
+        $user-> delete();
+
+        return redirect()->back()->with('Success, User has been successfully deleted');
+
+    }
 }
 
