@@ -586,6 +586,7 @@ ul.catagories  {
     }
 }
 
+
 /* Create Product Form */
 
 .new-product-form {
@@ -621,3 +622,6 @@ ul.catagories  {
     margin: 3px !important;
 }
 
+div .review {
+    width: 100%;
+}

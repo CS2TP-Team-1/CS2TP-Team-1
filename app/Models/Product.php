@@ -19,4 +19,10 @@ class Product extends Model
         return $this->belongsToMany(Order::class, 'orders_products', 'product_id', 'order_id');
     }
 
+    //A product can have many reviews
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
 }
