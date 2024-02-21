@@ -590,3 +590,7 @@ ul.catagories  {
         margin-bottom: 3px;
     }
 }
+
+div .review {
+    width: 100%;
+}

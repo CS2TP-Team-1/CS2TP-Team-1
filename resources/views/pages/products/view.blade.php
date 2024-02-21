@@ -40,11 +40,7 @@
                     <h4>{{ $review->title }} | {{ $review->rating }}/5</h4>
                     <p>{{ $review->contents }}</p>
                     @if (Auth::check() && Auth::user()->id == $review->user_id)
-                        <form method="POST" action="{{ route('reviews.destroy', $review->id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button class="button" type="submit">Delete</button>
-                        </form>
+                        <button class="button" onclick="location.href='/reviews/delete/{{$review->id}}'">Delete</button>
                     @endif
                 </div>
             @endforeach
@@ -52,14 +48,42 @@
     </div>
 
     <h2>Write your own review</h2>
-    @if (\Illuminate\Support\Facades\Auth::check() && Auth::user()->id == $review->user_id)
-        <div class="form">
-            <form class="account-form">
-                <p>You cannot submit more than one review</p>
-            </form>
-        </div>
-    @else
-        @if (\Illuminate\Support\Facades\Auth::check())
+    @auth
+        @forelse ($product->reviews as $review)
+            @if (Auth::user()->id == $review->user_id)
+                <div class="form">
+                    <form class="account-form">
+                        <p>You cannot submit more than one review</p>
+                    </form>
+                </div>
+            @else
+            <div class="form">
+                <form class="account-form" method="POST" action="{{ url('/reviews') }}">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <label for="title">Review Title (Optional):</label>
+                    <br>
+                    <input type="text" name="title" id="title" value="Default Title">
+                    <br>
+                    <label for="rating">Rating:</label>
+                    <br>
+                    <select name="rating" id="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <br>
+                    <label for="contents">Review Contents:</label>
+                    <br>
+                    <textarea name="contents" required id="contents" rows="4"></textarea>
+                    <br>
+                    <button class="button" type="submit">Submit Review</button>
+                </form>
+            </div>
+            @endif
+        @empty
             <div class="form">
                 <form class="account-form" method="POST" action="{{ url('/reviews') }}">
                     @csrf
@@ -85,12 +109,15 @@
                     <button class="button" type="submit">Submit Review</button>
                 </form>
             </div>
-        @else
-            <div class="form">
-                <form class="account-form">
-                    <p>You must be signed in to write a review</p>
-                </form>
-            </div>
-        @endif
-    @endif
+        @endforelse
+    @endauth
+
+    @guest
+        <div class="form">
+            <form class="account-form">
+                <p>You must be signed in to write a review</p>
+            </form>
+        </div>
+    @endguest
+
 @endsection

@@ -47,13 +47,15 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        $review = Review::findOrFail($id);
+        $review = Review::where('id', '=', $id);
         // Check if the authenticated user is authorized to delete the review
-        if ($review->user_id === auth()->id()) {
+        // if ($review->user_id === auth()->id()) {
             $review->delete();
-            return redirect()->back()->with('success', 'Review deleted successfully.');
-        } else {
-            return redirect()->back()->with('error', 'You are not authorized to delete this review.');
-        }
+            return redirect(url('/products/'.$id))->with('success', 'Review deleted successfully.');
+        // } else {
+        //     return redirect()->back()->with('error', 'You are not authorized to delete this review.');
+        // }
+
+        
     }
 }
