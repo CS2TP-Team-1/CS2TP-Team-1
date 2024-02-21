@@ -34,7 +34,7 @@ Route::post('/contact', [ContactFormController::class, 'store']);
 
 // Products page and related routes
 Route::resource('products', ProductController::class)
-    ->only(['index','show','create', 'store']);
+    ->only(['index','show']);
 
 //Account Related
 Route::middleware('auth')->group(function () {
@@ -67,4 +67,16 @@ Route::resource('reviews', ReviewController::class)->middleware('auth');
 Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 //Admin pages
-Route::get('/admin/users', [AdminController::class, 'listUsers']);
+
+Route::middleware('admin')->group(function (){
+    // Users
+    Route::get('/admin/users', [AdminController::class, 'listUsers']);
+    // Products
+    Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
+    Route::patch('/admin/products',[AdminController::class, 'productsUpdateStock'])->name('admin.products-update-stock');
+    Route::get('/admin/products/edit/{id}', [AdminController::class, 'productsEditPage'])->name('admin.edit-products-page');
+    Route::patch('/admin/products/edit/', [AdminController::class, 'productsEdit'])->name('admin.edit-products');
+    Route::get('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.delete-products');
+    Route::get('/admin/products/create', [AdminController::class, 'productsCreateForm'])->name('admin.form-create-products');
+    Route::post('/admin/products/create', [AdminController::class, 'productsCreate'])->name('admin.create-products');
+});
