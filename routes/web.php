@@ -67,7 +67,6 @@ Route::resource('reviews', ReviewController::class)->middleware('auth');
 Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 //Admin pages
-
 Route::middleware('admin')->group(function (){
     // Users
     Route::get('/admin/users', [AdminController::class, 'listUsers']);
