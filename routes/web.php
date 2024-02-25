@@ -2,13 +2,13 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\DiscountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\ReviewController;
-
 
 require __DIR__.'/auth.php';
 
@@ -62,9 +62,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 });
 
-//Review Related Routes
+//Review Routes
 Route::resource('reviews', ReviewController::class)->middleware('auth');
 Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+//Discount Routes
+Route::get('/discounts', [DiscountController::class, 'index'])->name('discounts.index');
+Route::post('/discounts', [DiscountController::class, 'store'])->name('discounts.store');
 
 //Admin pages
 Route::middleware('admin')->group(function (){

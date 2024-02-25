@@ -9,4 +9,5 @@ class Discount extends Model
 {
     use HasFactory;
     protected $fillable = ['code', 'amount'];
+    public $timestamps = false;
 }
