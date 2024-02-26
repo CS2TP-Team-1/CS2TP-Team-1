@@ -33,7 +33,7 @@
                         <a href="/products/{{$id}}">{{$details['name']}} </a>
                     </td>
                     <td>
-                        {{$details['price']}}
+                        £{{$details['price']}}
                     </td>
                     <td>
                         {{$details['category']}}

@@ -292,6 +292,20 @@ ul.catagories  {
     text-align: center;
 }
 
+.button-out-of-stock {
+    background-color: rgb(57, 43, 57);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 30%;
+    size: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: default;
+
+}
+
 .login {
     background-color: rgb(219, 128, 219);
     color: white;
