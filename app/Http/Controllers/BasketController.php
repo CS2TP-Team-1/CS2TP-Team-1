@@ -91,10 +91,16 @@ class BasketController extends Controller
 
         foreach($cart as $id => $details){
             $product = Product::findOrFail($details['id']);
+            $currentStock = $product->stock;
 
             for ($i = 0; $i < $details['quantity']; $i++) {
                 $order->products()->attach($product);
+                $currentStock--;
             }
+
+            $product->update([
+                'stock' => $currentStock,
+            ]);
         }
 
         session()->forget('cart');
