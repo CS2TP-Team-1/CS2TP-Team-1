@@ -306,6 +306,20 @@ ul.catagories  {
 
 }
 
+.button-out-of-stock-basket {
+    background-color: rgb(57, 43, 57);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 30%;
+    size: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+}
+
 .login {
     background-color: rgb(219, 128, 219);
     color: white;
