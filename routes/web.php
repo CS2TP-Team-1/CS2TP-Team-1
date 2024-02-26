@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\ReviewController;
 
 
+
+
+
 require __DIR__.'/auth.php';
 
 
@@ -35,6 +38,9 @@ Route::post('/contact', [ContactFormController::class, 'store']);
 // Products page and related routes
 Route::resource('products', ProductController::class)
     ->only(['index','show']);
+
+//Contact submission Page
+Route::get('/contact-submission', function (){ return View::make('pages.contact-submission'); });
 
 //Account Related
 Route::middleware('auth')->group(function () {
