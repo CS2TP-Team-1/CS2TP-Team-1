@@ -4,6 +4,14 @@
 @section('content')
     @php
         $imgPath = '/images/products/' . $product->mainImage;
+
+        if ($product->stock == 0){
+            $stockLevel = 'Out of Stock';
+        } elseif ($product->stock < 10){
+            $stockLevel = 'Low Stock';
+        } else {
+            $stockLevel = 'In Stock';
+        }
     @endphp
 
     <h1> {{ $product->name }} </h1>
@@ -15,10 +23,13 @@
             </div>
             <div id="product-view-container-info">
                 <h3>£{{ $product->price }}</h3>
+                <h4>Stock Level: {{$stockLevel}}</h4>
                 <p>{{ $product->description }}</p>
-                @if (\Illuminate\Support\Facades\Auth::check())
+                @if (\Illuminate\Support\Facades\Auth::check() && $product->stock > 0)
                     <button class="button" onclick="location.href='{{ route('add-to-basket', $product->id) }}'">Add to
                         Basket</button>
+                @elseif(\Illuminate\Support\Facades\Auth::check() && $product->stock == 0)
+                    <button class="button-out-of-stock">This item is out of stock</button>
                 @else
                     <button class="button" onclick="location.href='{{ route('login') }}'">You must be logged in to add to
                         basket.</button>
