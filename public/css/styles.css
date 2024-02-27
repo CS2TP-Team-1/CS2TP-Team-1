@@ -412,6 +412,33 @@ header {
     }
 }
 
+/* seaerch form */
+
+
+.search-form {
+    max-width: 200px; 
+    margin: 0 auto;
+}
+
+.search-form-input[type="text"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.search-form-input-submit {
+    width: 100%;
+    background-color: rgb(85, 65, 85);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Login Page */
 
 #login-form {
