@@ -2,8 +2,8 @@
 @section('title', 'Products')
 
 @section('content')
-<form id="jewelrySearchForm" action="{{ route('products.index') }}" method="GET">
-    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewelry...">
+<form action="{{ route('products.index') }}" method="GET">
+<input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewelry...">
     <select id="category" name="category">
         <option value="">Select Category</option>
         <option value="necklaces">Necklaces</option>
@@ -18,7 +18,7 @@
         <option value="platinum">Platinum</option>
     </select>
     <input type="submit" value="Search">
-</form>
+    </form>
 
     <!-- Display the search results if available -->
     @if(isset($search))

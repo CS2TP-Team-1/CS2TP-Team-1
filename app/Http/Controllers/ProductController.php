@@ -18,23 +18,47 @@ class ProductController extends Controller
 */
 
 //modifed index function for search feature
-public function index(Request $request)
-{
-    $search = $request->input('searchQuery');
-    $category = $request->input('category');
-    $metalType = $request->input('metalType');
-
-    $products = Product::when($search, function ($query) use ($search) {
-        $query->where('name', 'like', '%' . $search . '%')
-              ->orWhere('description', 'like', '%' . $search . '%');
-    })->when($category, function ($query) use ($category) {
-        $query->where('category', $category);
-    })->when($metalType, function ($query) use ($metalType) {
-        $query->where('metalType', $metalType);
-    })->get();
-
-    return view('products.index', compact('products', 'search'));
-}
+public function index(Request $request): View
+    {
+        
+        
+        
+        
+        $search = $request->input('searchQuery');
+        $category = $request->input('category');
+        $metalType = $request->input('metalType');
+    
+        $query = Product::query();
+    
+        if ($search!="") {
+            $query->where('name', 'like', "%$search%");
+        } 
+        elseif ($category!="") {
+            $query->where('category', 'like', "%$category%");
+        } elseif ($metalType!="") {
+            $query->where('metalType', 'like', "%$metalType%");
+        } elseif ($search!="" && $category!="") {
+            $query->where('name', 'like', "%$search%")
+                  ->orWhere('category', 'like', "%$category%");
+        } elseif ($search!="" && $metalType!="") {
+            $query->where('name', 'like', "%$search%")
+                  ->orWhere('metalType', 'like', "%$metalType%");
+        } elseif ($search!="" && $category!="" && $metalType!="") {
+            $query->where('name', 'like', "%$search%")
+                  ->orWhere('category', 'like', "%$category%")
+                  ->orWhere('metalType', 'like', "%$metalType%");
+        }
+    
+        $products = $query->get();
+    
+        return view('pages.products.index', compact('products', 'search'));
+        
+        
+        
+    
+    
+        return view('pages.products.index', compact('products', 'search'));
+    }
 
 
 
