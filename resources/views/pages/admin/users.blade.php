@@ -27,10 +27,14 @@
                             <th scope="row">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->accountType}}</td>
+                            <td>{{$user->accountType == 1? 'Admin' : 'User'}}</td>
                             <td>
+                                @if($user->id == \Illuminate\Support\Facades\Auth::id())
+                                    <p>Changes not permitted</p>
+                                @else
                                 <a href="{{url('/admin/users/edit/'.$user->id)}}" class="btn btn-AE btn-sm">Edit</a>
                                 <a onclick="return confirm('Continue to delete the user')" href="{{url('/admin/delete/'.$user->id)}}" class="btn btn-delete btn-sm">Delete</a>
+                                @endif
 
                             </td>
 
