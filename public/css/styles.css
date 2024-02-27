@@ -11,7 +11,7 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-p, pre, label, th, td
+p, pre, label, th, td, li
 {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
@@ -624,4 +624,28 @@ ul.catagories  {
 
 div .review {
     width: 100%;
+}
+
+/* Footer */
+
+.footer {
+    background-color: rgb(85, 65, 85);
+    width: 100%;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    margin-top: 10px;
+    height: auto;
+    overflow: hidden;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-nav-ul>li {
+    list-style-type: none;
+    float: none;
 }
