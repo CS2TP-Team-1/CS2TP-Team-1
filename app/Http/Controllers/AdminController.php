@@ -29,13 +29,9 @@ class AdminController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'accountType' => 'user'
+            'accountType' => '0'
         ]);
 
-        $user->basket()->create();
-
-
-        Auth::login($user);
 
         return redirect ('pages.admin.users') -> with ('Success, User has been registered successfully');
     }
@@ -55,20 +51,14 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255', 'bail'],
             'email' => ['bail', 'required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['bail', 'required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
             'accountType' => 'user'
         ]);
 
-        $user->basket()->create();
-
-
-        Auth::login($user);
 
         return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
     }
