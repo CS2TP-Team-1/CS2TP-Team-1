@@ -15,11 +15,11 @@ class ProductController extends Controller
         return Facades\View::make('pages.products.index', array('products' => Product::all()));
     }
 
-public function show(string $id): View
-{
-    $product = Product::with('reviews')->where('id', '=', $id)->first();
-    return view('pages.products.view', compact('product'));
-}
+    public function show(string $id): View
+    {
+        $product = Product::with('reviews')->where('id', '=', $id)->first();
+        return view('pages.products.view', compact('product'));
+    }
 
 
 }
