@@ -73,9 +73,15 @@ Route::get('/discounts/delete/{id}', [DiscountController::class, 'destroy'])->na
 Route::post('/discounts', [DiscountController::class, 'store'])->name('discounts.store');
 
 //Admin pages
+
 Route::middleware('admin')->group(function (){
     // Users
-    Route::get('/admin/users', [AdminController::class, 'listUsers']);
+    Route::get('/admin/users', [AdminController::class, 'listUsers'])->name('admin.users');
+    Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');
+    Route::post('/admin/addUser', [AdminController::class, 'addUsers']);
+    Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUsers'])->name('admin.users.edit');
+    Route::post('/admin/users/edit/{id}', [AdminController::class, 'amendUsers']);
+    Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser']);
     // Products
     Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
     Route::patch('/admin/products',[AdminController::class, 'productsUpdateStock'])->name('admin.products-update-stock');
