@@ -609,3 +609,21 @@ ul.catagories  {
     border-radius: 12.5px;
 }
 
+/*CSS for the Admin-add users form*/
+.AddUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-form{
+    width: 40%;
+    margin: 50px auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2%;
+    background-color: rgb(85, 65, 85);
+    border-radius: 12.5px;
+}
