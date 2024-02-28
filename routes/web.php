@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-to-basket/{id}', [BasketController::class, 'addProductToBasket'])->name('add-to-basket');
     Route::get('/remove-product/{id}', [BasketController::class, 'decreaseProductQuantity'])->name('decrease-product-quantity');
     Route::get('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
+    Route::patch('/basket',[DiscountController::class, 'applyDiscount'])->name('apply-discount');
     // Checkout
     Route::get('/checkout', function (){ return view::make('pages.account.checkout'); });
     Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
@@ -68,6 +69,7 @@ Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('
 
 //Discount Routes
 Route::get('/discounts', [DiscountController::class, 'index'])->name('discounts.index');
+Route::get('/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
 Route::post('/discounts', [DiscountController::class, 'store'])->name('discounts.store');
 
 //Admin pages

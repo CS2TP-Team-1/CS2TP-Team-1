@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discount;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades;
@@ -28,5 +29,28 @@ class DiscountController extends Controller
         ]);
 
         return redirect()->route('discounts.index')->with('success', 'Discount added successfully!');
+    }
+
+    public function destroy($id)
+    {
+        $review = Discount::where('id', '=', $id);
+            $review->delete();
+            return redirect(url('/discounts')->with('success', 'Review deleted successfully.'));
+    }
+
+    public function applyDiscount(Request $request) : RedirectResponse
+    {
+        $code = $request->code;
+        $discountModel = Discount::where('code', '=', $code)->first();
+        if ($discountModel === null) {
+            return redirect()->back()->with('failed', 'code-invalid');
+        } else {
+            $amount = $discountModel->amount;
+            $total = session()->get('total');
+            $newTotal = $total - $amount;
+            session()->put('total', $newTotal);
+            session()->put('discountApplied', true);
+            return redirect()->back()->with('success', 'discount-applied');
+        }
     }
 }
