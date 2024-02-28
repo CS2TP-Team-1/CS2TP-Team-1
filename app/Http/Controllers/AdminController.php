@@ -55,7 +55,6 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255', 'bail'],
             'email' => ['bail', 'required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            
         ]);
 
         $user->update([
@@ -63,9 +62,6 @@ class AdminController extends Controller
             'email' => $request->email,
             'accountType' => 'user'
         ]);
-
-
-        
 
         return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
     }

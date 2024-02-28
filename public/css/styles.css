@@ -614,6 +614,35 @@ ul.catagories  {
     }
 }
 
+
+/*CSS for the Admin-edit users form*/
+.EditUsers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  /*CSS for the Admin-add users form*/
+.AddUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-form{
+    width: 40%;
+    margin: 50px auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2%;
+    background-color: rgb(85, 65, 85);
+    border-radius: 12.5px;
+    padding: 2%;
+    background-color: rgb(85, 65, 85);
+}
+
+
 /* Create Product Form */
 
 .new-product-form {
@@ -623,8 +652,9 @@ ul.catagories  {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding: 2%;
+    padding-left: 2%;
     background-color: rgb(85, 65, 85);
+    border-radius: 12.5px;
 }
 
 .new-product-form button {
