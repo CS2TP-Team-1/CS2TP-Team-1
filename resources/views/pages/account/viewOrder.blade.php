@@ -15,7 +15,7 @@
     <h2>Your Order Contents:</h2>
 <div class="form">
     <form class="account-form">
-    <table>
+    <table class="table">
         <thead>
         <th>Product Image</th>
         <th>Product ID</th>
@@ -29,7 +29,7 @@
             <tr>
                 <td><img src="{{ $imgPath }}" alt="Image of the Product" width="100px" id="product-view-image"></td>
                 <td>{{$product->id}}</td>
-                <td>{{$product->name}}</td>
+                <td><a target="_blank" href="/products/{{$product->id}}">{{$product->name}} </a></td>
                 <td>£{{$product->price}}</td>
             </tr>
         @endforeach
