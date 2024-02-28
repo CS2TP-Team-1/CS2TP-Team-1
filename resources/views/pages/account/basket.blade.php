@@ -1,6 +1,8 @@
 @extends('layouts.default')
 @section('title', 'Basket')
 
+
+
 @section('content')
     <h1>Your Basket</h1>
 
@@ -29,6 +31,9 @@
                     </thead>
                     <tbody>
                         @foreach (session('cart') as $id => $details)
+                            @php
+                                $remainingStock = \App\Models\Product::findOrFail($id)->stock - $details['quantity'];
+                            @endphp
                             <tr>
                                 <td>
                                     <a href="/products/{{ $id }}">{{ $details['name'] }} </a>
@@ -45,7 +50,10 @@
                                 <td>
                                     <a href="{{ route('decrease-product-quantity', $id) }}">-</a>
                                     <p>{{ $details['quantity'] }}</p>
-                                    <a href="{{ route('add-to-basket', $id) }}">+</a>
+                                    @if($remainingStock > 0)
+                                        <a href="{{ route('add-to-basket', $id) }}">+</a>
+                                    @endif
+
                                 </td>
                                 <td>
 
@@ -88,14 +96,14 @@
                 <button class="button">Validate</button>
             @endif
         {{-- </div> --}}
-        
-        @if(session('success'))
+
+        @if(session('success') === 'discount-applied')
         <p>Discount Applied</p>
-    @elseif(session('failed'))
+    @elseif(session('failed') === 'code-invalid')
         <p>Invalid Code</p>
     @endif
     </form>
 
-    
+
 </div>
 @endsection

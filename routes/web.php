@@ -67,11 +67,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('reviews', ReviewController::class)->middleware('auth');
 Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
-//Discount Routes
-Route::get('/discounts', [DiscountController::class, 'index'])->name('discounts.index');
-Route::get('/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
-Route::post('/discounts', [DiscountController::class, 'store'])->name('discounts.store');
-
 //Admin pages
 
 Route::middleware('admin')->group(function (){
@@ -90,4 +85,8 @@ Route::middleware('admin')->group(function (){
     Route::get('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.delete-products');
     Route::get('/admin/products/create', [AdminController::class, 'productsCreateForm'])->name('admin.form-create-products');
     Route::post('/admin/products/create', [AdminController::class, 'productsCreate'])->name('admin.create-products');
+    // Discounts
+    Route::get('/admin/discounts', [DiscountController::class, 'index'])->name('discounts.index');
+    Route::get('/admin/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
+    Route::post('/admin/discounts', [DiscountController::class, 'store'])->name('discounts.store');
 });

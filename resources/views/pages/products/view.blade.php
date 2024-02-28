@@ -17,6 +17,8 @@
         $cart = session()->get('cart');
         if (isset($cart[$product->id])){
         $remainingStock = $product->stock - $cart[$product->id]['quantity'];
+        } else {
+            $remainingStock = $product->stock;
         }
     @endphp
 
