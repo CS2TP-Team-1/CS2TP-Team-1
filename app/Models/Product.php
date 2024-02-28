@@ -9,15 +9,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
-    use HasFactory;
 
-    protected $fillable = ['name', 'price', 'promotion', 'metalType', 'category', 'mainImage', 'description'];
+    protected $fillable = ['name', 'price', 'promotion', 'metalType', 'category', 'mainImage', 'description', 'stock'];
 
     // One product can be in multiple orders (Has to be a many-to-many relationship as one product could be in multiple orders the same way as one order can have multiple products)
 
     public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class, 'orders_products', 'product_id', 'order_id');
+    }
+
+    //A product can have many reviews
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
 }

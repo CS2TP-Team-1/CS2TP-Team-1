@@ -22,7 +22,17 @@ class BasketController extends Controller
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
         $cartTotal = session()->get('total');
+
+
+
         if (isset($cart[$id])){
+//        Check if there is enough stock to add another to the basket
+//        Get current stock level, minus the quantity in the basket and see if there is 1 spare
+            $remainingStock = $product->stock - $cart[$id]['quantity'];
+            if ($remainingStock < 1) {
+                return redirect()->back()->with('failed', 'no-stock');
+            }
+
             $cart[$id]['quantity']++;
             $cartTotal += $product->price;
         } else {
@@ -91,10 +101,16 @@ class BasketController extends Controller
 
         foreach($cart as $id => $details){
             $product = Product::findOrFail($details['id']);
+            $currentStock = $product->stock;
 
             for ($i = 0; $i < $details['quantity']; $i++) {
                 $order->products()->attach($product);
+                $currentStock--;
             }
+
+            $product->update([
+                'stock' => $currentStock,
+            ]);
         }
 
         session()->forget('cart');

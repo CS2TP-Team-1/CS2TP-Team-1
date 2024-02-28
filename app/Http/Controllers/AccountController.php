@@ -50,7 +50,14 @@ class AccountController extends Controller
 
 
     public function viewOrder($id) {
-        return Facades\View::make('pages.account.viewOrder', ['order' => Order::where('id', '=', $id)->first()]);
+
+        $order = Order::findOrFail($id);
+
+        if ($order->user_id === Auth::id()) {
+            return Facades\View::make('pages.account.viewOrder', ['order' => Order::where('id', '=', $id)->first()]);
+        } else {
+            abort(403, "This order is not your order.");
+        }
     }
 
 }
