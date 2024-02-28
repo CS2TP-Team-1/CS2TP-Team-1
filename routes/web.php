@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
     Route::patch('/basket',[DiscountController::class, 'applyDiscount'])->name('apply-discount');
     // Checkout
-    Route::get('/checkout', function (){ return view::make('pages.account.checkout'); });
+    Route::get('/checkout', function (){ return view::make('pages.account.checkout'); })->name('checkoutPage');
     Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 });
 

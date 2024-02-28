@@ -6,6 +6,7 @@
 
     <div class="form">
         <form class="account-form">
+
             @if (session('status') === 'basket-updated')
                 <p>Your basket has been updated!</p>
             @elseif (session('status') === 'item-not-found')
@@ -98,6 +99,3 @@
     
 </div>
 @endsection
-
-
-
