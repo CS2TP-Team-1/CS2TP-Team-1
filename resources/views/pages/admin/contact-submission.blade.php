@@ -15,13 +15,15 @@
         <th>Email address</th>
         <th>message</th>
         </thead>
+        @foreach($forms as $form)
             <tr>
-                <td>name</td>
-                <td>email</td>
-                <td>message</td>
+                <td>{{$form->name}}</td>
+                <td>{{$form->email}}</td>
+                <td>{{$form->message}}</td>
             </tr>
-        
 
+        @endforeach
+        
     </table>
     </form>
     </div>
