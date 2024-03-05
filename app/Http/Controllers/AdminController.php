@@ -29,7 +29,7 @@ class AdminController extends Controller
             'password' => ['bail', 'required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -43,7 +43,7 @@ class AdminController extends Controller
     public function addPage(){
         return view('pages.admin.addUser');
     }
-    
+
     public function editUsers($id){
         $user = User::findOrFail($id);
 
@@ -66,13 +66,15 @@ class AdminController extends Controller
         return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
     }
 
-    public function deleteUser($id){
+    public function deleteUser($id)
+    {
         $user = User::findOrFail($id);
-        $user-> delete();
+        $user->delete();
 
         return redirect()->back()->with('Success, User has been successfully deleted');
+    }
 
-    public function productsDashboard()
+    public function productsDashboard(): View
     {
 
         $products = Product::all();
@@ -82,8 +84,6 @@ class AdminController extends Controller
 
     public function productsEditPage($id)
     {
-        $product = Product::where('id', '=', $id);
-
         return View::make('pages.admin.products.edit', ['product' => Product::where('id', '=', $id)->first()]);
 
     }
@@ -109,6 +109,7 @@ class AdminController extends Controller
 
         return redirect(route('admin.products-dashboard'));
     }
+
 
     public function productsUpdateStock(Request $request): RedirectResponse
     {
@@ -154,7 +155,7 @@ class AdminController extends Controller
         $mainImage->move($destinationPath,$newImageName);
 
 
-        $product = Product::create([
+        Product::create([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'promotion' => $request->input('promotion'),
