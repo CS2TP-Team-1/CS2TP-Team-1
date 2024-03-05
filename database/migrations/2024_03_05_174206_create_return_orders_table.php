@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('return_orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('order_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->float('returnValue');
 
             $table->foreign('order_id')->references('id')->on('orders');

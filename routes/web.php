@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\ReturnOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
     // View Specific Order
     Route::get('/order/{id}', [AccountController::class, 'viewOrder'])->name('view-order');
+    Route::get('/order/{order_id}/return/{product_id}', [ReturnOrderController::class, 'returnProduct'])->name('return-product');
 });
 
 //About Us page

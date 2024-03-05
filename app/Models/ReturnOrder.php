@@ -11,7 +11,7 @@ class ReturnOrder extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['returnValue'];
+    protected $fillable = ['returnValue', 'product_id', 'order_id'];
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);

@@ -35,7 +35,16 @@
                 <td><a target="_blank" href="/products/{{$product->id}}">{{$product->name}} </a></td>
                 <td>£{{$product->price}}</td>
                 @if($order->status === 'Ordered')
-                    <td>Return Item</td>
+                    <td>
+{{--                        <form method="post" action="{{route('return-product', $order->id)}}">--}}
+{{--                            @csrf--}}
+{{--                            <input type="number" hidden name="order_id" value="{{$order->id}}">--}}
+{{--                            <input type="number" hidden name="product_id" value="{{$product->id}}">--}}
+{{--                            <button type="submit" class="login">Return Item</button>--}}
+{{--                        </form>--}}
+                        <a href="/order/{{$order->id}}/return/{{$product->id}}">Return Product</a>
+
+                    </td>
                 @endif
             </tr>
         @endforeach
