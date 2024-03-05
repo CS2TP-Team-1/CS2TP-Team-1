@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -71,6 +71,7 @@ class AdminController extends Controller
         $user-> delete();
 
         return redirect()->back()->with('Success, User has been successfully deleted');
+    }
 
     public function productsDashboard()
     {
@@ -167,6 +168,22 @@ class AdminController extends Controller
 
         return redirect(route('admin.products-dashboard'));
 
+    }
+
+    public function viewOrders(){
+
+        $orders = Order::all();
+
+        return view('pages.admin.orders', compact('orders'));
+    }
+
+    public function updateorderStatus(Request $request, $id){
+        $request->validate(['status' => 'required|in:Ordered,Processing,Shipped',]);
+
+        $order = Order::findOrFail($id);
+        $order->update(['status' => $request->status]);
+
+        return redirect()->back()->with('success', 'the status has been edited');
     }
 }
 
