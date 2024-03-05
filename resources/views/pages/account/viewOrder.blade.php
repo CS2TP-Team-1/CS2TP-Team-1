@@ -21,6 +21,9 @@
         <th>Product ID</th>
         <th>Product Name</th>
         <th>Price</th>
+        @if($order->status === 'Ordered')
+            <th>Returns</th>
+        @endif
         </thead>
         @foreach($theOrder->products as $product)
             @php
@@ -31,6 +34,9 @@
                 <td>{{$product->id}}</td>
                 <td><a target="_blank" href="/products/{{$product->id}}">{{$product->name}} </a></td>
                 <td>£{{$product->price}}</td>
+                @if($order->status === 'Ordered')
+                    <td>Return Item</td>
+                @endif
             </tr>
         @endforeach
 
