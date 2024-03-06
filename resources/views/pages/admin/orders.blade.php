@@ -28,18 +28,13 @@
                             <td>
                                 <form id="dropStatus" action="{{route('admin.order.updateStatus', $order->id)}}" method="post">
                                     @csrf
-                                    <select name="status" onchange="submitChange()">
+                                    <select name="status" onchange="this.form.submit()">
                                         <option value="Ordered" @if($order->status == 'Ordered') selected @endif>Ordered</option>
                                         <option value="Processing" @if($order->status == 'Processing') selected @endif>Processing</option>
                                         <option value="Shipped" @if($order->status == 'Shipped') selected @endif>Shipped</option>
 
-                                    </select>    
+                                    </select>
                                 </form>
-                                <script>
-                                    function submitChange(){
-                                        document.getElementById('dropStatus').submit();
-                                    }
-                                </script>
                             </td>
                             <td>{{$order->totalValue}}</td>
 
