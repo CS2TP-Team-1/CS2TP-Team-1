@@ -50,6 +50,10 @@
         @endforeach
 
     </table>
-@endsection
+
+
+            <p>{{session('count')}}</p>
+
 </form>
 </div>
+@endsection

@@ -53,18 +53,19 @@ class ReturnOrderController extends Controller
         ]);
 
         // Remove the product from the order
-        $productCount = 0; // Count of how many of that product there is in the order (we only want to remove 1)
-        foreach($order->products as $productLoop) {
-            if ($productLoop->id === $product_id) // Increment $productCount for the amount of that product in order
-                $productCount++;
+        $productCount = -1;
+        foreach ($order->products as $productLoop) {
+            if ( $productLoop->id == $product_id){
+                $productCount = $productCount + 1;
+            }
         }
-        $order->products()->detach($product); // Removes all of the specified product from the order regardless of whether there is 1 or 7000
-        $productCount--;
+        $order->products()->detach($product);
+
         for ($i = 0; $i < $productCount; $i++){
             $order->products()->attach($product);
         }
 
-
+        session()->put('count', $productCount);
 
         return redirect(url('/order/'.$order_id));
     }
