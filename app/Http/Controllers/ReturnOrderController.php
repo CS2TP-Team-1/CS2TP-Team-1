@@ -46,7 +46,11 @@ class ReturnOrderController extends Controller
         $returnOrder->order()->associate($order);
         $returnOrder->product()->associate($product);
 
-        $product->stock++; // Return stock to the stock
+       // Return stock to the stock
+        $newStockLevel = $product->stock + 1;
+        $product->update([
+            'stock' => $newStockLevel,
+        ]);
 
         // Remove the product from the order
         $productCount = 0; // Count of how many of that product there is in the order (we only want to remove 1)

@@ -74,7 +74,7 @@ class AdminController extends Controller
         return redirect()->back()->with('Success, User has been successfully deleted');
     }
 
-    public function productsDashboard(): View
+    public function productsDashboard(): \Illuminate\View\View
     {
 
         $products = Product::all();
