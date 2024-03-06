@@ -14,6 +14,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 
+
 class AdminController extends Controller
 {
     public function listUsers(){
@@ -184,6 +185,13 @@ class AdminController extends Controller
         $order->update(['status' => $request->status]);
 
         return redirect()->back()->with('success', 'the status has been edited');
+    }
+
+    public function viewOrder($id) {
+
+        $order = Order::findOrFail($id);
+
+        return view('pages.admin.AviewOrder', compact('order'));
     }
 }
 

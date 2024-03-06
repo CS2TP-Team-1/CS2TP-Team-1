@@ -17,6 +17,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">Order Status</th>
                             <th scope="col">Total Value of Order: £</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +38,9 @@
                                 </form>
                             </td>
                             <td>{{$order->totalValue}}</td>
+                            <td>
+                                <a href="{{route('admin.AviewOrder', ['id' => $order->id])}}"><i>View Order</i></a>
+                            </td>
 
                         </tr>
                         @endforeach

@@ -92,4 +92,6 @@ Route::middleware('admin')->group(function (){
     //Orders
     Route::get('/admin/orders', [AdminController::class, 'viewOrders'])->name('admin.orders');
     Route::post('/admin/orders/updateStatus/{id}', [AdminController::class, 'updateorderStatus'])->name('admin.order.updateStatus');
+    Route::get('/admin/AviewOrder/{id}', [AdminController::class, 'viewOrder'])->name('admin.AviewOrder');
+
 });
