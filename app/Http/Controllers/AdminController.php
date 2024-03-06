@@ -71,11 +71,14 @@ class AdminController extends Controller
         $user-> delete();
 
         return redirect()->back()->with('Success, User has been successfully deleted');
-
+    }
     public function productsDashboard()
     {
 
-        $products = Product::all();
+        $products = Product::query()
+            ->orderBy('stock', 'asc')
+            ->orderBy('id', 'asc')
+            ->get();
 
         return View::make('pages.admin.products.products', compact('products'));
     }
