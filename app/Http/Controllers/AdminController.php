@@ -71,7 +71,7 @@ class AdminController extends Controller
         $user-> delete();
 
         return redirect()->back()->with('Success, User has been successfully deleted');
-
+    }
     public function productsDashboard()
     {
 
