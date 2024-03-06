@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ContactSubmissionController;
 
 
 require __DIR__ . '/auth.php';
@@ -36,7 +37,19 @@ Route::post('/contact', [ContactFormController::class, 'store']);
 
 // Products page and related routes
 Route::resource('products', ProductController::class)
+<<<<<<< Updated upstream
     ->only(['index', 'show']);
+=======
+    ->only(['index','show']);
+
+//Contact submission Page
+
+//Route::get('/contactForm/{id}', [ContactSubmissionController::class, 'show']);
+
+// Route::get('/contact-submission', function (){ return View::make('pages.contact-submission'); });
+// Route::get('list','ContactSubmissionController@list');
+
+>>>>>>> Stashed changes
 
 //Account Related
 Route::middleware('auth')->group(function () {
@@ -74,7 +87,13 @@ Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('
 
 //Admin pages
 
+<<<<<<< Updated upstream
 Route::middleware('admin')->group(function () {
+=======
+Route::middleware('admin')->group(function (){
+    // Contact Forms
+    Route::get('/admin/contact', [ContactFormController::class, 'list'])->name('admin.contact-submissions');
+>>>>>>> Stashed changes
     // Users
     Route::get('/admin/users', [AdminController::class, 'listUsers']);
     // Products
