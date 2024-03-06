@@ -706,3 +706,13 @@ div .review {
     list-style-type: none;
     float: none;
 }
+
+/*CSS for admin-orders' status select box*/
+#dropStatus select {
+    padding: 4px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #fff;
+    width: auto; 
+}
+
