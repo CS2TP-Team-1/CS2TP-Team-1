@@ -7,7 +7,7 @@
             <div class="table-body">
                 <h4 class="table-title">
                     Registered Users
-                    <a href="" class="btn btn-AE" style="float:right; margin-top: -12px;">Add new user</a>
+                    <a href="{{url('/admin/addUser')}}" class="btn btn-AE" style="float:right; margin-top: -12px;">Add new user</a>
 
                 </h4>
 
@@ -17,7 +17,6 @@
                         <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Account type</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -28,17 +27,14 @@
                             <th scope="row">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->password}}</td>
+                            <td>{{$user->accountType == 1? 'Admin' : 'User'}}</td>
                             <td>
-                                @if($user->accountType === 1)
-                                    Admin
+                                @if($user->id == \Illuminate\Support\Facades\Auth::id())
+                                    <p>Changes not permitted</p>
                                 @else
-                                    User
+                                <a href="{{url('/admin/users/edit/'.$user->id)}}" class="btn btn-AE btn-sm">Edit</a>
+                                <a onclick="return confirm('Continue to delete the user')" href="{{url('/admin/delete/'.$user->id)}}" class="btn btn-delete btn-sm">Delete</a>
                                 @endif
-                            </td>
-                            <td>
-                                <a href="" class="btn btn-AE btn-sm">Edit</a>
-                                <a href="" class="btn btn-delete btn-sm">Delete</a>
 
                             </td>
 

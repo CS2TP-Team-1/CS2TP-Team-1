@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
 use App\Models\ContactForm;
+use App\Http\Controllers\DiscountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
@@ -11,7 +12,9 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\ReviewController;
 
 
+
 require __DIR__ . '/auth.php';
+
 
 
 /*
@@ -61,14 +64,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-to-basket/{id}', [BasketController::class, 'addProductToBasket'])->name('add-to-basket');
     Route::get('/remove-product/{id}', [BasketController::class, 'decreaseProductQuantity'])->name('decrease-product-quantity');
     Route::get('/remove-basket-product/{id}', [BasketController::class, 'removeProduct'])->name('remove-basket-product');
+    Route::patch('/basket',[DiscountController::class, 'applyDiscount'])->name('apply-discount');
     // Checkout
-    Route::get('/checkout', function () {
-        return view::make('pages.account.checkout');
-    });
+    Route::get('/checkout', function (){ return view::make('pages.account.checkout'); })->name('checkoutPage');
     Route::put('/checkout', [BasketController::class, 'checkout'])->name('checkout');
 });
 
-//Review Related Routes
+//Review Routes
 Route::resource('reviews', ReviewController::class)->middleware('auth');
 Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
@@ -76,7 +78,12 @@ Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('
 
 Route::middleware('admin')->group(function () {
     // Users
-    Route::get('/admin/users', [AdminController::class, 'listUsers']);
+    Route::get('/admin/users', [AdminController::class, 'listUsers'])->name('admin.users');
+    Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');
+    Route::post('/admin/addUser', [AdminController::class, 'addUsers']);
+    Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUsers'])->name('admin.users.edit');
+    Route::post('/admin/users/edit/{id}', [AdminController::class, 'amendUsers']);
+    Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser']);
     // Products
     Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
     Route::patch('/admin/products', [AdminController::class, 'productsUpdateStock'])->name('admin.products-update-stock');
@@ -89,4 +96,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/contact', function () {
         return View::make('pages.admin.contact-submission')->with('forms', ContactForm::all());
     })->name('admin.contact');
+    // Discounts
+    Route::get('/admin/discounts', [DiscountController::class, 'index'])->name('discounts.index');
+    Route::get('/admin/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
+    Route::post('/admin/discounts', [DiscountController::class, 'store'])->name('discounts.store');
 });

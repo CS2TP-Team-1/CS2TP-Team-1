@@ -11,7 +11,7 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-p, pre, label, th, td
+p, pre, label, th, td, li
 {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
@@ -290,6 +290,34 @@ ul.catagories  {
 #product-view-container-info {
     width: 60%;
     text-align: center;
+}
+
+.button-out-of-stock {
+    background-color: rgb(57, 43, 57);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 30%;
+    size: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: default;
+
+}
+
+.button-out-of-stock-basket {
+    background-color: rgb(57, 43, 57);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 30%;
+    size: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+
 }
 
 .login {
@@ -587,6 +615,34 @@ ul.catagories  {
 }
 
 
+/*CSS for the Admin-edit users form*/
+.EditUsers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  /*CSS for the Admin-add users form*/
+.AddUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-form{
+    width: 40%;
+    margin: 50px auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2%;
+    background-color: rgb(85, 65, 85);
+    border-radius: 12.5px;
+    padding: 2%;
+    background-color: rgb(85, 65, 85);
+}
+
+
 /* Create Product Form */
 
 .new-product-form {
@@ -596,8 +652,9 @@ ul.catagories  {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding: 2%;
+    padding-left: 2%;
     background-color: rgb(85, 65, 85);
+    border-radius: 12.5px;
 }
 
 .new-product-form button {
@@ -650,4 +707,27 @@ div .review {
     padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
     /*color: #f2f2f2;*/
+
+/* Footer */
+
+.footer {
+    background-color: rgb(85, 65, 85);
+    width: 100%;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    margin-top: 10px;
+    height: auto;
+    overflow: hidden;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-nav-ul>li {
+    list-style-type: none;
+    float: none;
 }

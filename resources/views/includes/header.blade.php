@@ -11,6 +11,13 @@
 
         <!--log in/ log out button page -->
         <li class="account">
+{{--            Admin Dashboard Access Button - Only displayed when logged in using admin account--}}
+            @if(\Illuminate\Support\Facades\Auth::check() &&\Illuminate\Support\Facades\Auth::user()->accountType === 1)
+                <div>
+                    <button class='login' onclick="location.href='/admin'">Admin Dashboard</button>
+                </div>
+            @endif
+
             <div>
                 @if (\Illuminate\Support\Facades\Auth::check())
                 <form action="{{ url("/logout") }}" method="post">
@@ -24,8 +31,8 @@
         </li>
 
         <li class="header">
-            <img src="/logo.png" alt="The Jewellery Store Logo" width="45">        
-            <h1>The Jewellery Store</h1>       
+            <img src="/logo.png" alt="The Jewellery Store Logo" width="45">
+            <h1>The Jewellery Store</h1>
         </li>
 
     </ul>
