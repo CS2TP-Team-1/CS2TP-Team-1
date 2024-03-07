@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
+use App\Models\ContactForm;
 use App\Http\Controllers\DiscountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
@@ -10,7 +11,9 @@ use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\ReviewController;
 
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/auth.php';
 
 
 
@@ -26,7 +29,9 @@ require __DIR__.'/auth.php';
 */
 
 //Homepage
-Route::get('/', function (){ return View::make('pages.index'); });
+Route::get('/', function () {
+    return View::make('pages.index');
+});
 
 //Contact Us Page
 Route::get('/contact', [ContactFormController::class, 'create']);
@@ -34,7 +39,7 @@ Route::post('/contact', [ContactFormController::class, 'store']);
 
 // Products page and related routes
 Route::resource('products', ProductController::class)
-    ->only(['index','show']);
+    ->only(['index', 'show']);
 
 //Account Related
 Route::middleware('auth')->group(function () {
@@ -47,7 +52,9 @@ Route::middleware('auth')->group(function () {
 });
 
 //About Us page
-Route::get('/about', function(){ return view::make('pages.about'); });
+Route::get('/about', function () {
+    return view::make('pages.about');
+});
 
 // Basket Related Routes
 
@@ -69,7 +76,7 @@ Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('
 
 //Admin pages
 
-Route::middleware('admin')->group(function (){
+Route::middleware('admin')->group(function () {
     // Users
     Route::get('/admin/users', [AdminController::class, 'listUsers'])->name('admin.users');
     Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');
@@ -79,12 +86,16 @@ Route::middleware('admin')->group(function (){
     Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser']);
     // Products
     Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
-    Route::patch('/admin/products',[AdminController::class, 'productsUpdateStock'])->name('admin.products-update-stock');
+    Route::patch('/admin/products', [AdminController::class, 'productsUpdateStock'])->name('admin.products-update-stock');
     Route::get('/admin/products/edit/{id}', [AdminController::class, 'productsEditPage'])->name('admin.edit-products-page');
     Route::patch('/admin/products/edit/', [AdminController::class, 'productsEdit'])->name('admin.edit-products');
     Route::get('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.delete-products');
     Route::get('/admin/products/create', [AdminController::class, 'productsCreateForm'])->name('admin.form-create-products');
     Route::post('/admin/products/create', [AdminController::class, 'productsCreate'])->name('admin.create-products');
+    //Contact submission Page
+    Route::get('/admin/contact', function () {
+        return View::make('pages.admin.contact-submission')->with('forms', ContactForm::all());
+    })->name('admin.contact');
     // Discounts
     Route::get('/admin/discounts', [DiscountController::class, 'index'])->name('discounts.index');
     Route::get('/admin/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
