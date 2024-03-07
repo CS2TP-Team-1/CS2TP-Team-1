@@ -12,8 +12,8 @@
     <table>
         <thead>
         <th>Name</th>
-        <th>Email address</th>
-        <th>message</th>
+        <th>Email Address</th>
+        <th>Message</th>
         </thead>
         @foreach($forms as $form)
             <tr>
@@ -23,7 +23,7 @@
             </tr>
 
         @endforeach
-        
+
     </table>
     </form>
     </div>
