@@ -30,4 +30,9 @@ class ContactFormController extends Controller
     public function create():View{
         return \Illuminate\Support\Facades\View::make('pages.contact');
     }
+
+    public function list(): View
+    {
+        return \Illuminate\Support\Facades\View::make('pages.admin.contact-submission', array('forms' => ContactForm::all()));
+    }
 }
