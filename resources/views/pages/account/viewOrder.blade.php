@@ -11,6 +11,12 @@
     <h1> Order #{{$order->id}}</h1>
     <h2> Order Status: {{$order->status}}</h2>
     <h3> Total Value of Order: £{{$order->totalValue}}</h3>
+    @if($order->returns() == null)
+        <h3>Returns for this order:</h3>
+        @foreach($order->returns as $return)
+            <a href="/return/{{$return->id}}">Return #{{$return->id}}</a>
+        @endforeach
+    @endif
 <br>
     <h2>Your Order Contents:</h2>
 <div class="form">
@@ -36,23 +42,13 @@
                 <td>£{{$product->price}}</td>
                 @if($order->status === 'Ordered')
                     <td>
-{{--                        <form method="post" action="{{route('return-product', $order->id)}}">--}}
-{{--                            @csrf--}}
-{{--                            <input type="number" hidden name="order_id" value="{{$order->id}}">--}}
-{{--                            <input type="number" hidden name="product_id" value="{{$product->id}}">--}}
-{{--                            <button type="submit" class="login">Return Item</button>--}}
-{{--                        </form>--}}
                         <a href="/order/{{$order->id}}/return/{{$product->id}}">Return Product</a>
-
                     </td>
                 @endif
             </tr>
         @endforeach
 
     </table>
-
-
-            <p>{{session('count')}}</p>
 
 </form>
 </div>

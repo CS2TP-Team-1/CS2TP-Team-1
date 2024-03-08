@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id')->nullable();
             $table->float('returnValue');
             $table->unsignedBigInteger('user_id');
+            $table->enum('status',['Requested', 'Approved', 'Denied']);
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('order_id')->references('id')->on('orders');

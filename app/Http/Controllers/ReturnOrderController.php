@@ -7,28 +7,11 @@ use App\Models\Product;
 use App\Models\ReturnOrder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class ReturnOrderController extends Controller
 {
-//    public function returnProduct(Request $request): RedirectResponse
-//    {
-//        $order = Order::findOrFail($request->order_id);
-//        $product = Product::findOrFail($request->product_id);
-//        $value = $product->price;
-//
-//        $returnOrder = ReturnOrder::create([
-//            'returnValue' => $value,
-//        ]);
-//
-//        $returnOrder->product()->associate($product);
-//        $returnOrder->order()->associate($order);
-//
-//        $order->products()->detach($product);
-//
-//        return redirect('/order/'.$order->id);
-//
-//    }
-
     public function returnProduct($order_id, $product_id): RedirectResponse
     {
         // Basic variable set up
@@ -37,7 +20,7 @@ class ReturnOrderController extends Controller
         $value = $product->price;
 
         // Create the return order
-        $returnOrder = ReturnOrder::create([
+        $returnOrder = Auth::user()->returns()->create([
             'returnValue' => $value,
             'product_id' => $product_id,
             'order_id' => $order_id,
@@ -68,5 +51,15 @@ class ReturnOrderController extends Controller
         session()->put('count', $productCount);
 
         return redirect(url('/order/'.$order_id));
+    }
+
+    public function viewReturn($id): View
+    {
+        $return = ReturnOrder::findOrFail($id);
+        if ($return->user_id === Auth::id()) {
+            return \Illuminate\Support\Facades\View::make('pages.account.viewReturn', ['return' => ReturnOrder::where('id', '=', '$id')->first()]);
+        } else {
+            abort(403, "This return does not belong to you.");
+        }
     }
 }

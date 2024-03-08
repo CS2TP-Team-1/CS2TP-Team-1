@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     // View Specific Order
     Route::get('/order/{id}', [AccountController::class, 'viewOrder'])->name('view-order');
     Route::get('/order/{order_id}/return/{product_id}', [ReturnOrderController::class, 'returnProduct'])->name('return-product');
+    Route::get('/return/{id}', [ReturnOrderController::class, 'viewReturn'])->name('view-return');
 });
 
 //About Us page
