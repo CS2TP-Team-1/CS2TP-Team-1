@@ -10,12 +10,13 @@
         <option value="earrings">Earrings</option>
         <option value="rings">Rings</option>
         <option value="bracelets">Bracelets</option>
+        <option value="watches">Watches</option>
     </select>
     <select id="metalType" name="metalType" class="search-form-input">
         <option value="">Select Metal Type</option>
         <option value="gold">Gold</option>
         <option value="silver">Silver</option>
-        <option value="platinum">Platinum</option>
+        
     </select>
     <input type="submit" value="Search" class="search-form-input-submit">
     </form>

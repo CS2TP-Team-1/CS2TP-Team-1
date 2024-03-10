@@ -30,23 +30,23 @@ public function index(Request $request): View
     
         $query = Product::query();
     
-        if ($search!="") {
+        if ($search!=""  && $category=="" && $metalType=="" ) {
             $query->where('name', 'like', "%$search%");
         } 
-        elseif ($category!="") {
+        elseif ($search==""  && $category!="" && $metalType=="") {
             $query->where('category', 'like', "%$category%");
-        } elseif ($metalType!="") {
+        } elseif ($search==""  && $category=="" && $metalType!="") {
             $query->where('metalType', 'like', "%$metalType%");
-        } elseif ($search!="" && $category!="") {
+        } elseif ($search!=""  && $category!="" && $metalType=="") {
             $query->where('name', 'like', "%$search%")
-                  ->orWhere('category', 'like', "%$category%");
-        } elseif ($search!="" && $metalType!="") {
+                  ->Where('category', 'like', "%$category%");
+        } elseif ($search!=""  && $category=="" && $metalType!="") {
             $query->where('name', 'like', "%$search%")
-                  ->orWhere('metalType', 'like', "%$metalType%");
+                  ->Where('metalType', 'like', "%$metalType%");
         } elseif ($search!="" && $category!="" && $metalType!="") {
             $query->where('name', 'like', "%$search%")
-                  ->orWhere('category', 'like', "%$category%")
-                  ->orWhere('metalType', 'like', "%$metalType%");
+                  ->Where('category', 'like', "%$category%")
+                  ->Where('metalType', 'like', "%$metalType%");
         }
     
         $products = $query->get();
