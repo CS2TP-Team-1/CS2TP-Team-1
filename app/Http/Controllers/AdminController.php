@@ -22,7 +22,7 @@ class AdminController extends Controller
     public function listUsers(){  // General /admin/users page
         $users = User::all(); // Fetch all registered users
 
-        return View::make('pages.admin.users', compact('users'));
+        return View::make('pages.admin.users.users', compact('users'));
     }
 
     public function addUsers(Request $request){ // Admin create a user
@@ -40,17 +40,17 @@ class AdminController extends Controller
         ]);
 
 
-        return redirect ('pages.admin.users') -> with ('Success, User has been registered successfully');
+        return redirect ('pages.admin.users.users') -> with ('Success, User has been registered successfully');
     }
 
     public function addPage(){ // Page for admin to add a user through
-        return view('pages.admin.addUser');
+        return view('pages.admin.users.addUser');
     }
 
     public function editUsers($id){ // Admin edit user page
         $user = User::findOrFail($id);
 
-        return view('pages.admin.edit', compact('user'));
+        return view('pages.admin.users.edit', compact('user'));
     }
 
     public function amendUsers($id, Request $request){ // Function to actually edit the user account
@@ -66,7 +66,7 @@ class AdminController extends Controller
             'accountType' => 'user'
         ]);
 
-        return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
+        return redirect ('pages.admin.users.users') -> with ('Success, User has been updated registered ');
     }
 
     public function deleteUser($id) // Admin delete user function
