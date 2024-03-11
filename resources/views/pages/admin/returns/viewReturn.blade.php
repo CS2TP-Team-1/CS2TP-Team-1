@@ -11,7 +11,7 @@
     <h3>Return Status: {{$return->status}}</h3>
     @if($return->status == 'Requested')
         <button class="button" onclick="location.href='/admin/returns/{{$return->id}}/approve'">Approve Return</button>
-        <button class="button">Reject Return</button>
+        <button class="button" onclick="location.href='/admin/returns/{{$return->id}}/deny'">Deny Return</button>
     @endif
     <br>
     <h2>Your Order Contents:</h2>

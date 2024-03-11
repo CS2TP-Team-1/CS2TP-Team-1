@@ -96,4 +96,5 @@ Route::middleware('admin')->group(function (){
     Route::get('/admin/returns', [AdminController::class, 'returnsDashboard'])->name('admin.returns-dashboard');
     Route::get('/admin/returns/{id}', [AdminController::class, 'viewReturn'])->name('admin.view-return');
     Route::get('admin/returns/{id}/approve', [AdminController::class, 'approveReturn'])->name('admin.approve-return');
+    Route::get('/admin/returns/{id}/deny', [AdminController::class, 'denyReturn'])->name('admin.deny-return');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductUpdateRequest;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ReturnOrder;
 use App\Models\User;
@@ -203,6 +204,21 @@ class AdminController extends Controller
         $product->update([
             'stock' => $productStock
         ]);
+
+        return redirect(route('admin.view-return', $id));
+    }
+
+    public function denyReturn ($id) : RedirectResponse
+    {
+        $return = ReturnOrder::findOrFail($id);
+        $product = Product::findOrFail($return->product_id);
+        $order = Order::findOrFail($return->order_id);
+
+        $return->update([
+            'status' => 'Denied'
+        ]);
+
+        $order->products()->attach($product);
 
         return redirect(route('admin.view-return', $id));
     }

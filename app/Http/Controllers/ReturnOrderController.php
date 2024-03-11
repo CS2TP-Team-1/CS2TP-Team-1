@@ -44,8 +44,6 @@ class ReturnOrderController extends Controller
             $order->products()->attach($product);
         }
 
-        session()->put('count', $productCount);
-
         return redirect(url('/order/'.$order_id));
     }
 
