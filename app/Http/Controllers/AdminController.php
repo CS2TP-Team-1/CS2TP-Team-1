@@ -182,5 +182,29 @@ class AdminController extends Controller
 
         return View::make('pages.admin.returns.returns', compact('returns'));
     }
+
+    public function viewReturn($id)
+    {
+        $return = ReturnOrder::findOrFail($id);
+
+        return View::make('pages.admin.returns.viewReturn', compact('return'));
+    }
+
+    public function approveReturn ($id): RedirectResponse
+    {
+        $return = ReturnOrder::findOrFail($id);
+        $product = Product::findOrFail($return->product_id);
+
+        $return->update([
+            'status' => 'Approved'
+        ]);
+
+        $productStock = $product->stock + 1;
+        $product->update([
+            'stock' => $productStock
+        ]);
+
+        return redirect(route('admin.view-return', $id));
+    }
 }
 

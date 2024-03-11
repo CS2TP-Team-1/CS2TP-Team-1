@@ -25,16 +25,11 @@ class ReturnOrderController extends Controller
             'returnValue' => $value,
             'product_id' => $product_id,
             'order_id' => $order_id,
+            'status' => 'Requested'
         ]);
 
         $returnOrder->order()->associate($order);
         $returnOrder->product()->associate($product);
-
-       // Return stock to the stock
-        $newStockLevel = $product->stock + 1;
-        $product->update([
-            'stock' => $newStockLevel,
-        ]);
 
         // Remove the product from the order
         $productCount = -1;

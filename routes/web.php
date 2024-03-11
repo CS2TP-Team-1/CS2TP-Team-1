@@ -94,4 +94,6 @@ Route::middleware('admin')->group(function (){
     Route::post('/admin/discounts', [DiscountController::class, 'store'])->name('discounts.store');
     // Returns
     Route::get('/admin/returns', [AdminController::class, 'returnsDashboard'])->name('admin.returns-dashboard');
+    Route::get('/admin/returns/{id}', [AdminController::class, 'viewReturn'])->name('admin.view-return');
+    Route::get('admin/returns/{id}/approve', [AdminController::class, 'approveReturn'])->name('admin.approve-return');
 });
