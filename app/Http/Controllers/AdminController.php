@@ -44,6 +44,10 @@ class AdminController extends Controller
     public function addPage(){
         return view('pages.admin.addUser');
     }
+    public function addDashboard(){
+        return view('pages.admin.Admin-dashboard');
+    }
+
     
     public function editUsers($id){
         $user = User::findOrFail($id);
@@ -196,5 +200,11 @@ class AdminController extends Controller
 
         return view('pages.admin.AviewOrder', compact('order'));
     }
+
+    public function list(): View
+    {
+        return view('pages.admin.Admin-dashboard');
+    }
 }
+
 
