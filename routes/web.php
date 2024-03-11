@@ -92,4 +92,6 @@ Route::middleware('admin')->group(function (){
     Route::get('/admin/discounts', [DiscountController::class, 'index'])->name('discounts.index');
     Route::get('/admin/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
     Route::post('/admin/discounts', [DiscountController::class, 'store'])->name('discounts.store');
+    // Returns
+    Route::get('/admin/returns', [AdminController::class, 'returnsDashboard'])->name('admin.returns-dashboard');
 });

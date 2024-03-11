@@ -173,5 +173,14 @@ class AdminController extends Controller
         return redirect(route('admin.products-dashboard'));
 
     }
+
+    // Admin Returns Dashboard
+
+    public function returnsDashboard() // Main returns dashboard view
+    {
+        $returns = ReturnOrder::all();
+
+        return View::make('pages.admin.returns.returns', compact('returns'));
+    }
 }
 
