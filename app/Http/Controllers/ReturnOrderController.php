@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades;
 
 class ReturnOrderController extends Controller
 {
@@ -56,10 +57,11 @@ class ReturnOrderController extends Controller
     public function viewReturn($id): View
     {
         $return = ReturnOrder::findOrFail($id);
+
         if ($return->user_id === Auth::id()) {
-            return \Illuminate\Support\Facades\View::make('pages.account.viewReturn', ['return' => ReturnOrder::where('id', '=', '$id')->first()]);
+            return Facades\View::make('pages.account.viewReturn', ['return' => ReturnOrder::where('id', '=', $id)->first()]);
         } else {
-            abort(403, "This return does not belong to you.");
+            abort(403, "This order is not your return.");
         }
     }
 }
