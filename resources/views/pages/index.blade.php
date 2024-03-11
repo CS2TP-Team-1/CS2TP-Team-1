@@ -6,11 +6,11 @@
 
 @section('content')
     <h2>Product Categories</h2>
-    <a href="ring_search"> <img src="/images/homepage/ring.jpg" alt="Rings" class="productImg"></a>
-    <a href="bracelet_search"><img src="/images/homepage/bracelet.png" alt="Bracelets" class="productImg"></a>
-    <a href="earring_search"><img src="/images/homepage/earring.jpg" alt="Earrings" class="productImg"></a>
-    <a href="watch_search"><img src="/images/homepage/watch.jpg" alt="Watches" class="productImg"></a>
-    <a href="necklace_search"><img src="/images/homepage/necklace.jpg" alt="Necklaces" class="productImg"></a>
+    <a href="/products?searchQuery=&category=rings&metalType="> <img src="/images/homepage/ring.jpg" alt="Rings" class="productImg"></a>
+    <a href="/products?searchQuery=&category=bracelets&metalType="><img src="/images/homepage/bracelet.png" alt="Bracelets" class="productImg"></a>
+    <a href="/products?searchQuery=&category=earrings&metalType="><img src="/images/homepage/earring.jpg" alt="Earrings" class="productImg"></a>
+    <a href="/products?searchQuery=&category=watches&metalType="><img src="/images/homepage/watch.jpg" alt="Watches" class="productImg"></a>
+    <a href="/products?searchQuery=&category=necklaces&metalType="><img src="/images/homepage/necklace.jpg" alt="Necklaces" class="productImg"></a>
     <!-- simple search code fe -->
 
 
