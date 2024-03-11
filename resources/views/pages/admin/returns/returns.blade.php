@@ -7,8 +7,8 @@
         <thead>
         <th>Return ID</th>
         <th>User ID</th>
-        <th>Value</th>
         <th>Return Status</th>
+        <th>Return Value</th>
         <th>View Return</th>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
                 <td>{{$return->id}}</td>
                 <td>{{$return->user_id}}</td>
                 <td>{{$return->status}}</td>
-                <td>{{$return->returnValue}}</td>
+                <td>£{{$return->returnValue}}</td>
                 <td class="table-button-section">
                     <button class="button table-button" onclick="location.href='/admin/returns/{{$return->id}}'">View Return</button>
                 </td>
