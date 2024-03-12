@@ -8,21 +8,22 @@
        
 
             <form class="contact-form" >
-                @csrf
-                <label>Tell us your name:</label> <br>
-                <input type="text" required name="name" value="{{old('name')}}"/><br>
+                
+                <label>Manage and edit products:</label><br>
+                <a href="products/edit" class="button" role="button">Manage products</a>
 
-
-                <label for="email">Email:</label><br>
-                <input type="email" required name="email" value="{{old('email')}}"/> <br>
+                <label>Manage and edit users:</label><br>
+                <button type ="submit" class="button">Submit</button><br>
     
 
-                <label for="message">Message:</label><br>
-                <textarea name="message" required rows="15" cols="40" >{{old('message')}}</textarea><br>
+                <label>Manage and edit orders :</label><br>
+                <button type="submit" class="button">Submit</button><br>
 
+                <label>Manage and edit discount codes :</label><br>
+                <button type="submit" class="button">Submit</button><br>
 
-                <button type="submit" class="button">Submit</button>
-                <br>
+                <label>Manage and edit contact submissions :</label><br>
+                <button type="submit" class="button">Submit</button><br>
             </form>
 
         </div>
