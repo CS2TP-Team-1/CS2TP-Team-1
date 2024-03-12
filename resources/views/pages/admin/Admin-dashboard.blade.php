@@ -7,24 +7,26 @@
         <div class="contact">
        
 
-            <form class="contact-form" >
+            <div class="contact-form" >
                 
                 <label>Manage and edit products:</label><br>
-                <a href="products/edit" class="button" role="button">Manage products</a>
+                <button class="button" onclick="location.href='/admin/products'">Manage products</button>
 
                 <label>Manage and edit users:</label><br>
-                <button type ="submit" class="button">Submit</button><br>
+                <button class="button" onclick="location.href='/admin/users'">Manage users</button>
     
-
                 <label>Manage and edit orders :</label><br>
-                <button type="submit" class="button">Submit</button><br>
+                <button class="button" onclick="location.href='/admin/orders'">Manage orders</button>
 
                 <label>Manage and edit discount codes :</label><br>
-                <button type="submit" class="button">Submit</button><br>
+                <button class="button" onclick="location.href='/admin/discounts'">Manage discounts</button>
 
                 <label>Manage and edit contact submissions :</label><br>
-                <button type="submit" class="button">Submit</button><br>
-            </form>
+                <button class="button" onclick="location.href='/admin/contact'">Manage contact submissions</button>
+
+                <label>Manage and edit returns :</label><br>
+                <button class="button" onclick="location.href='/admin/returns'">Manage returns</button>
+            </div>
 
         </div>
     </div>
