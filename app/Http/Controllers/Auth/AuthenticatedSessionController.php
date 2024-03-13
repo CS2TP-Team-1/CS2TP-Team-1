@@ -16,8 +16,11 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
 
-    public function create(): View
+    public function create()
     {
+        if (Auth::check()){
+            return redirect('/');
+        }
         return \Illuminate\Support\Facades\View::make('pages.auth.login');
     }
 
