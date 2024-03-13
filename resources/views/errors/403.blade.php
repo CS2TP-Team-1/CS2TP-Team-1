@@ -7,4 +7,7 @@
     <h3>It looks like you aren't authorised to access that page.</h3>
     <button class="button" onclick="history.back()">Go Back!</button>
 
+    @if(!\Illuminate\Support\Facades\Auth::check())
+        <a href="{{route('login')}}"> <button class="button">Login</button></a>
+    @endif
 @endsection

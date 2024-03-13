@@ -9,7 +9,7 @@
                 <div class="review">
                     <p>Code: {{ $discount->code }} Value: £{{ $discount->amount }}</p>
                 </div>
-                {{-- <button class="button" onclick="location.href='/discounts/delete/{{$discount->id}}'">Delete</button> --}}
+                 <button class="button" onclick="location.href='/discounts/delete/{{$discount->id}}'">Delete</button>
             @empty
                 <h2>No Discounts to show!</h2>
             @endforelse
@@ -18,7 +18,7 @@
 
     {{-- @auth --}}
 
-        {{-- <div class="form" style="padding-top: 10px">
+         <div class="form" style="padding-top: 10px">
             <form class="account-form" method="POST" action="{{ route('discounts.store') }}">
                 @csrf
                 <div>
@@ -31,7 +31,7 @@
                 </div>
                 <button class="button" type="submit">Add Discount</button>
             </form>
-        </div> --}}
-        
+        </div>
+
     {{-- @endauth --}}
 @endsection
