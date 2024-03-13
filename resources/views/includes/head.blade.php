@@ -10,3 +10,9 @@
 <title>The Jewellery Store - @yield('title')</title>
 <!--adding swiper about us page -->
 <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+
+<style>
+
+   
+</style>

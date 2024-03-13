@@ -41,6 +41,7 @@ Route::post('/contact', [ContactFormController::class, 'store']);
 Route::resource('products', ProductController::class)
     ->only(['index', 'show']);
 
+
 //Account Related
 Route::middleware('auth')->group(function () {
     // Account Page

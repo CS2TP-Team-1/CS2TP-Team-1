@@ -13,6 +13,7 @@
     <a href="watch_search"><img src="/images/homepage/wristwatch.png" alt="Watches" class="productImg" width="235" height="235"></a>
     <a href="necklace_search"><img src="/images/homepage/pearl-necklace.png" alt="Necklaces" class="productImg" width="235" height="235"></a>
     </ul>
+
     <h2>Best-selling Items</h2>
     @php
         $bestsellingProducts = Product::where('promotion', '=', 1)->get();
@@ -36,4 +37,7 @@
                         Details</a></p>
             </div>
     @endforeach
+
+    </div>
+
 @endsection
