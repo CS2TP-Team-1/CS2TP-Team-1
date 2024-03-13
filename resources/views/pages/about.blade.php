@@ -33,7 +33,7 @@
                         <div class="swiper-slide"><img src="/images/homepage/ring.jpg" alt="Rings" class="aboutImg"></div>
                         <div class="swiper-slide"><img src="/images/homepage/watch.jpg" alt="Watches" class="aboutImg"></div>
                         <div class="swiper-slide"><img src="/images/homepage/necklace.jpg" alt="Necklaces" class="aboutImg"></div>
-                        <div class="swiper-slide"><img src="/images/homepage/bracelet.png" alt="Bracelets" class="aboutImg"></div>
+                        <div class="swiper-slide"><img src="/images/homepage/braceletIMG.jpg" alt="Bracelets" class="aboutImg"></div>
                     
                     </div>
                     <!-- If we need pagination -->
@@ -77,11 +77,9 @@
             <div class="newsletter">
                 <form action="">
                     <h3>Unlock Exclusive Benefits: Subscribe to Our Newsletter Today!</h3>
-                    <ul style="list-style-type: disc;margin-left: 20px; color: #dda0dd; margin: 40px auto; margin-left: 500px;">
-                        <li>Be the First to Know About Irresistible Offers</li>
-                        <li>Discover New Arrivals in Exquisite Jewelry Collections</li>
-                        <li>Gain Insider Access to Limited Edition Pieces</li>
-                    </ul>
+                    <h4>Be the First to Know About Irresistible Offers </h4>
+                    <h4>Discover New Arrivals in Exquisite Jewelry Collections </h4>
+                    <h4>Gain Insider Access to Limited Edition Pieces </h4>
                     <div class="email-n">
                         <i class="fa fa-envelope"></i>
                         <input class="n-box" type="email" name="email" placeholder="Enter your email">

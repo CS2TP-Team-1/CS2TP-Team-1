@@ -1,20 +1,23 @@
 <div class="icons">
     <ul>
 
-        <!-- <li>
-            <a href="#"><i class="fa fa-search" style="color: #9b26b6;"></i></a>
-        </li> -->
-
-        <li>
+        <li class="account">
             <a href="/basket"><i class="fa fa-shopping-basket" style="color: rgb(221, 160, 221);"></i></a>
         </li>
 
-        <li>
+        <li class="account">
             <a href="/account"><i class="fa fa-user" style="color: rgb(221, 160, 221);"></i></a>
         </li>
 
         <!--log in/ log out button page -->
-        <li>
+        <li class="account">
+{{--            Admin Dashboard Access Button - Only displayed when logged in using admin account--}}
+            @if(\Illuminate\Support\Facades\Auth::check() &&\Illuminate\Support\Facades\Auth::user()->accountType === 1)
+                <div>
+                    <button class='login' onclick="location.href='/admin'">Admin Dashboard</button>
+                </div>
+            @endif
+
             <div>
                 @if (\Illuminate\Support\Facades\Auth::check())
                 <form action="{{ url("/logout") }}" method="post">
@@ -27,17 +30,10 @@
             </div>
         </li>
 
-        {{-- Search function - has been commented out for home page --}}
-        {{-- <li>
-            <input type="text" placeholder="Search...">
-            <input type="submit" class="login" value="Search"/>
-        </li> --}}
-        <li2>
-            {{-- <div class="logoimg"> --}}
-                <img src="/logo.png" alt="The Jewellery Store Logo" width="45">        
-                <h1>The Jewellery Store</h1>       
-            {{-- </div> --}}
-        </li2>
+        <li class="header">
+            <img src="/logo.png" alt="The Jewellery Store Logo" width="45">
+            <h1>The Jewellery Store</h1>
+        </li>
 
     </ul>
 </div>

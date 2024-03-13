@@ -1,11 +1,11 @@
 @extends('layouts.default')
-@section('title', 'Register')
+@section('title', 'add-users')
 
 @section('content')
-    <div class="signup-f">
-        <form class="register" action="{{ route('register') }}" method="POST">
+    <div class="AddUser">
+        <h3>Add new user</h3>
+        <form class="add-form" action="{{route('admin.addUser')}}" method="post"><br>
             @csrf
-            <h1>Register</h1>
             @foreach($errors->all() as $message)
                 <p>{{$message}}</p>
             @endforeach
@@ -18,10 +18,12 @@
             <label for="password_confirmation">Confirm password:</label><br>
             <input type="password" name="password_confirmation" required><br>
 
-            <button type="submit" class="button">Register</button>
+            <button type="submit" class="button">Add User</button>
             <br>
 
-
         </form>
+
     </div>
+
+
 @endsection

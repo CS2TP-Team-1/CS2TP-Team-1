@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\Basket;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -39,9 +39,6 @@ class AccountController extends Controller
 
         Auth::logout();
 
-        $basket = Basket::where('user_id', $user->id);
-        $basket->delete();
-
         $user->delete();
 
         $request->session()->invalidate();
@@ -49,6 +46,18 @@ class AccountController extends Controller
 
         return Facades\Redirect::to('/');
 
+    }
+
+
+    public function viewOrder($id) {
+
+        $order = Order::findOrFail($id);
+
+        if ($order->user_id === Auth::id()) {
+            return Facades\View::make('pages.account.viewOrder', ['order' => Order::where('id', '=', $id)->first()]);
+        } else {
+            abort(403, "This order is not your order.");
+        }
     }
 
 }
