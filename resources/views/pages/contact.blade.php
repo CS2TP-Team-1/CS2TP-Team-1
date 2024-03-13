@@ -9,7 +9,7 @@
                 <p>Complete the form below and we will get back to you within 24 hours.</p>
             </header>
 
-            <form class="contact-form" action="{{ url('contact')}}" method="POST">
+            <form class="contact-form" action="{{ route('contact-form.store')}}" method="POST">
                 @csrf
                 <label for="name">Tell us your name:</label> <br>
                 <input type="text" required name="name" value="{{old('name')}}"/><br>
