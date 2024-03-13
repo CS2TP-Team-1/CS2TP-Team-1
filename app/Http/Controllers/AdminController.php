@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductUpdateRequest;
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\ReturnOrder;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,20 +19,22 @@ use App\Models\Order;
 
 class AdminController extends Controller
 {
-    public function listUsers(){
+
+    // User Dashboard Features
+    public function listUsers(){  // General /admin/users page
         $users = User::all(); // Fetch all registered users
 
-        return View::make('pages.admin.users', compact('users'));
+        return View::make('pages.admin.users.users', compact('users'));
     }
 
-    public function addUsers(Request $request){
+    public function addUsers(Request $request){ // Admin create a user
         $request->validate([
             'name' => ['required', 'string', 'max:255', 'bail'],
             'email' => ['bail', 'required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['bail', 'required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -38,20 +42,20 @@ class AdminController extends Controller
         ]);
 
 
-        return redirect ('pages.admin.users') -> with ('Success, User has been registered successfully');
+        return redirect ('pages.admin.users.users') -> with ('Success, User has been registered successfully');
     }
 
-    public function addPage(){
-        return view('pages.admin.addUser');
+    public function addPage(){ // Page for admin to add a user through
+        return view('pages.admin.users.addUser');
     }
-    
-    public function editUsers($id){
+
+    public function editUsers($id){ // Admin edit user page
         $user = User::findOrFail($id);
 
-        return view('pages.admin.edit', compact('user'));
+        return view('pages.admin.users.edit', compact('user'));
     }
 
-    public function amendUsers($id, Request $request){
+    public function amendUsers($id, Request $request){ // Function to actually edit the user account
         $user = User::findOrFail($id);
         $request->validate([
             'name' => ['required', 'string', 'max:255', 'bail'],
@@ -64,17 +68,19 @@ class AdminController extends Controller
             'accountType' => 'user'
         ]);
 
-        return redirect ('pages.admin.users') -> with ('Success, User has been updated registered ');
+        return redirect ('pages.admin.users.users') -> with ('Success, User has been updated registered ');
     }
 
-    public function deleteUser($id){
+    public function deleteUser($id) // Admin delete user function
+    {
         $user = User::findOrFail($id);
-        $user-> delete();
+        $user->delete();
 
         return redirect()->back()->with('Success, User has been successfully deleted');
     }
 
-    public function productsDashboard()
+    // Product Dashbaord
+    public function productsDashboard(): \Illuminate\View\View // Main view page
     {
 
         $products = Product::query()
@@ -85,15 +91,13 @@ class AdminController extends Controller
         return View::make('pages.admin.products.products', compact('products'));
     }
 
-    public function productsEditPage($id)
+    public function productsEditPage($id) // Main edit page
     {
-        $product = Product::where('id', '=', $id);
-
         return View::make('pages.admin.products.edit', ['product' => Product::where('id', '=', $id)->first()]);
 
     }
 
-    public function productsEdit(Request $request): RedirectResponse
+    public function productsEdit(Request $request): RedirectResponse  // Admin edit product function
     {
         $validated = $request->validate([
             'name' => 'required|string',
@@ -115,7 +119,8 @@ class AdminController extends Controller
         return redirect(route('admin.products-dashboard'));
     }
 
-    public function productsUpdateStock(Request $request): RedirectResponse
+
+    public function productsUpdateStock(Request $request): RedirectResponse // Function for editing stock from main dashboard
     {
         $product = Product::where('id', '=', $request->id);
 
@@ -126,7 +131,7 @@ class AdminController extends Controller
         return redirect(route('admin.products-dashboard'));
     }
 
-    public function productsDelete($id) : RedirectResponse
+    public function productsDelete($id) : RedirectResponse // Delete a product
     {
         $product = Product::where('id', '=', $id);
 
@@ -135,12 +140,12 @@ class AdminController extends Controller
         return redirect(route('admin.products-dashboard'));
     }
 
-    public function productsCreateForm()
+    public function productsCreateForm() // Page for creating a product
     {
         return View::make('pages.admin.products.new');
     }
 
-    public function productsCreate(Request $request) : RedirectResponse
+    public function productsCreate(Request $request) : RedirectResponse // Function to create a product
     {
         $validated = $request->validate([
             'name' => 'required|string',
@@ -159,7 +164,7 @@ class AdminController extends Controller
         $mainImage->move($destinationPath,$newImageName);
 
 
-        $product = Product::create([
+        Product::create([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'promotion' => $request->input('promotion'),
@@ -195,6 +200,54 @@ class AdminController extends Controller
         $order = Order::findOrFail($id);
 
         return view('pages.admin.AviewOrder', compact('order'));
+    }
+  
+  // Admin Returns Dashboard
+
+    public function returnsDashboard() // Main returns dashboard view
+    {
+        $returns = ReturnOrder::all();
+
+        return View::make('pages.admin.returns.returns', compact('returns'));
+    }
+
+    public function viewReturn($id)
+    {
+        $return = ReturnOrder::findOrFail($id);
+
+        return View::make('pages.admin.returns.viewReturn', compact('return'));
+    }
+
+    public function approveReturn ($id): RedirectResponse
+    {
+        $return = ReturnOrder::findOrFail($id);
+        $product = Product::findOrFail($return->product_id);
+
+        $return->update([
+            'status' => 'Approved'
+        ]);
+
+        $productStock = $product->stock + 1;
+        $product->update([
+            'stock' => $productStock
+        ]);
+
+        return redirect(route('admin.view-return', $id));
+    }
+
+    public function denyReturn ($id) : RedirectResponse
+    {
+        $return = ReturnOrder::findOrFail($id);
+        $product = Product::findOrFail($return->product_id);
+        $order = Order::findOrFail($return->order_id);
+
+        $return->update([
+            'status' => 'Denied'
+        ]);
+
+        $order->products()->attach($product);
+
+        return redirect(route('admin.view-return', $id));
     }
 }
 
