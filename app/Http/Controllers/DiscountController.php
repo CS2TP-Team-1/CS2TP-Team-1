@@ -13,7 +13,7 @@ class DiscountController extends Controller
     public function index()
     {
         $discounts = Discount::all();
-        return view('pages.discounts', compact('discounts'));
+        return view('pages.admin.discounts', compact('discounts'));
     }
 
     public function store(Request $request)
