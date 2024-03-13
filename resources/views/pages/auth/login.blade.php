@@ -2,7 +2,7 @@
 @section('title', 'Login')
 
 @section('content')
-    <form id="login-form" method="POST" action="{{ route('login') }}">
+    <form id="login-form" autocomplete="on" method="POST" action="{{ route('login') }}">
         @csrf
         <h2>Sign In</h2>
         @foreach($errors->all() as $message)
