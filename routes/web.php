@@ -92,6 +92,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.delete-products');
     Route::get('/admin/products/create', [AdminController::class, 'productsCreateForm'])->name('admin.form-create-products');
     Route::post('/admin/products/create', [AdminController::class, 'productsCreate'])->name('admin.create-products');
+    Route::get('/admin/products/search', [AdminController::class, 'productsSearch'])->name('admin.products.search');
     //Contact submission Page
     Route::get('/admin/contact', function () {
         return View::make('pages.admin.contact-submission')->with('forms', ContactForm::all());

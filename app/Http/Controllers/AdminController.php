@@ -196,7 +196,7 @@ class AdminController extends Controller
 
         return view('pages.admin.AviewOrder', compact('order'));
     }
-
+    //search function for the orders page
     public function search(Request $request)
     {
         $searchQuery = $request->input('searchQuery');
@@ -222,6 +222,39 @@ class AdminController extends Controller
 
         return view('pages.admin.orders', compact('orders'));
         }
+
+    //search function for the products page
+    public function productsSearch(Request $request)
+    {
+        $search = $request->input('searchQuery');
+        $category = $request->input('category');
+        $metalType = $request->input('metalType');
+    
+        $query = Product::query();
+    
+        if ($search!=""  && $category=="" && $metalType=="" ) {
+            $query->where('name', 'like', "%$search%");
+        } 
+        elseif ($search==""  && $category!="" && $metalType=="") {
+            $query->where('category', 'like', "%$category%");
+        } elseif ($search==""  && $category=="" && $metalType!="") {
+            $query->where('metalType', 'like', "%$metalType%");
+        } elseif ($search!=""  && $category!="" && $metalType=="") {
+            $query->where('name', 'like', "%$search%")
+                  ->Where('category', 'like', "%$category%");
+        } elseif ($search!=""  && $category=="" && $metalType!="") {
+            $query->where('name', 'like', "%$search%")
+                  ->Where('metalType', 'like', "%$metalType%");
+        } elseif ($search!="" && $category!="" && $metalType!="") {
+            $query->where('name', 'like', "%$search%")
+                  ->Where('category', 'like', "%$category%")
+                  ->Where('metalType', 'like', "%$metalType%");
+        }
+    
+        $products = $query->get();
+
+        return view('pages.admin.products.products', compact('products'));
+    }
 
 }
 
