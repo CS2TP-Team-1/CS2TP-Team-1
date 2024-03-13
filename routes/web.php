@@ -35,7 +35,7 @@ Route::get('/', function () {
 });
 
 //Contact Us Page
-Route::get('/contact', [ContactFormController::class, 'create']);
+Route::get('/contact', [ContactFormController::class, 'create'])->name('contact-form');
 Route::post('/contact', [ContactFormController::class, 'store'])->name('contact-form.store');
 
 // Products page and related routes
