@@ -81,6 +81,8 @@ Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('
 //Admin pages
 
 Route::middleware('admin')->group(function () {
+    Route::get('/admin/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
     // Users
     Route::get('/admin/users', [AdminController::class, 'listUsers'])->name('admin.users');
     Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');

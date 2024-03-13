@@ -19,6 +19,9 @@ use App\Models\Order;
 
 class AdminController extends Controller
 {
+  public function addDashboard(){
+        return view('pages.admin.Admin-dashboard');
+    }
 
     // User Dashboard Features
     public function listUsers(){  // General /admin/users page
@@ -48,6 +51,7 @@ class AdminController extends Controller
     public function addPage(){ // Page for admin to add a user through
         return view('pages.admin.users.addUser');
     }
+
 
     public function editUsers($id){ // Admin edit user page
         $user = User::findOrFail($id);
@@ -248,6 +252,8 @@ class AdminController extends Controller
         $order->products()->attach($product);
 
         return redirect(route('admin.view-return', $id));
+
     }
 }
+
 
