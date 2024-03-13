@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Order;
 
 
 class AdminController extends Controller
@@ -205,7 +204,7 @@ class AdminController extends Controller
 
         return view('pages.admin.AviewOrder', compact('order'));
     }
-  
+
   // Admin Returns Dashboard
 
     public function returnsDashboard() // Main returns dashboard view
