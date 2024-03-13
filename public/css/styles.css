@@ -1,7 +1,7 @@
 /* Site-wide Formatting */
 
 body, html {
-    background-color: rgb(66,50,66);
+    background-color: rgb(66, 50, 66);
 }
 
 h1, h2, h3, h4 {
@@ -11,20 +11,17 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-p, pre, label, th, td, li
-{
+p, pre, label, th, td, li {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
     text-align: center;
 }
 
-td
-{
+td {
     text-align: center;
 }
 
-a
-{
+a {
     color: rgb(221, 160, 221); /* Link colour */
 }
 
@@ -49,8 +46,7 @@ a
 
 }
 
-.button:hover, button:hover
-{
+.button:hover, button:hover {
     background-color: rgb(57, 43, 57) !important;
     transition: background-color 0.3s ease;
 }
@@ -129,7 +125,7 @@ a
 
 /* Index */
 
-ul.catagories  {
+ul.catagories {
     margin: 0px;
     padding-inline-start: 0px;
     max-width: 100%;
@@ -380,6 +376,33 @@ ul.catagories  {
     }
 }
 
+/* seaerch form */
+
+
+.search-form {
+    max-width: 200px; 
+    margin: 0 auto;
+}
+
+.search-form-input[type="text"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.search-form-input-submit {
+    width: 100%;
+    background-color: rgb(85, 65, 85);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Login Page */
 
 #login-form {
@@ -408,16 +431,16 @@ ul.catagories  {
 /* Register Page Formatting */
 
 /*register page CSS*/
-.signup-f{
+.signup-f {
     display: flex;
     justify-content: center;
 }
 
-.register{
+.register {
     box-shadow: 0 0 10px;
     width: 40%;
     margin: 50px auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: left;
     padding-left: 2%;
@@ -425,40 +448,40 @@ ul.catagories  {
 }
 
 .register input,
-.register textarea{
+.register textarea {
     margin-bottom: 10px;
     padding: 5px;
-    border:1px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 5px;
     width: 40%;
     box-sizing: border-box;
 }
 
 .register input:focus,
-.register textarea:focus{
+.register textarea:focus {
     outline: 2px solid #9B26B6;
     box-shadow: 0 0 5px rgba(155, 37, 182, 0.5);
 }
 
-.register label{
+.register label {
     color: #dda0dd;
     text-align: left;
 }
 
 /*About Us*/
-.Swiper-container{
+.Swiper-container {
     display: flex;
-    justify-content:center;
-    flex-wrap:wrap;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.about-text{
+.about-text {
     max-width: 500px;
     padding-top: 40px;
     margin: auto;
 }
 
-.swiper{
+.swiper {
     width: 70%;
     max-width: 350px;
     margin: auto;
@@ -468,7 +491,7 @@ ul.catagories  {
     border-radius: 10px;
 }
 
-.swiper-wrapper{
+.swiper-wrapper {
     display: flex;
     justify-content: space-between;
     width: 70%;
@@ -476,7 +499,7 @@ ul.catagories  {
     position: relative;
 }
 
-.aboutImg{
+.aboutImg {
     width: 350px;
     height: 350px;
     height: auto;
@@ -484,19 +507,19 @@ ul.catagories  {
     flex: 1;
 }
 
-.newsletter{
+.newsletter {
     justify-content: center;
     padding-bottom: 50px;
 }
 
-.email-n{
+.email-n {
     justify-content: center;
     height: 40px;
     display: flex;
 
 }
 
-.email-n i{
+.email-n i {
     background-color: rgb(85, 65, 85);
     color: #fff;
     width: 40px;
@@ -510,24 +533,24 @@ ul.catagories  {
 
 }
 
-.n-button,.n-box{
+.n-button, .n-box {
     border: none;
     outline: none;
     padding: 0;
     margin: 0;
 }
 
-.n-box{
+.n-box {
     width: 0px;
     transition: 0.6s ease;
 }
 
-.email-n:hover > .n-box{
+.email-n:hover > .n-box {
     width: 250px;
     padding: 0 10px;
 }
 
-.n-button{
+.n-button {
     background-color: rgb(219, 128, 219);
     color: #fff;
     padding: 0 10px;
@@ -554,9 +577,10 @@ ul.catagories  {
 }
 
 /*CSS for the Admin List of users*/
-.admin{
+.admin {
     display: flex;
 }
+
 .table {
     width: 100%;
     overflow-x: auto;
@@ -565,7 +589,7 @@ ul.catagories  {
     margin-bottom: 10px;
 }
 
-.table th{
+.table th {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(57, 43, 57);
     padding: 6px;
@@ -588,11 +612,13 @@ ul.catagories  {
     border-radius: 50px;
     display: inline-block;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: rgb(57, 43, 57);
     transition: 0.6s ease;
     cursor: pointer;
 }
+
 .btn-AE {
     background-color: #9b26b6;
     color: #fff;
@@ -616,23 +642,24 @@ ul.catagories  {
 
 
 /*CSS for the Admin-edit users form*/
-.EditUsers{
+.EditUsers {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-  /*CSS for the Admin-add users form*/
-.AddUser{
+
+/*CSS for the Admin-add users form*/
+.AddUser {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.add-form{
+.add-form {
     width: 40%;
     margin: 50px auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding-left: 2%;
@@ -649,7 +676,7 @@ ul.catagories  {
     box-shadow: 0 0 10px;
     width: 40%;
     margin: 50px auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding-left: 2%;
@@ -683,6 +710,32 @@ div .review {
     width: 100%;
 }
 
+
+/*table for contact submission */
+.CSform table {
+    width: 100%;
+    overflow-x: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.CSform table th {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(57, 43, 57);
+    padding: 6px;
+    border: 1px solid #ddd;
+}
+
+
+/* Style for table cells */
+.CSform table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    /*color: #f2f2f2;*/
+}
+
 /* Footer */
 
 .footer {
@@ -702,7 +755,19 @@ div .review {
     text-align: center;
 }
 
-.footer-nav-ul>li {
+.footer-nav-ul > li {
     list-style-type: none;
     float: none;
 }
+
+/*CSS for admin-orders' status select box*/
+
+#dropStatus select {
+    padding: 4px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #fff;
+    width: auto;
+}
+
+

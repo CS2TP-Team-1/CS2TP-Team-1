@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
 
 
 class AdminController extends Controller
@@ -82,7 +83,10 @@ class AdminController extends Controller
     public function productsDashboard(): \Illuminate\View\View // Main view page
     {
 
-        $products = Product::all();
+        $products = Product::query()
+            ->orderBy('stock', 'asc')
+            ->orderBy('id', 'asc')
+            ->get();
 
         return View::make('pages.admin.products.products', compact('products'));
     }
@@ -175,7 +179,30 @@ class AdminController extends Controller
 
     }
 
-    // Admin Returns Dashboard
+    public function viewOrders(){
+
+        $orders = Order::all();
+
+        return view('pages.admin.orders', compact('orders'));
+    }
+
+    public function updateorderStatus(Request $request, $id){
+        $request->validate(['status' => 'required|in:Ordered,Processing,Shipped',]);
+
+        $order = Order::findOrFail($id);
+        $order->update(['status' => $request->status]);
+
+        return redirect()->back()->with('success', 'the status has been edited');
+    }
+
+    public function viewOrder($id) {
+
+        $order = Order::findOrFail($id);
+
+        return view('pages.admin.AviewOrder', compact('order'));
+    }
+  
+  // Admin Returns Dashboard
 
     public function returnsDashboard() // Main returns dashboard view
     {
