@@ -9,6 +9,37 @@
                     Users' Orders
                 </h4>
 
+                <form action="{{ route('admin.orders.search') }}" method="GET" class="search-form">
+                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search by Order details..." class="search-form-input">
+                    <select id="status" name="status" class="search-form-input">
+                        <option value="">Select Status</option>
+                        <option value="Ordered">Ordered</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                    </select>
+                    <input type="submit" value="Search" class="search-form-input-submit">
+                </form><br>
+
+                @if(isset($searchQuery) && $searchQuery != "" || isset($status) && $status != "")
+                    <p>Search results for:</p>
+                    @if($searchQuery != "")
+                        <strong>Query: {{$searchQuery}}</strong><br>
+                    @endif
+                    @if($status != "")
+                        <strong>Status: {{$status}}</strong>
+                    @endif
+
+                @endif
+
+                @if($orders->isEmpty())
+                    <h2>No orders found.</h2>
+                @else
+                    
+                    @foreach($orders as $order)
+            
+                    @endforeach
+                @endif
+
                 <table class="table-table-stripped">
                     <thead>
                         <tr>

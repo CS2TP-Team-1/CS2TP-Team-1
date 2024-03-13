@@ -196,5 +196,32 @@ class AdminController extends Controller
 
         return view('pages.admin.AviewOrder', compact('order'));
     }
+
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('searchQuery');
+        $status = $request->input('status');
+
+        $query = Order::query();
+
+        if ($searchQuery) {
+            $query->where('id', 'like', "%$searchQuery%")
+                ->orWhereHas('user', function ($q) use ($searchQuery) {
+                    $q->where('name', 'like', "%$searchQuery%")
+                        ->orWhere('email', 'like', "%$searchQuery%");
+                });
+        }
+
+        if (!empty($status)) {
+            $query->where('status', $status);
+        }
+
+        
+
+        $orders = $query->get();
+
+        return view('pages.admin.orders', compact('orders'));
+        }
+
 }
 

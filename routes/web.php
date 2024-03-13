@@ -104,5 +104,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/orders', [AdminController::class, 'viewOrders'])->name('admin.orders');
     Route::post('/admin/orders/updateStatus/{id}', [AdminController::class, 'updateorderStatus'])->name('admin.order.updateStatus');
     Route::get('/admin/order/view/{id}', [AdminController::class, 'viewOrder'])->name('admin.AviewOrder');
+    Route::get('/admin/orders/search', [AdminController::class, 'search'])->name('admin.orders.search');
+
 
 });
