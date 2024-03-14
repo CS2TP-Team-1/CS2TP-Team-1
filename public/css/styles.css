@@ -38,7 +38,7 @@ a {
     border-radius: 5px;
     border: none;
     transition: background-color 0.3s ease;
-    width: 30%;
+    width: fit-content;
     size: 50px;
     padding: 10px;
     cursor: pointer;
