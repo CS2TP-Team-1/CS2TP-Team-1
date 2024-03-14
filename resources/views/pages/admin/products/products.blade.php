@@ -4,7 +4,7 @@
 @section('content')
     <h1>Products Dashboard</h1>
     <form action="{{ route('admin.products.search') }}" method="GET" class="search-form" >
-        <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewelry..." class="search-form-input">
+        <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewellery..." class="search-form-input">
             <select id="category" name="category" class="search-form-input">
                 <option value="">Select Category</option>
                 <option value="necklaces">Necklaces</option>
@@ -17,7 +17,7 @@
                 <option value="">Select Metal Type</option>
                 <option value="gold">Gold</option>
                 <option value="silver">Silver</option>
-                
+
             </select>
         <input type="submit" value="Search" class="search-form-input-submit">
     </form>
