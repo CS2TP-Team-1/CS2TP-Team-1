@@ -65,7 +65,7 @@
                 </div>
                 <div class="contact-info-content">
                     <h3>Email</h3>
-                    <p>jewellerystore@gmail.com</p>
+                    <p>contact@thejewellerystore.com</p>
                 </div>
             </div>
         </div>
