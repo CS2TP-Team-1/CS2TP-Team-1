@@ -7,11 +7,11 @@
 @section('content')
     <h2>Product Categories</h2>
     <ul class="catagories">
-    <a href="ring_search"> <img src="/images/homepage/ring.png" alt="Rings" class="productImg" width="235" height="235"></a>
-    <a href="bracelet_search"><img src="/images/homepage/bracelet.png" alt="Bracelets" class="productImg" width="235" height="235"></a>
-    <a href="earring_search"><img src="/images/homepage/earrings.png" alt="Earrings" class="productImg" width="235" height="235"></a>
-    <a href="watch_search"><img src="/images/homepage/wristwatch.png" alt="Watches" class="productImg" width="235" height="235"></a>
-    <a href="necklace_search"><img src="/images/homepage/pearl-necklace.png" alt="Necklaces" class="productImg" width="235" height="235"></a>
+    <a href="/products?searchQuery=&category=rings&metalType="> <img src="/images/homepage/ring.png" alt="Rings" class="productImg" width="235" height="235"></a>
+    <a href="/products?searchQuery=&category=bracelets&metalType="><img src="/images/homepage/bracelet.png" alt="Bracelets" class="productImg" width="235" height="235"></a>
+    <a href="/products?searchQuery=&category=earrings&metalType="><img src="/images/homepage/earrings.png" alt="Earrings" class="productImg" width="235" height="235"></a>
+    <a href="/products?searchQuery=&category=watches&metalType="><img src="/images/homepage/wristwatch.png" alt="Watches" class="productImg" width="235" height="235"></a>
+    <a href="/products?searchQuery=&category=necklaces&metalType="><img src="/images/homepage/pearl-necklace.png" alt="Necklaces" class="productImg" width="235" height="235"></a>
     </ul>
 
     <h2>Best-selling Items</h2>
