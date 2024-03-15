@@ -63,7 +63,12 @@
         <form class="account-form">
             @foreach ($product->reviews as $review)
                 <div class="review">
-                    <h3>{{ $review->user->name }}</h3>
+                    <h3>@if($review->user === null)
+                            [Account Deleted]
+                        @else
+                            {{ $review->user->name }}
+                       @endif
+                        </h3>
                     <h4>{{ $review->title }} | {{ $review->rating }}/5</h4>
                     <p>{{ $review->contents }}</p>
                     @if (Auth::check() && Auth::user()->id == $review->user_id)
