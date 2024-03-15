@@ -3,6 +3,7 @@
 
 @section('content')
     <h1>Products Dashboard</h1>
+
     <form action="{{ route('admin.products.search') }}" method="GET" class="search-form" >
         <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewellery..." class="search-form-input">
             <select id="category" name="category" class="search-form-input">

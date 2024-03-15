@@ -20,9 +20,14 @@ class Product extends Model
     }
 
     //A product can have many reviews
-    public function reviews()
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function returns() :HasMany
+    {
+        return $this->hasMany(ReturnOrder::class);
     }
 
 }

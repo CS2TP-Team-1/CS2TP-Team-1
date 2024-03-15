@@ -38,7 +38,7 @@ a {
     border-radius: 5px;
     border: none;
     transition: background-color 0.3s ease;
-    width: 30%;
+    width: fit-content;
     size: 50px;
     padding: 10px;
     cursor: pointer;
@@ -376,6 +376,33 @@ ul.catagories {
     }
 }
 
+/* seaerch form */
+
+
+.search-form {
+    max-width: 200px; 
+    margin: 0 auto;
+}
+
+.search-form-input[type="text"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.search-form-input-submit {
+    width: 100%;
+    background-color: rgb(85, 65, 85);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Login Page */
 
 #login-form {
@@ -644,29 +671,6 @@ ul.catagories {
 
 
 /* Create Product Form */
-
-.new-product-form {
-    box-shadow: 0 0 10px;
-    width: 40%;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 2%;
-    background-color: rgb(85, 65, 85);
-    border-radius: 12.5px;
-}
-
-.new-product-form button {
-    left: 50%;
-}
-
-.new-product-button {
-    float: right;
-    margin-bottom: 2px;
-
-}
-
 .table-button-section {
     display: flex;
     flex-direction: column;
@@ -742,5 +746,3 @@ div .review {
     background-color: #fff;
     width: auto;
 }
-
-

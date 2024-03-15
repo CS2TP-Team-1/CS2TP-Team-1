@@ -72,7 +72,7 @@
                                 <p><strong>Total:</strong> £{{ session()->get('total') }}</p>
                             </td>
                             <td>
-                                <button class="login" id="checkout" onclick="location.href='/checkout'">Checkout</button>
+                               <a href="/checkout"> <button type="button" class="login">Checkout</button></a>
                             </td>
                         </tr>
                     </tfoot>

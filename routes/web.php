@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasketController;
 use App\Models\ContactForm;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\ReturnOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ProductController;
@@ -34,12 +35,13 @@ Route::get('/', function () {
 });
 
 //Contact Us Page
-Route::get('/contact', [ContactFormController::class, 'create']);
-Route::post('/contact', [ContactFormController::class, 'store']);
+Route::get('/contact', [ContactFormController::class, 'create'])->name('contact-form');
+Route::post('/contact', [ContactFormController::class, 'store'])->name('contact-form.store');
 
 // Products page and related routes
 Route::resource('products', ProductController::class)
     ->only(['index', 'show']);
+
 
 //Account Related
 Route::middleware('auth')->group(function () {
@@ -49,6 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
     // View Specific Order
     Route::get('/order/{id}', [AccountController::class, 'viewOrder'])->name('view-order');
+    Route::get('/order/{order_id}/return/{product_id}', [ReturnOrderController::class, 'returnProduct'])->name('return-product');
+    Route::get('/return/{id}', [ReturnOrderController::class, 'viewReturn'])->name('view-return');
 });
 
 //About Us page
@@ -77,6 +81,8 @@ Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('
 //Admin pages
 
 Route::middleware('admin')->group(function () {
+    Route::get('/admin/', [AdminController::class, 'addDashboard'])->name('admin.dashboard');
+
     // Users
     Route::get('/admin/users', [AdminController::class, 'listUsers'])->name('admin.users');
     Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');
@@ -101,11 +107,15 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/discounts', [DiscountController::class, 'index'])->name('discounts.index');
     Route::get('/admin/discounts/delete/{id}', [DiscountController::class, 'destroy'])->name('discounts.destroy');
     Route::post('/admin/discounts', [DiscountController::class, 'store'])->name('discounts.store');
+    // Returns
+    Route::get('/admin/returns', [AdminController::class, 'returnsDashboard'])->name('admin.returns-dashboard');
+    Route::get('/admin/returns/{id}', [AdminController::class, 'viewReturn'])->name('admin.view-return');
+    Route::get('admin/returns/{id}/approve', [AdminController::class, 'approveReturn'])->name('admin.approve-return');
+    Route::get('/admin/returns/{id}/deny', [AdminController::class, 'denyReturn'])->name('admin.deny-return');
     //Orders
     Route::get('/admin/orders', [AdminController::class, 'viewOrders'])->name('admin.orders');
     Route::post('/admin/orders/updateStatus/{id}', [AdminController::class, 'updateorderStatus'])->name('admin.order.updateStatus');
     Route::get('/admin/order/view/{id}', [AdminController::class, 'viewOrder'])->name('admin.AviewOrder');
     Route::get('/admin/orders/search', [AdminController::class, 'search'])->name('admin.orders.search');
-
 
 });
