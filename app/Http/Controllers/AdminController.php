@@ -232,7 +232,7 @@ class AdminController extends Controller
 
         $orders = Order::all();
 
-        return view('pages.admin.orders', compact('orders'));
+        return view('pages.admin.orders.orders', compact('orders'));
     }
 
     public function updateorderStatus(Request $request, $id)
@@ -250,7 +250,7 @@ class AdminController extends Controller
 
         $order = Order::findOrFail($id);
 
-        return view('pages.admin.AviewOrder', compact('order'));
+        return view('pages.admin.orders.viewOrder', compact('order'));
     }
 
     //search function for the orders page
@@ -275,7 +275,7 @@ class AdminController extends Controller
 
         $orders = $query->get();
 
-        return view('pages.admin.orders', compact('orders'));
+        return view('pages.admin.orders.orders', compact('orders'));
     }
 
     // Returns Dashboard
