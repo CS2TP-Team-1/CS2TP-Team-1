@@ -39,7 +39,7 @@
 
                     @endforeach
                 @endif
-
+                <div class="form"> 
                 <table class="table-table-stripped">
                     <thead>
                         <tr>
@@ -51,6 +51,7 @@
                             <th></th>
                         </tr>
                     </thead>
+                </div>
                     <tbody>
                         @foreach($orders as $order)
                         <tr>
