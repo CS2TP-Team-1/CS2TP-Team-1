@@ -671,17 +671,6 @@ select {
 
 
 /* Create Product Form */
-
-.new-product-form button {
-    left: 50%;
-}
-
-.new-product-button {
-    float: right;
-    margin-bottom: 2px;
-
-}
-
 .table-button-section {
     display: flex;
     flex-direction: column;
@@ -757,9 +746,3 @@ div .review {
     background-color: #fff;
     width: auto;
 }
-
-
-
-
-
-
