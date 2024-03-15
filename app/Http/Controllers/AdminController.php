@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,7 +50,7 @@ class AdminController extends Controller
             'accountType' => '0'
         ]);
 
-        return redirect('pages.admin.users.users')->with('Success, User has been registered successfully');
+        return redirect('/admin/users')->with('Success, User has been registered successfully');
     }
 
     public function addPage()
@@ -67,21 +68,23 @@ class AdminController extends Controller
     }
 
 
-    public function amendUsers($id, Request $request)
+    public function amendUsers(Request $request): RedirectResponse
     { // Function to actually edit the user account
-        $user = User::findOrFail($id);
-        $request->validate([
+        $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'bail'],
-            'email' => ['bail', 'required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['bail', 'required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($request->id, 'id')],
+            'accountType' => ['required'],
         ]);
+
+        $user = User::where('id', '=', $request->id);
 
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'accountType' => 'user'
+            'accountType' => $request->accountType,
         ]);
 
-        return redirect('pages.admin.users.users')->with('Success, User has been updated registered ');
+        return redirect('/admin/users')->with('Success, User has been updated registered ');
     }
 
     public function deleteUser($id) // Admin delete user function
@@ -92,7 +95,7 @@ class AdminController extends Controller
         return redirect()->back()->with('Success, User has been successfully deleted');
     }
 
-    // Product Dashbaord
+    // Product Dashboard
     public function productsDashboard(): \Illuminate\View\View // Main view page
     {
 

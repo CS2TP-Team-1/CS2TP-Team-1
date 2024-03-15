@@ -5,9 +5,9 @@
 <section class="admin">
         <div class="table">
             <div class="table-body">
-                <h4 class="table-title">
-                    Users' Orders
-                </h4>
+                <h1 class="table-title">
+                    Orders Dashboard
+                </h1>
 
                 <form action="{{ route('admin.orders.search') }}" method="GET" class="search-form">
                     <input type="text" id="searchQuery" name="searchQuery" placeholder="Search by Order details..." class="search-form-input">
@@ -34,9 +34,9 @@
                 @if($orders->isEmpty())
                     <h2>No orders found.</h2>
                 @else
-                    
+
                     @foreach($orders as $order)
-            
+
                     @endforeach
                 @endif
 
@@ -55,8 +55,18 @@
                         @foreach($orders as $order)
                         <tr>
                             <th scope="row">{{$order->id}}</th>
-                            <td>{{$order->user->name}}</td>
-                            <td>{{$order->user->email}}</td>
+                            <td>@if($order->user == null)
+                                    User Deleted
+                                @else
+                                    {{$order->user->name}}
+                                @endif
+                                </td>
+                            <td>@if($order->user == null)
+                                    User Deleted
+                                @else
+                                    {{$order->user->email}}
+                                @endif
+                                </td>
                             <td>
                                 <form id="dropStatus" action="{{route('admin.order.updateStatus', $order->id)}}" method="post">
                                     @csrf

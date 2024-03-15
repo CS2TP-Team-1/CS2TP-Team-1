@@ -88,7 +88,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');
     Route::post('/admin/addUser', [AdminController::class, 'addUsers']);
     Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUsers'])->name('admin.users.edit');
-    Route::post('/admin/users/edit/{id}', [AdminController::class, 'amendUsers']);
+    Route::patch('/admin/users/edit/', [AdminController::class, 'amendUsers'])->name('admin.amend-users');
     Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser']);
     // Products
     Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
