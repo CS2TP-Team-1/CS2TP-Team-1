@@ -672,18 +672,6 @@ select {
 
 /* Create Product Form */
 
-.new-product-form {
-    box-shadow: 0 0 10px;
-    width: 40%;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 2%;
-    background-color: rgb(85, 65, 85);
-    border-radius: 12.5px;
-}
-
 .new-product-form button {
     left: 50%;
 }
