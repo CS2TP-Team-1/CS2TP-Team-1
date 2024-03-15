@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Support\Facades;
 
+// The ReturnOrderController contains the user-side of the returns system
+// It contains the returnProduct function which returns a product from an order
+// And the viewReturn function which shows the user the return
+
 class ReturnOrderController extends Controller
 {
     public function returnProduct($order_id, $product_id): RedirectResponse
@@ -34,17 +38,17 @@ class ReturnOrderController extends Controller
         // Remove the product from the order
         $productCount = -1;
         foreach ($order->products as $productLoop) {
-            if ( $productLoop->id == $product_id){
+            if ($productLoop->id == $product_id) {
                 $productCount = $productCount + 1;
             }
         }
         $order->products()->detach($product);
 
-        for ($i = 0; $i < $productCount; $i++){
+        for ($i = 0; $i < $productCount; $i++) {
             $order->products()->attach($product);
         }
 
-        return redirect(url('/order/'.$order_id));
+        return redirect(url('/order/' . $order_id));
     }
 
     public function viewReturn($id): View

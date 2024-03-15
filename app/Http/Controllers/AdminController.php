@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
 
+// AdminController contains all functions related to the admin functions (excluding discounts and contact form submissions).
+// Including: Product Dashboard, User Dashboard, Orders Dashboard
 
 class AdminController extends Controller
 {

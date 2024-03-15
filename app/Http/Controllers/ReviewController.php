@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 
+// The ReviewController contains the functions related to the reviews system
+
 class ReviewController extends Controller
 {
     public function index()
@@ -50,12 +52,12 @@ class ReviewController extends Controller
         $review = Review::where('id', '=', $id);
         // Check if the authenticated user is authorized to delete the review
         // if ($review->user_id === auth()->id()) {
-            $review->delete();
-            return redirect(url('/products/'.$id))->with('success', 'Review deleted successfully.');
+        $review->delete();
+        return redirect(url('/products/' . $id))->with('success', 'Review deleted successfully.');
         // } else {
         //     return redirect()->back()->with('error', 'You are not authorized to delete this review.');
         // }
 
-        
+
     }
 }
