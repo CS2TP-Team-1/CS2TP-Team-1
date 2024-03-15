@@ -12,21 +12,21 @@
             @endforeach
             <label for="name">
                 Product Name
-                <input type="text" name="name" placeholder="Product Name" required>
+                <input type="text" name="name" placeholder="Product Name" value="{{old('name')}}" required>
             </label>
 
             <br>
 
             <label for="price">
                 Price
-                <input type="number" step='0.01' min="0" name="price" placeholder="##.##" required>
+                <input type="number" step='0.01' min="0" name="price" placeholder="##.##" value="{{old('price')}}" required>
             </label>
 
             <br>
 
             <label for="stock">
                 Stock Amount
-                <input type="number" step="1" name="stock" min="0" required>
+                <input type="number" step="1" name="stock" min="0" value="{{old('stock')}}" required>
             </label>
 
             <br>
@@ -52,7 +52,7 @@
             <br>
 
             <label>Category:</label>
-            <label>           
+            <label>
                 <label for="earrings">Earrings</label>
                 <input type="radio" value="earrings" name="category">
                 <label for="necklaces">Necklaces</label>
@@ -70,7 +70,7 @@
             <label for="description">
                 Product Description
                 <br>
-                <textarea required cols="30" rows="5" name="description"></textarea>
+                <textarea required cols="30" rows="5" name="description">{{old('description')}}</textarea>
             </label>
 
             <br>

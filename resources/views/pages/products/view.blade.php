@@ -92,24 +92,27 @@
                 <div class="form">
                     <form class="account-form" method="POST" action="{{ url('/reviews') }}">
                         @csrf
+                        @foreach ($errors->all() as $message)
+                            <p>{{ $message }}</p>
+                        @endforeach
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <label for="title">Review Title (Optional):</label>
+                        <label for="title">Review Title:</label>
                         <br>
-                        <input type="text" name="title" id="title" value="Default Title">
+                        <input type="text" required name="title" id="title" placeholder="Review Title" >
                         <br>
                         <label for="rating">Rating:</label>
                         <br>
-                        <select name="rating" id="rating">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                        <select name="rating" required id="rating">
+                            <option value="1" @if(old('rating') === 1)selected @endif>1</option>
+                            <option value="2" @if(old('rating') === 2)selected @endif>2</option>
+                            <option value="3" @if(old('rating') === 3)selected @endif>3</option>
+                            <option value="4" @if(old('rating') === 4)selected @endif>4</option>
+                            <option value="5" @if(old('rating') === 5)selected @endif>5</option>
                         </select>
                         <br>
-                        <label for="contents">Review Contents:</label>
+                        <label for="contents">Review Contents (Optional):</label>
                         <br>
-                        <textarea name="contents" required id="contents" rows="4"></textarea>
+                        <textarea name="contents" id="contents" rows="4">{{old('contents')}}</textarea>
                         <br>
                         <button class="button" type="submit">Submit Review</button>
                     </form>
@@ -120,23 +123,23 @@
                 <form class="account-form" method="POST" action="{{ url('/reviews') }}">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <label for="title">Review Title (Optional):</label>
+                    <label for="title">Review Title:</label>
                     <br>
-                    <input type="text" name="title" id="title" value="Default Title">
+                    <input type="text" name="title" required id="title" value="{{old('title')}}" placeholder="Review Title">
                     <br>
                     <label for="rating">Rating:</label>
                     <br>
-                    <select name="rating" id="rating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                    <select name="rating" required id="rating">
+                        <option value="1" @if(old('rating') === 1)selected @endif>1</option>
+                        <option value="2" @if(old('rating') === 2)selected @endif>2</option>
+                        <option value="3" @if(old('rating') === 3)selected @endif>3</option>
+                        <option value="4" @if(old('rating') === 4)selected @endif>4</option>
+                        <option value="5" @if(old('rating') === 5)selected @endif>5</option>
                     </select>
                     <br>
                     <label for="contents">Review Contents:</label>
                     <br>
-                    <textarea name="contents" id="contents" rows="4"></textarea>
+                    <textarea name="contents" id="contents"  rows="4">{{old('contents')}}</textarea>
                     <br>
                     <button class="button" type="submit">Submit Review</button>
                 </form>

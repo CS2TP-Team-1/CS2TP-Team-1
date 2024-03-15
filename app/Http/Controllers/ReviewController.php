@@ -33,6 +33,7 @@ class ReviewController extends Controller
         $request->validate([
             'rating' => 'required|integer|between:1,5',
             'contents' => 'nullable|string|max:255',
+            'title' => 'required|string|max:255'
         ]);
 
         // Create the review and associate it with the authenticated user and the product being reviewed
