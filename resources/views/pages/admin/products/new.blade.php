@@ -51,8 +51,8 @@
 
             <br>
 
-            <label>
-                Category:
+            <label>Category:</label>
+            <label>           
                 <label for="earrings">Earrings</label>
                 <input type="radio" value="earrings" name="category">
                 <label for="necklaces">Necklaces</label>
