@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
   public function addDashboard(){
         return view('pages.admin.Admin-dashboard');
     }
@@ -42,8 +43,7 @@ class AdminController extends Controller
             'password' => Hash::make($request->password),
             'accountType' => '0'
         ]);
-
-
+ 
         return redirect ('pages.admin.users.users') -> with ('Success, User has been registered successfully');
     }
 
@@ -53,10 +53,12 @@ class AdminController extends Controller
 
 
     public function editUsers($id){ // Admin edit user page
+
         $user = User::findOrFail($id);
 
         return view('pages.admin.users.edit', compact('user'));
     }
+
 
     public function amendUsers($id, Request $request){ // Function to actually edit the user account
         $user = User::findOrFail($id);
@@ -134,6 +136,7 @@ class AdminController extends Controller
         return redirect(route('admin.products-dashboard'));
     }
 
+
     public function productsDelete($id) : RedirectResponse // Delete a product
     {
         $product = Product::where('id', '=', $id);
@@ -164,7 +167,7 @@ class AdminController extends Controller
         $mainImage = $request->file("mainImage");
         $newImageName = time() . '-' . $request->name . '.' . $mainImage->extension();
         $destinationPath = "images/products";
-        $mainImage->move($destinationPath,$newImageName);
+        $mainImage->move($destinationPath, $newImageName);
 
 
         Product::create([
@@ -182,14 +185,16 @@ class AdminController extends Controller
 
     }
 
-    public function viewOrders(){
+    public function viewOrders()
+    {
 
         $orders = Order::all();
 
         return view('pages.admin.orders', compact('orders'));
     }
 
-    public function updateorderStatus(Request $request, $id){
+    public function updateorderStatus(Request $request, $id)
+    {
         $request->validate(['status' => 'required|in:Ordered,Processing,Shipped',]);
 
         $order = Order::findOrFail($id);
@@ -198,14 +203,73 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'the status has been edited');
     }
 
-    public function viewOrder($id) {
+    public function viewOrder($id)
+    {
 
         $order = Order::findOrFail($id);
 
         return view('pages.admin.AviewOrder', compact('order'));
     }
 
-  // Admin Returns Dashboard
+    //search function for the orders page
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('searchQuery');
+        $status = $request->input('status');
+
+        $query = Order::query();
+
+        if ($searchQuery) {
+            $query->where('id', 'like', "%$searchQuery%")
+                ->orWhereHas('user', function ($q) use ($searchQuery) {
+                    $q->where('name', 'like', "%$searchQuery%")
+                        ->orWhere('email', 'like', "%$searchQuery%");
+                });
+        }
+
+        if (!empty($status)) {
+            $query->where('status', $status);
+        }
+
+
+        $orders = $query->get();
+
+        return view('pages.admin.orders', compact('orders'));
+    }
+
+    //search function for the products page
+    public function productsSearch(Request $request)
+    {
+        $search = $request->input('searchQuery');
+        $category = $request->input('category');
+        $metalType = $request->input('metalType');
+
+        $query = Product::query();
+
+        if ($search != "" && $category != "" && $metalType != "") {
+            $query->where('name', 'like', "%$search%")
+                ->Where('category', 'like', "%$category%")
+                ->Where('metalType', 'like', "%$metalType%");
+        } elseif ($search != "" && $category != "" && $metalType == "") {
+            $query->where('name', 'like', "%$search%")
+                ->Where('category', 'like', "%$category%");
+        } elseif ($search != "" && $category == "" && $metalType != "") {
+            $query->where('name', 'like', "%$search%")
+                ->Where('metalType', 'like', "%$metalType%");
+        } elseif ($search != "" && $category == "" && $metalType == "") {
+            $query->where('name', 'like', "%$search%");
+        } elseif ($search == "" && $category != "" && $metalType == "") {
+            $query->where('category', 'like', "%$category%");
+        } elseif ($search == "" && $category == "" && $metalType != "") {
+            $query->where('metalType', 'like', "%$metalType%");
+        }
+
+            $products = $query->get();
+
+            return view('pages.admin.products.products', compact('products'));
+        }
+
+    }
 
     public function returnsDashboard() // Main returns dashboard view
     {
