@@ -3,7 +3,7 @@
 
 @section('content')
     <h1>Products Dashboard</h1>
-    <button class="button new-product-button" onclick="location.href='/admin/products/create'">Create a New Product</button>
+    <div class="form"><button class="button new-product-button" onclick="location.href='/admin/products/create'">Create a New Product</button></div>
     <table class="table">
         <thead>
         <th>Product ID</th>
