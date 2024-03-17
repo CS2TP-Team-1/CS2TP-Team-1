@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 @extends('layouts.default')
 @section('title', 'Users Dashboard')
 
@@ -15,43 +16,41 @@
                 <div class="form">
                     <table class="table-table-stripped">
                         <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Account type</th>
-                                <th scope="col">Action</th>
-                            </tr>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Account type</th>
+                            <th scope="col">Action</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <th scope="row">{{ $user->id }}</th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->accountType == 1 ? 'Admin' : 'User' }}</td>
-                                    <td>
-                                        @if ($user->id == \Illuminate\Support\Facades\Auth::id())
-                                            <p>Changes not permitted</p>
-                                        @else
-                                            <a href="{{ url('/admin/users/edit/' . $user->id) }}"
-                                                class="btn btn-AE btn-sm">Edit</a>
-                                            <a onclick="return confirm('Continue to delete the user')"
-                                                href="{{ url('/admin/delete/' . $user->id) }}"
-                                                class="btn btn-delete btn-sm">Delete</a>
-                                        @endif
+                        @foreach ($users as $user)
+                            <tr>
+                                <th scope="row">{{ $user->id }}</th>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->accountType == 1 ? 'Admin' : 'User' }}</td>
+                                <td>
+                                    @if ($user->id == Auth::id())
+                                        <p>Changes not permitted</p>
+                                    @else
+                                        <a href="{{ url('/admin/users/edit/' . $user->id) }}"
+                                           class="btn btn-AE btn-sm">Edit</a>
+                                        <a onclick="return confirm('Continue to delete the user')"
+                                           href="{{ url('/admin/delete/' . $user->id) }}"
+                                           class="btn btn-delete btn-sm">Delete</a>
+                                    @endif
 
-                                    </td>
+                                </td>
 
-                                </tr>
-                            @endforeach
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </section>
-
-
 
 @endsection

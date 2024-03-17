@@ -4,7 +4,7 @@
 @section('content')
     <div class="EditUders">
         <h1>Edit User #{{$user->id}}</h1>
-        <form class = "edit-form" action="{{route('admin.amend-users')}}" method="post"><br>
+        <form class="edit-form" action="{{route('admin.amend-users')}}" method="post"><br>
             @csrf
             @method('PATCH')
             @foreach ($errors->all() as $message)
@@ -25,10 +25,10 @@
                 </label>
             </label>
 
-            <button type="submit" class="btn btn-AE">Submit</button><br>
+            <button type="submit" class="btn btn-AE">Submit</button>
+            <br>
 
         </form>
     </div>
-
 
 @endsection

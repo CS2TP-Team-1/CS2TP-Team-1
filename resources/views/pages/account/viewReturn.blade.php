@@ -1,8 +1,9 @@
+@php use App\Models\Product;use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
 @section('title', 'Your Return')
 
 @php
-    $product = \App\Models\Product::findOrFail($return->product_id);
+    $product = Product::findOrFail($return->product_id);
 @endphp
 
 @section('content')
@@ -21,15 +22,18 @@
                 <th>Product Name</th>
                 <th>Price</th>
                 </thead>
-                    @php
-                        $imgPath = '/images/products/' . $product->mainImage;
-                    @endphp
-                    <tr>
-                        <td><img src="{{ $imgPath }}" alt="Image of the Product" width="100px" id="product-view-image"></td>
-                        <td>{{$product->id}}</td>
-                        <td><a target="_blank" href="/products/{{$product->id}}">{{$product->name}} </a></td>
-                        <td>£{{$product->price}}</td>
-                    </tr>
+                @php
+                    $imgPath = '/images/products/' . $product->mainImage;
+                    if (!File::exists($imgPath)) {
+                        $imgPath = "/images/image_unavailable.png";
+                    }
+                @endphp
+                <tr>
+                    <td><img src="{{ $imgPath }}" alt="Image of the Product" width="100px" id="product-view-image"></td>
+                    <td>{{$product->id}}</td>
+                    <td><a target="_blank" href="/products/{{$product->id}}">{{$product->name}} </a></td>
+                    <td>£{{$product->price}}</td>
+                </tr>
 
             </table>
 

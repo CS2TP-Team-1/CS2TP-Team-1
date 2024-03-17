@@ -1,24 +1,26 @@
+@php use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
 @section('title', 'Products')
 
 @section('content')
-<form action="{{ route('products.index') }}" method="GET" class="search-form" >
-<input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewellery..." class="search-form-input">
-    <select id="category" name="category" class="search-form-input">
-        <option value="">Select Category</option>
-        <option value="necklaces">Necklaces</option>
-        <option value="earrings">Earrings</option>
-        <option value="rings">Rings</option>
-        <option value="bracelets">Bracelets</option>
-        <option value="watches">Watches</option>
-    </select>
-    <select id="metalType" name="metalType" class="search-form-input">
-        <option value="">Select Metal Type</option>
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
+    <form action="{{ route('products.index') }}" method="GET" class="search-form">
+        <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewellery..."
+               class="search-form-input">
+        <select id="category" name="category" class="search-form-input">
+            <option value="">Select Category</option>
+            <option value="necklaces">Necklaces</option>
+            <option value="earrings">Earrings</option>
+            <option value="rings">Rings</option>
+            <option value="bracelets">Bracelets</option>
+            <option value="watches">Watches</option>
+        </select>
+        <select id="metalType" name="metalType" class="search-form-input">
+            <option value="">Select Metal Type</option>
+            <option value="gold">Gold</option>
+            <option value="silver">Silver</option>
 
-    </select>
-    <input type="submit" value="Search" class="search-form-input-submit">
+        </select>
+        <input type="submit" value="Search" class="search-form-input-submit">
     </form>
 
     <!-- Display the search results if available -->
@@ -32,16 +34,20 @@
 
     @foreach ($products as $product)
 
-    @php
-        $imgPath = "images/products/" . $product->mainImage;
-    @endphp
+        @php
+            $imgPath = "/images/products/" . $product->mainImage;
 
-    <div id="product-info">
-        <img src="{{ $imgPath }}" alt="Product Image" class="product-gallery-image">
-        <h3>{{$product->name }}</h3>
-        <p>£{{ $product->price }}</p>
-        <p><a href="/products/{{$product->id}}">View Product Details</a></p>
-    </div>
+            if (!File::exists($imgPath)) {
+                $imgPath = "/images/image_unavailable.png";
+            }
+        @endphp
+
+        <div id="product-info">
+            <img src="{{ $imgPath }}" alt="Product Image" class="product-gallery-image">
+            <h3>{{$product->name }}</h3>
+            <p>£{{ $product->price }}</p>
+            <p><a href="/products/{{$product->id}}">View Product Details</a></p>
+        </div>
     @endforeach
 
-    @endsection
+@endsection

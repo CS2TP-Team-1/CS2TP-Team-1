@@ -26,6 +26,10 @@
         @foreach ($bestsellingProducts as $product)
             @php
                 $imgPath = "/images/products/" . $product->mainImage;
+
+                if (!\Illuminate\Support\Facades\File::exists($imgPath)) {
+                    $imgPath = "/images/image_unavailable.png";
+                }
             @endphp
 
             <div id="product-info">

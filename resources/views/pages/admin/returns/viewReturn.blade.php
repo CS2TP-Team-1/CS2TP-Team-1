@@ -1,8 +1,9 @@
+@php use App\Models\Product; use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
 @section('title', 'Return #' . $return->id)
 
 @php
-    $product = \App\Models\Product::findOrFail($return->product_id);
+    $product = Product::findOrFail($return->product_id);
 @endphp
 
 @section('content')
@@ -11,8 +12,11 @@
     <h3>Return Status: {{ $return->status }}</h3>
     <div class="form">
         @if ($return->status == 'Requested')
-            <button class="button" onclick="location.href='/admin/returns/{{ $return->id }}/approve'">Approve Return</button>
-            <button class="button" style="margin: 10px" onclick="location.href='/admin/returns/{{ $return->id }}/deny'">Deny Return</button>
+            <button class="button" onclick="location.href='/admin/returns/{{ $return->id }}/approve'">Approve Return
+            </button>
+            <button class="button" style="margin: 10px" onclick="location.href='/admin/returns/{{ $return->id }}/deny'">
+                Deny Return
+            </button>
         @endif
     </div>
     <br>
@@ -21,13 +25,16 @@
         <form class="account-form">
             <table class="table">
                 <thead>
-                    <th>Product Image</th>
-                    <th>Product ID</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
+                <th>Product Image</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
                 </thead>
                 @php
                     $imgPath = '/images/products/' . $product->mainImage;
+                    if (!File::exists($imgPath)) {
+                        $imgPath = "/images/image_unavailable.png";
+                    }
                 @endphp
                 <tr>
                     <td><img src="{{ $imgPath }}" alt="Image of the Product" width="100px" id="product-view-image"></td>
@@ -39,4 +46,4 @@
             </table>
 
         </form>
-    @endsection
+@endsection

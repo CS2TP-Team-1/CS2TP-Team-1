@@ -1,4 +1,4 @@
-@php use App\Models\Order; @endphp
+@php use App\Models\Order;use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
 @section('title', 'Your Order')
 
@@ -35,6 +35,9 @@
                 @foreach($theOrder->products as $product)
                     @php
                         $imgPath = '/images/products/' . $product->mainImage;
+                        if (!File::exists($imgPath)) {
+                        $imgPath = "/images/image_unavailable.png";
+                        }
                     @endphp
                     <tr>
                         <td><img src="{{ $imgPath }}" alt="Image of the Product" width="100px" id="product-view-image">

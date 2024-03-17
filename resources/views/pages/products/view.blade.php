@@ -1,10 +1,15 @@
-@php use Illuminate\Support\Facades\Auth; @endphp
+@php use Illuminate\Support\Facades\Auth;use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
 @section('title', $product->name)
 
 @section('content')
     @php
+
         $imgPath = '/images/products/' . $product->mainImage;
+
+        if (!File::exists($imgPath)) {
+                        $imgPath = "/images/image_unavailable.png";
+                    }
 
         if ($product->stock == 0){
             $stockLevel = 'Out of Stock';
@@ -40,7 +45,9 @@
                 @elseif(Auth::check() && $product->stock == 0)
                     <button class="button-out-of-stock">This item is out of stock!</button>
                 @elseif(Auth::check() && $remainingStock == 0)
-                    <button class="button-out-of-stock-basket" onclick="location.href='{{ route('basket.show') }}'">All remaining stock is in your basket!</button>
+                    <button class="button-out-of-stock-basket" onclick="location.href='{{ route('basket.show') }}'">All
+                        remaining stock is in your basket!
+                    </button>
                 @else
                     <button class="button" onclick="location.href='{{ route('login') }}'">You must be logged in to add
                         to
@@ -67,8 +74,8 @@
                             [Account Deleted]
                         @else
                             {{ $review->user->name }}
-                       @endif
-                        </h3>
+                        @endif
+                    </h3>
                     <h4>{{ $review->title }} | {{ $review->rating }}/5</h4>
                     <p>{{ $review->contents }}</p>
                     @if (Auth::check() && Auth::user()->id == $review->user_id)
@@ -98,7 +105,7 @@
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <label for="title">Review Title:</label>
                         <br>
-                        <input type="text" required name="title" id="title" placeholder="Review Title" >
+                        <input type="text" required name="title" id="title" placeholder="Review Title">
                         <br>
                         <label for="rating">Rating:</label>
                         <br>
@@ -125,7 +132,8 @@
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <label for="title">Review Title:</label>
                     <br>
-                    <input type="text" name="title" required id="title" value="{{old('title')}}" placeholder="Review Title">
+                    <input type="text" name="title" required id="title" value="{{old('title')}}"
+                           placeholder="Review Title">
                     <br>
                     <label for="rating">Rating:</label>
                     <br>
@@ -139,7 +147,7 @@
                     <br>
                     <label for="contents">Review Contents:</label>
                     <br>
-                    <textarea name="contents" id="contents"  rows="4">{{old('contents')}}</textarea>
+                    <textarea name="contents" id="contents" rows="4">{{old('contents')}}</textarea>
                     <br>
                     <button class="button" type="submit">Submit Review</button>
                 </form>

@@ -4,7 +4,8 @@
 @section('content')
     <h1>Create a New Product</h1>
     <div class="form">
-        <form class='account-form' action="{{ route('admin.create-products') }}" enctype="multipart/form-data" method="POST">
+        <form class='account-form' action="{{ route('admin.create-products') }}" enctype="multipart/form-data"
+              method="POST">
             @csrf
 
             @foreach ($errors->all() as $message)
@@ -19,7 +20,8 @@
 
             <label for="price">
                 Price
-                <input type="number" step='0.01' min="0" name="price" placeholder="##.##" value="{{old('price')}}" required>
+                <input type="number" step='0.01' min="0" name="price" placeholder="##.##" value="{{old('price')}}"
+                       required>
             </label>
 
             <br>

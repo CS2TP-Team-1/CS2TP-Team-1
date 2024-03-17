@@ -23,7 +23,7 @@
 
 
                 <label for="message">Message:</label><br>
-                <textarea name="message" required rows="15" cols="40" >{{old('message')}}</textarea><br>
+                <textarea name="message" required rows="15" cols="40">{{old('message')}}</textarea><br>
 
                 <button type="submit" class="button">Submit</button>
                 <br>

@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="AddUser">
-        <h3>Add new user</h3>
+        <h1>Create a New User</h1>
         <form class="add-form" action="{{route('admin.addUser')}}" method="post"><br>
             @csrf
             @foreach($errors->all() as $message)
@@ -24,6 +24,5 @@
         </form>
 
     </div>
-
 
 @endsection
