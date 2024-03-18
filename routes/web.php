@@ -117,5 +117,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/orders/updateStatus/{id}', [AdminController::class, 'updateorderStatus'])->name('admin.order.updateStatus');
     Route::get('/admin/order/view/{id}', [AdminController::class, 'viewOrder'])->name('admin.AviewOrder');
     Route::get('/admin/orders/search', [AdminController::class, 'search'])->name('admin.orders.search');
-
+    // Reviews
+    Route::get('/admin/reviews', [AdminController::class, 'reviewsDashboard'])->name('admin.reviews-dashboard');
+    Route::get('/admin/reviews/delete/{id}', [AdminController::class, 'deleteReview'])->name('admin.delete-review');
 });

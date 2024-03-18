@@ -6,6 +6,7 @@ use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ReturnOrder;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -327,6 +328,24 @@ class AdminController extends Controller
 
         return redirect(route('admin.view-return', $id));
 
+    }
+
+    // Reviews Dashboard
+
+    public function reviewsDashboard() : \Illuminate\View\View
+    {
+        $reviews = Review::all();
+
+        return View::make('pages.admin.reviews', compact('reviews'));
+    }
+
+    public function deleteReview($id) : RedirectResponse
+    {
+        $review = Review::findOrFail($id);
+
+        $review->delete();
+
+        return redirect(route('admin.reviews-dashboard'));
     }
 }
 

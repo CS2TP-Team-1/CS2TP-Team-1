@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Discounts')
+@section('title', 'Discounts Dashboard')
 
 @section('content')
     <h1>Discounts</h1>
