@@ -732,9 +732,15 @@ div .review {
     text-align: center;
 }
 
-.footer-nav-ul > li {
-    list-style-type: none;
+.footer-nav-ul > li, ul {
+    /* list-style-type: none;
+    list-style: none;
     float: none;
+    padding-left: 0; */
+    list-style-type: none;
+    list-style: none;
+    padding-left: 0;
+    margin: 0px;
 }
 
 /*CSS for admin-orders' status select box*/
