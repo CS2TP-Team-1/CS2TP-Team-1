@@ -20,7 +20,7 @@
 {{-- <div class="footer-section">
     <h4>Another Section</h4>
 </div> --}}
-
+{{-- 
 <div class="footer-section">
 
-</div>
+</div> --}}
