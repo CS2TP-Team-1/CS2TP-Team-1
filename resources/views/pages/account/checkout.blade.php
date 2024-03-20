@@ -5,8 +5,8 @@
     <h1>Checkout Your Basket</h1>
 
     <h3>Your Basket Total: £{{session()->get('total')}}</h3>
-
-    <form action="{{ route('checkout') }}" method="post">
+<div class="form">
+    <form class="account-form" action="{{ route('checkout') }}" method="post">
         @csrf
         @method('PUT')
         <label>
@@ -35,6 +35,7 @@
             <input required type="text">
         </label>
         <br>
-        <button type="submit">Checkout</button>
+        <button class="button" type="submit">Checkout</button>
     </form>
+</div>
 @endsection
