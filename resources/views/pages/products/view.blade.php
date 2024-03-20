@@ -100,7 +100,7 @@
                     <form class="account-form" method="POST" action="{{ url('/reviews') }}">
                         @csrf
                         @foreach ($errors->all() as $message)
-                            <p>{{ $message }}</p>
+                            <p class="error">{{ $message }}</p>
                         @endforeach
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <label for="title">Review Title:</label>
