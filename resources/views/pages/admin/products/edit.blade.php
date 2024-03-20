@@ -9,7 +9,7 @@
             @csrf
             @method('PATCH')
             @foreach ($errors->all() as $message)
-                <p>{{ $message }}</p>
+                <p class="error">{{ $message }}</p>
             @endforeach
 
             <input name="id" required hidden value="{{ $product->id }}">

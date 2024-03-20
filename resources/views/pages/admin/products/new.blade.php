@@ -9,7 +9,7 @@
             @csrf
 
             @foreach ($errors->all() as $message)
-                <p>{{ $message }}</p>
+            <p class="error">{{$message}}</p>
             @endforeach
             <label for="name">
                 Product Name

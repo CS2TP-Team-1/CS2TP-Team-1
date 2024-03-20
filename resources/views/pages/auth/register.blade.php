@@ -7,7 +7,7 @@
             @csrf
             <h1>Register</h1>
             @foreach($errors->all() as $message)
-                <p>{{$message}}</p>
+                <p class="error">{{$message}}</p>
             @endforeach
             <label for="name">Name:</label> <br>
             <input type="text" name="name" value=" {{old('name')}}" required><br>

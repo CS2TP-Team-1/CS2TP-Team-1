@@ -2,13 +2,13 @@
 @section('title', 'Edit User')
 
 @section('content')
-    <div class="EditUders">
-        <h1>Edit User #{{$user->id}}</h1>
-        <form class="edit-form" action="{{route('admin.amend-users')}}" method="post"><br>
+<h1>Edit User #{{$user->id}}</h1>
+    <div class="form">
+        <form class="account-form" action="{{route('admin.amend-users')}}" method="post"><br>
             @csrf
             @method('PATCH')
             @foreach ($errors->all() as $message)
-                <p>{{ $message }}</p>
+                <p class="error">{{ $message }}</p>
             @endforeach
             <input type="number" hidden name="id" value="{{$user->id}}">
             <label for="name">Name:</label> <br>
@@ -25,7 +25,7 @@
                 </label>
             </label>
 
-            <button type="submit" class="btn btn-AE">Submit</button>
+            <button type="submit" class="button" style="margin: 10px">Submit</button>
             <br>
 
         </form>

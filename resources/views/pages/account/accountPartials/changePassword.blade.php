@@ -35,6 +35,6 @@
 <p> {{ $message }} </p>
 @enderror
 @error('new_password_confirmation')
-<p> {{ $message }} </p>
+<p class="error"> {{ $message }} </p>
 @enderror
 </div>

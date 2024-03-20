@@ -18,7 +18,7 @@
                         <option value="Processing">Processing</option>
                         <option value="Shipped">Shipped</option>
                     </select>
-                    <input type="submit" value="Search" class="search-form-input-submit">
+                    <input type="submit" value="Search" class="button" style="width: 100%">
                 </form>
                 <br>
 

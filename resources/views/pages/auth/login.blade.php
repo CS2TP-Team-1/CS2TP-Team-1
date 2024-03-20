@@ -6,7 +6,7 @@
         @csrf
         <h2>Sign In</h2>
         @foreach($errors->all() as $message)
-            <p>{{$message}}</p>
+            <p class="error">{{$message}}</p>
         @endforeach
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required value="{{old('email')}}">

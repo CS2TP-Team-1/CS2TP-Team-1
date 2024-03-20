@@ -20,7 +20,7 @@
             <option value="silver">Silver</option>
 
         </select>
-        <input type="submit" value="Search" class="search-form-input-submit">
+        <input type="submit" value="Search" class="button" style="width: 100%"> 
     </form>
 
     <!-- Display the search results if available -->

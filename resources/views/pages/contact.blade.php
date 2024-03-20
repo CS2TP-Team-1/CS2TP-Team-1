@@ -11,7 +11,7 @@
 
             <form class="contact-form" action="{{ route('contact-form.store')}}" method="POST">
                 @foreach ($errors->all() as $message)
-                    <p>{{ $message }}</p>
+                    <p class="error">{{ $message }}</p>
                 @endforeach
                 @csrf
                 <label for="name">Tell us your name:</label> <br>
