@@ -78,7 +78,7 @@
                     </h3>
                     <h4>{{ $review->title }} | {{ $review->rating }}/5</h4>
                     <p>{{ $review->contents }}</p>
-                    @if (Auth::check() && Auth::user()->id == $review->user_id)
+                    @if (Auth::check() && (Auth::user()->id == $review->user_id || Auth::user()->accountType == 1) )
                         <button class="button" onclick="location.href='/reviews/delete/{{$review->id}}'">Delete</button>
                     @endif
                 </div>
