@@ -28,6 +28,11 @@
 
     @if ($products->isEmpty())
         <h2>There are no products. </h2>
+        <div class="form">
+            <button style="margin-top: 5px" class="button new-product-button"
+                    onclick="location.href='/admin/products/create'">Create a New Product
+            </button>
+        </div>
     @else
         <div class="form">
             <button style="margin-top: 5px" class="button new-product-button"

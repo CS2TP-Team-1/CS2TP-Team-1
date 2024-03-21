@@ -20,7 +20,7 @@
             <option value="silver">Silver</option>
 
         </select>
-        <input type="submit" value="Search" class="button" style="width: 100%"> 
+        <input type="submit" value="Search" class="button" style="width: 100%">
     </form>
 
     <!-- Display the search results if available -->
@@ -37,9 +37,9 @@
         @php
             $imgPath = "/images/products/" . $product->mainImage;
 
-            if (!File::exists($imgPath)) {
-                $imgPath = "/images/image_unavailable.png";
-            }
+//            if (!File::exists($imgPath)) {
+//                $imgPath = "/images/image_unavailable.png";
+//            }
         @endphp
 
         <div id="product-info">

@@ -7,9 +7,9 @@
 
         $imgPath = '/images/products/' . $product->mainImage;
 
-        if (!File::exists($imgPath)) {
-                        $imgPath = "/images/image_unavailable.png";
-                    }
+//        if (!File::exists($imgPath)) {
+//                        $imgPath = "/images/image_unavailable.png";
+//                    }
 
         if ($product->stock == 0){
             $stockLevel = 'Out of Stock';
