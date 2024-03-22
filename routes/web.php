@@ -76,7 +76,7 @@ Route::middleware('auth')->group(function () {
 
 //Review Routes
 Route::resource('reviews', ReviewController::class)->middleware('auth');
-Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+Route::get('/reviews/delete/{id}', [ReviewController::class, 'deleteReview'])->name('reviews.destroy');
 
 //Admin pages
 

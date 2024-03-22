@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
@@ -48,16 +49,15 @@ class ReviewController extends Controller
         return redirect()->back()->with('success', 'Review submitted successfully!');
     }
 
-    public function destroy($id)
+    public function deleteReview($id): RedirectResponse
     {
-        $review = Review::where('id', '=', $id);
-        // Check if the authenticated user is authorized to delete the review
-        // if ($review->user_id === auth()->id()) {
-        $review->delete();
-        return redirect(url('/products/' . $id))->with('success', 'Review deleted successfully.');
-        // } else {
-        //     return redirect()->back()->with('error', 'You are not authorized to delete this review.');
-        // }
+        $review = Review::findOrFail($id);
+        if (( $review->user_id == Auth::id() ) || ( Auth::user()->accountType == 1 )){
+            $review->delete();
+            return redirect()->back()->with('success', 'review-deleted');
+        } else {
+            return redirect()->back()->with('failed', 'unauthorised');
+        }
 
 
     }

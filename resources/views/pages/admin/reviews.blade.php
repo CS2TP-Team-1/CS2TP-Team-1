@@ -28,7 +28,7 @@
                     <td><a href="/products/{{$review->product_id}}">{{$product->name}}</a></td>
                     <td>{{$review->title}}</td>
                     <td>{{$review->rating}}</td>
-                    <td>{{$review->content}}</td>
+                    <td>{{$review->contents}}</td>
                     <td class="table-button-section">
                         <button class="button table-button"
                                 onclick="location.href='/admin/reviews/delete/{{$review->id}}'">Delete

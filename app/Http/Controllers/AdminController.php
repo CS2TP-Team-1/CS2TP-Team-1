@@ -347,7 +347,7 @@ class AdminController extends Controller
 
     public function reviewsDashboard(): \Illuminate\View\View
     {
-        $reviews = Review::all();
+        $reviews = Review::all()->sortBy('rating');
 
         return View::make('pages.admin.reviews', compact('reviews'));
     }
