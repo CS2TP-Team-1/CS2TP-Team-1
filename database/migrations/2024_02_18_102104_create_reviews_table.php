@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger(column:'user_id')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->string(column:'title');
-            $table->string(column:'contents');
+            $table->string(column:'contents')->nullable();
             $table->unsignedTinyInteger('rating')->default(1);
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
