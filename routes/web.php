@@ -76,7 +76,7 @@ Route::middleware('auth')->group(function () {
 
 //Review Routes
 Route::resource('reviews', ReviewController::class)->middleware('auth');
-Route::get('/reviews/delete/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+Route::get('/reviews/delete/{id}', [ReviewController::class, 'deleteReview'])->name('reviews.destroy');
 
 //Admin pages
 
@@ -88,7 +88,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/addUser', [AdminController::class, 'addPage'])->name('admin.addUser');
     Route::post('/admin/addUser', [AdminController::class, 'addUsers']);
     Route::get('/admin/users/edit/{id}', [AdminController::class, 'editUsers'])->name('admin.users.edit');
-    Route::post('/admin/users/edit/{id}', [AdminController::class, 'amendUsers']);
+    Route::patch('/admin/users/edit/', [AdminController::class, 'amendUsers'])->name('admin.amend-users');
     Route::get('/admin/delete/{id}', [AdminController::class, 'deleteUser']);
     // Products
     Route::get('/admin/products', [AdminController::class, 'productsDashboard'])->name('admin.products-dashboard');
@@ -98,6 +98,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.delete-products');
     Route::get('/admin/products/create', [AdminController::class, 'productsCreateForm'])->name('admin.form-create-products');
     Route::post('/admin/products/create', [AdminController::class, 'productsCreate'])->name('admin.create-products');
+    Route::get('/admin/products/search', [AdminController::class, 'productsSearch'])->name('admin.products.search');
     //Contact submission Page
     Route::get('/admin/contact', function () {
         return View::make('pages.admin.contact-submission')->with('forms', ContactForm::all());
@@ -115,4 +116,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/orders', [AdminController::class, 'viewOrders'])->name('admin.orders');
     Route::post('/admin/orders/updateStatus/{id}', [AdminController::class, 'updateorderStatus'])->name('admin.order.updateStatus');
     Route::get('/admin/order/view/{id}', [AdminController::class, 'viewOrder'])->name('admin.AviewOrder');
+    Route::get('/admin/orders/search', [AdminController::class, 'search'])->name('admin.orders.search');
+    // Reviews
+    Route::get('/admin/reviews', [AdminController::class, 'reviewsDashboard'])->name('admin.reviews-dashboard');
+    Route::get('/admin/reviews/delete/{id}', [AdminController::class, 'deleteReview'])->name('admin.delete-review');
 });

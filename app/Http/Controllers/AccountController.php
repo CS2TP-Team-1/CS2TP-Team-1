@@ -12,6 +12,10 @@ use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
+// AccountController contains all functions related to the running of the user side features.
+// Such as editing the user's own account, deleting the users own account, the /account page and viewing their previous orders.
+
+
 class AccountController extends Controller
 {
     public function edit(Request $request): View
@@ -49,7 +53,8 @@ class AccountController extends Controller
     }
 
 
-    public function viewOrder($id) {
+    public function viewOrder($id)
+    {
 
         $order = Order::findOrFail($id);
 

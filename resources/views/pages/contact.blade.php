@@ -10,24 +10,20 @@
             </header>
 
             <form class="contact-form" action="{{ route('contact-form.store')}}" method="POST">
+                @foreach ($errors->all() as $message)
+                    <p class="error">{{ $message }}</p>
+                @endforeach
                 @csrf
                 <label for="name">Tell us your name:</label> <br>
                 <input type="text" required name="name" value="{{old('name')}}"/><br>
-                @foreach($errors->get('name') as $message)
-                    <p>{{$message}}</p>
-                @endforeach
+
 
                 <label for="email">Email:</label><br>
                 <input type="email" required name="email" value="{{old('email')}}"/> <br>
-                @foreach($errors->get('email') as $message)
-                    <p>{{$message}}</p>
-                @endforeach
+
 
                 <label for="message">Message:</label><br>
-                <textarea name="message" required rows="15" cols="40" >{{old('message')}}</textarea><br>
-                @foreach($errors->get('message') as $message)
-                    <p>{{$message}}</p>
-                @endforeach
+                <textarea name="message" required rows="15" cols="40">{{old('message')}}</textarea><br>
 
                 <button type="submit" class="button">Submit</button>
                 <br>
@@ -65,7 +61,7 @@
                 </div>
                 <div class="contact-info-content">
                     <h3>Email</h3>
-                    <p>jewellerystore@gmail.com</p>
+                    <p>contact@thejewellerystore.com</p>
                 </div>
             </div>
         </div>

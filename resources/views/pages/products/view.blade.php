@@ -1,10 +1,15 @@
-@php use Illuminate\Support\Facades\Auth; @endphp
+@php use Illuminate\Support\Facades\Auth;use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
 @section('title', $product->name)
 
 @section('content')
     @php
+
         $imgPath = '/images/products/' . $product->mainImage;
+
+//        if (!File::exists($imgPath)) {
+//                        $imgPath = "/images/image_unavailable.png";
+//                    }
 
         if ($product->stock == 0){
             $stockLevel = 'Out of Stock';
@@ -40,7 +45,9 @@
                 @elseif(Auth::check() && $product->stock == 0)
                     <button class="button-out-of-stock">This item is out of stock!</button>
                 @elseif(Auth::check() && $remainingStock == 0)
-                    <button class="button-out-of-stock-basket" onclick="location.href='{{ route('basket.show') }}'">All remaining stock is in your basket!</button>
+                    <button class="button-out-of-stock-basket" onclick="location.href='{{ route('basket.show') }}'">All
+                        remaining stock is in your basket!
+                    </button>
                 @else
                     <button class="button" onclick="location.href='{{ route('login') }}'">You must be logged in to add
                         to
@@ -61,82 +68,71 @@
     <h2>Reviews</h2>
     <div class="form">
         <form class="account-form">
-            @foreach ($product->reviews as $review)
+            @forelse ($product->reviews as $review)
                 <div class="review">
-                    <h3>{{ $review->user->name }}</h3>
+                    <h3>@if($review->user === null)
+                            [Account Deleted]
+                        @else
+                            {{ $review->user->name }}
+                        @endif
+                    </h3>
                     <h4>{{ $review->title }} | {{ $review->rating }}/5</h4>
                     <p>{{ $review->contents }}</p>
-                    @if (Auth::check() && Auth::user()->id == $review->user_id)
+                    @if (Auth::check() && (Auth::user()->id == $review->user_id) )
                         <button class="button" onclick="location.href='/reviews/delete/{{$review->id}}'">Delete</button>
                     @endif
                 </div>
-            @endforeach
+            @empty
+                <h3>There are no reviews for this product.</h3>
+            @endforelse
         </form>
     </div>
 
     <h2>Write your own review</h2>
     @auth
-        @forelse ($product->reviews as $review)
+        {{$reviewed = false}}
+        @foreach ($product->reviews as $review)
             @if (Auth::user()->id == $review->user_id)
-                <div class="form">
-                    <form class="account-form">
-                        <p>You cannot submit more than one review</p>
-                    </form>
-                </div>
-            @else
-                <div class="form">
-                    <form class="account-form" method="POST" action="{{ url('/reviews') }}">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <label for="title">Review Title (Optional):</label>
-                        <br>
-                        <input type="text" name="title" id="title" value="Default Title">
-                        <br>
-                        <label for="rating">Rating:</label>
-                        <br>
-                        <select name="rating" id="rating">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <br>
-                        <label for="contents">Review Contents:</label>
-                        <br>
-                        <textarea name="contents" required id="contents" rows="4"></textarea>
-                        <br>
-                        <button class="button" type="submit">Submit Review</button>
-                    </form>
-                </div>
+                {{$reviewed = true}}
             @endif
-        @empty
+        @endforeach
+
+        @if($reviewed)
+            <div class="form">
+                <form class="account-form">
+                    <p>You cannot submit more than one review</p>
+                </form>
+            </div>
+        @else
             <div class="form">
                 <form class="account-form" method="POST" action="{{ url('/reviews') }}">
                     @csrf
+                    @foreach ($errors->all() as $message)
+                        <p class="error">{{ $message }}</p>
+                    @endforeach
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <label for="title">Review Title (Optional):</label>
+                    <label for="title">Review Title:</label>
                     <br>
-                    <input type="text" name="title" id="title" value="Default Title">
+                    <input type="text" required name="title" id="title" placeholder="Review Title">
                     <br>
                     <label for="rating">Rating:</label>
                     <br>
-                    <select name="rating" id="rating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                    <select name="rating" required id="rating">
+                        <option value="1" @if(old('rating') === 1)selected @endif>1</option>
+                        <option value="2" @if(old('rating') === 2)selected @endif>2</option>
+                        <option value="3" @if(old('rating') === 3)selected @endif>3</option>
+                        <option value="4" @if(old('rating') === 4)selected @endif>4</option>
+                        <option value="5" @if(old('rating') === 5)selected @endif>5</option>
                     </select>
                     <br>
-                    <label for="contents">Review Contents:</label>
+                    <label for="contents">Review Contents (Optional):</label>
                     <br>
-                    <textarea name="contents" id="contents" rows="4"></textarea>
+                    <textarea name="contents" id="contents" rows="6" cols="25">{{old('contents')}}</textarea>
                     <br>
                     <button class="button" type="submit">Submit Review</button>
                 </form>
             </div>
-        @endforelse
+        @endif
     @endauth
 
     @guest

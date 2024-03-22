@@ -15,11 +15,18 @@
         @foreach($returns as $return)
             <tr>
                 <td>{{$return->id}}</td>
-                <td>{{$return->user_id}}</td>
+                <td>@if($return->user_id === null)
+                        User Deleted
+                    @else
+                        {{$return->user_id}}
+                    @endif
+                </td>
                 <td>{{$return->status}}</td>
                 <td>£{{$return->returnValue}}</td>
                 <td class="table-button-section">
-                    <button class="button table-button" onclick="location.href='/admin/returns/{{$return->id}}'">View Return</button>
+                    <button class="button table-button" onclick="location.href='/admin/returns/{{$return->id}}'">View
+                        Return
+                    </button>
                 </td>
             </tr>
         @endforeach

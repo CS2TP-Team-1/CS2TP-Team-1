@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +15,10 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next): Response | RedirectResponse
     {
         if (! Auth::check()) {
-            abort(403, 'Unauthorised Action - You must be logged in as an Administrator');
+            return redirect('/login');
         }
         $user = $request->user();
         if ($user->accountType === 0){

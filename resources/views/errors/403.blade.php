@@ -5,9 +5,14 @@
 
     <h1>Error 403: Oops! Unauthorised Action</h1>
     <h3>It looks like you aren't authorised to access that page.</h3>
-    <button class="button" onclick="history.back()">Go Back!</button>
+    <div class="form">
+        <button class="button" onclick="history.back()">Go Back!</button>
+    </div>
 
-    @if(!\Illuminate\Support\Facades\Auth::check())
-        <a href="{{route('login')}}"> <button class="button">Login</button></a>
-    @endif
+    <p></p>
+    <div class="form">
+        @if (!\Illuminate\Support\Facades\Auth::check())
+            <a href="{{ route('login') }}"> <button class="button">Login</button></a>
+        @endif
+    </div>
 @endsection

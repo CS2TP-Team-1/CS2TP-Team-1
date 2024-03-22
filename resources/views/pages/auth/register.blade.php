@@ -7,12 +7,12 @@
             @csrf
             <h1>Register</h1>
             @foreach($errors->all() as $message)
-                <p>{{$message}}</p>
+                <p class="error">{{$message}}</p>
             @endforeach
             <label for="name">Name:</label> <br>
-            <input type="text" name="name" value="<?php echo isset($errors) ? old('name') : ''; ?>" required><br>
+            <input type="text" name="name" value=" {{old('name')}}" required><br>
             <label for="email">Email:</label><br>
-            <input type="email" name="email" value="<?php echo isset($errors) ? old('email') : ''; ?>" required><br>
+            <input type="email" name="email" value="{{old('email')}}" required><br>
             <label for="password">Password:</label><br>
             <input type="password" name="password" required><br>
             <label for="password_confirmation">Confirm password:</label><br>

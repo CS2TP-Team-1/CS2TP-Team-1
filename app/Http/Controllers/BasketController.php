@@ -10,9 +10,12 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades;
 use Mockery\Exception;
 
+// Basket Controller contains the functions related to the basket and orders.
+// From adding the first item to the basket to checking out
+
 class BasketController extends Controller
 {
-    public function index() : View
+    public function index(): View
     {
         return Facades\View::make('pages.account.basket');
     }
@@ -24,8 +27,7 @@ class BasketController extends Controller
         $cartTotal = session()->get('total');
 
 
-
-        if (isset($cart[$id])){
+        if (isset($cart[$id])) {
 //        Check if there is enough stock to add another to the basket
 //        Get current stock level, minus the quantity in the basket and see if there is 1 spare
             $remainingStock = $product->stock - $cart[$id]['quantity'];
@@ -56,7 +58,7 @@ class BasketController extends Controller
         $cart = session()->get('cart', []);
         $cartTotal = session()->get('total');
 
-        if ($cart[$id]['quantity'] > 1){
+        if ($cart[$id]['quantity'] > 1) {
             $cart[$id]['quantity']--;
             $cartTotal -= $cart[$id]['price'];
         } else {
@@ -67,25 +69,25 @@ class BasketController extends Controller
         session()->put('cart', $cart);
         session()->put('total', $cartTotal);
 
-        return redirect()->back()->with('success','basket-updated');
+        return redirect()->back()->with('success', 'basket-updated');
     }
 
-    public function removeProduct ($id): RedirectResponse
+    public function removeProduct($id): RedirectResponse
     {
-            $cart = session()->get('cart', []);
-            $cartTotal = session()->get('total');
+        $cart = session()->get('cart', []);
+        $cartTotal = session()->get('total');
 
-            for ($i = 0; $i < $cart[$id]['quantity']; $i++){
-                $cartTotal -= $cart[$id]['price'];
-                session()->put('total', $cartTotal);
-            }
+        for ($i = 0; $i < $cart[$id]['quantity']; $i++) {
+            $cartTotal -= $cart[$id]['price'];
+            session()->put('total', $cartTotal);
+        }
 
-            if(isset($cart[$id])) {
-                unset($cart[$id]);
-                session()->put('cart', $cart);
-            }
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
+        }
 
-            return redirect()->back()->with('success','basket-updated');
+        return redirect()->back()->with('success', 'basket-updated');
 
     }
 
@@ -99,7 +101,7 @@ class BasketController extends Controller
         $order = Order::latest()->first();
         $cart = session()->get('cart');
 
-        foreach($cart as $id => $details){
+        foreach ($cart as $id => $details) {
             $product = Product::findOrFail($details['id']);
             $currentStock = $product->stock;
 

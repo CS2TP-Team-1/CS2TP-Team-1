@@ -12,12 +12,15 @@
 
 <div class="footer-section">
     <h4>Contact Details</h4>
+    <ul class="footer-nav-ul">
+        <li>contact@thejewellerystore.com</li>
+    </ul>
 </div>
 
-<div class="footer-section">
+{{-- <div class="footer-section">
     <h4>Another Section</h4>
-</div>
-
+</div> --}}
+{{-- 
 <div class="footer-section">
 
-</div>
+</div> --}}

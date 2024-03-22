@@ -38,7 +38,7 @@ a {
     border-radius: 5px;
     border: none;
     transition: background-color 0.3s ease;
-    width: 30%;
+    width: fit-content;
     size: 50px;
     padding: 10px;
     cursor: pointer;
@@ -49,6 +49,14 @@ a {
 .button:hover, button:hover {
     background-color: rgb(57, 43, 57) !important;
     transition: background-color 0.3s ease;
+}
+
+/* Error Message */
+.error {
+    background-color: #dc3545;
+    color: #fff;
+    /* width: fit-content; */
+    padding: 10px;
 }
 
 /* Nav Bar Formatting */
@@ -138,8 +146,18 @@ ul.catagories {
 .contact {
     box-shadow: 0 0 10px;
     width: 40%;
-    margin: 50px auto;
+    margin: 2% auto;
     background-color: rgb(85, 65, 85);
+}
+
+@media screen and (max-width: 800px) {
+    .contact {
+        width: 80%;
+    }
+}
+
+.contact p {
+    padding: 1%
 }
 
 .contact label {
@@ -150,12 +168,19 @@ ul.catagories {
 .contact-c {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+    .contact-c {
+        flex-direction: column;
+    }
 }
 
 .contact input {
     margin-right: 10px;
     border-radius: 5px;
-    width: 40%;
+    width: 80%;
     border: none;
 }
 
@@ -169,7 +194,7 @@ ul.catagories {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 40%;
+    width: 80%;
     box-sizing: border-box;
 
 }
@@ -182,8 +207,8 @@ ul.catagories {
 /* Contact Info on Side of Page */
 
 .contact-info {
-    width: 30%;
-    margin-left: 20px;
+    width: 100%;
+    margin-left: 10%;
     margin-top: 90px;
 }
 
@@ -229,12 +254,18 @@ ul.catagories {
     align-items: center;
 }
 
-#product_container {
+#product-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+
+}
+
+
+
+#products {
 
 }
 
@@ -247,6 +278,18 @@ ul.catagories {
     margin: 5px;
     display: inline-block;
 
+}
+
+@media screen and (max-width: 800px) {
+    #product-info {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #product-info {
+        width: 90%;
+    }
 }
 
 .product-gallery-image {
@@ -299,7 +342,6 @@ ul.catagories {
     padding: 10px;
     box-sizing: border-box;
     cursor: default;
-
 }
 
 .button-out-of-stock-basket {
@@ -313,7 +355,6 @@ ul.catagories {
     padding: 10px;
     box-sizing: border-box;
     cursor: pointer;
-
 }
 
 .login {
@@ -380,7 +421,7 @@ ul.catagories {
 
 
 .search-form {
-    max-width: 200px; 
+    max-width: 200px;
     margin: 0 auto;
 }
 
@@ -390,17 +431,6 @@ select {
     padding: 5px;
     margin: 5px 0;
     box-sizing: border-box;
-}
-
-.search-form-input-submit {
-    width: 100%;
-    background-color: rgb(85, 65, 85);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 /* Login Page */
@@ -444,6 +474,7 @@ select {
     flex-direction: column;
     align-items: left;
     padding-left: 2%;
+    padding-right: 2%;
     background-color: rgb(85, 65, 85);
 }
 
@@ -671,29 +702,6 @@ select {
 
 
 /* Create Product Form */
-
-.new-product-form {
-    box-shadow: 0 0 10px;
-    width: 40%;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 2%;
-    background-color: rgb(85, 65, 85);
-    border-radius: 12.5px;
-}
-
-.new-product-form button {
-    left: 50%;
-}
-
-.new-product-button {
-    float: right;
-    margin-bottom: 2px;
-
-}
-
 .table-button-section {
     display: flex;
     flex-direction: column;
@@ -742,6 +750,7 @@ div .review {
     background-color: rgb(85, 65, 85);
     width: 100%;
     padding: 0;
+    padding-bottom: 1%;
     display: flex;
     margin: 0;
     margin-top: 10px;
@@ -749,15 +758,24 @@ div .review {
     overflow: hidden;
     align-content: center;
     justify-content: space-evenly;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        flex-direction: column;
+    }
 }
 
 .footer-section {
     text-align: center;
 }
 
-.footer-nav-ul > li {
+.footer-nav-ul > li, ul {
     list-style-type: none;
-    float: none;
+    list-style: none;
+    padding-left: 0;
+    margin: 0px;
 }
 
 /*CSS for admin-orders' status select box*/
@@ -769,9 +787,3 @@ div .review {
     background-color: #fff;
     width: auto;
 }
-
-
-
-
-
-

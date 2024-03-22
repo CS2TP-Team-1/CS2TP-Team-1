@@ -23,10 +23,10 @@
     @endif
 
     @error('name')
-    <p> {{ $message }} </p>
+    <p class="error"> {{ $message }} </p>
     @enderror
     @error('email')
-    <p> {{ $message }} </p>
+    <p class="error"> {{ $message }} </p>
     @enderror
 </form>
 </div>

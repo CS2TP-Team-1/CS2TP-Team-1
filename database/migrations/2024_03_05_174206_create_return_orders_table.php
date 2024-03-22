@@ -17,12 +17,12 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->float('returnValue');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->enum('status',['Requested', 'Approved', 'Denied']);
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
+            $table->foreign('order_id')->references('id')->on('orders')->nullOnDelete();
+            $table->foreign('product_id')->references('id')->on('products')->nullOnDelete();
         });
     }
 

@@ -13,7 +13,7 @@
     <button class="button" type="submit">Delete Account</button>
 
     @error('password')
-    <p>{{ $message }}</p>
+    <p class="error">{{ $message }}</p>
     @enderror
 </form>
 </div>

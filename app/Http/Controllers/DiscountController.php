@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades;
 
+// The DiscountController sets up the admin features of the Discounts system as well as the system to apply discounts to the basket
+
 class DiscountController extends Controller
 {
     public function index()
@@ -34,11 +36,11 @@ class DiscountController extends Controller
     public function destroy($id)
     {
         $review = Discount::where('id', '=', $id);
-            $review->delete();
-            return redirect(url('/discounts')->with('success', 'Review deleted successfully.'));
+        $review->delete();
+        return redirect(url('/discounts')->with('success', 'Review deleted successfully.'));
     }
 
-    public function applyDiscount(Request $request) : RedirectResponse
+    public function applyDiscount(Request $request): RedirectResponse
     {
         $code = $request->code;
         $discountModel = Discount::where('code', '=', $code)->first();
