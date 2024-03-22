@@ -53,7 +53,7 @@ a {
 
 /* Error Message */
 .error {
-    background-color: #dc3545; 
+    background-color: #dc3545;
     color: #fff;
     /* width: fit-content; */
     padding: 10px;
@@ -146,8 +146,18 @@ ul.catagories {
 .contact {
     box-shadow: 0 0 10px;
     width: 40%;
-    margin: 50px auto;
+    margin: 2% auto;
     background-color: rgb(85, 65, 85);
+}
+
+@media screen and (max-width: 800px) {
+    .contact {
+        width: 80%;
+    }
+}
+
+.contact p {
+    padding: 1%
 }
 
 .contact label {
@@ -158,12 +168,19 @@ ul.catagories {
 .contact-c {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+    .contact-c {
+        flex-direction: column;
+    }
 }
 
 .contact input {
     margin-right: 10px;
     border-radius: 5px;
-    width: 40%;
+    width: 80%;
     border: none;
 }
 
@@ -177,7 +194,7 @@ ul.catagories {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 40%;
+    width: 80%;
     box-sizing: border-box;
 
 }
@@ -190,8 +207,8 @@ ul.catagories {
 /* Contact Info on Side of Page */
 
 .contact-info {
-    width: 30%;
-    margin-left: 20px;
+    width: 100%;
+    margin-left: 10%;
     margin-top: 90px;
 }
 
@@ -237,12 +254,18 @@ ul.catagories {
     align-items: center;
 }
 
-#product_container {
+#product-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+
+}
+
+
+
+#products {
 
 }
 
@@ -255,6 +278,18 @@ ul.catagories {
     margin: 5px;
     display: inline-block;
 
+}
+
+@media screen and (max-width: 800px) {
+    #product-info {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #product-info {
+        width: 90%;
+    }
 }
 
 .product-gallery-image {
@@ -386,7 +421,7 @@ ul.catagories {
 
 
 .search-form {
-    max-width: 200px; 
+    max-width: 200px;
     margin: 0 auto;
 }
 
@@ -715,6 +750,7 @@ div .review {
     background-color: rgb(85, 65, 85);
     width: 100%;
     padding: 0;
+    padding-bottom: 1%;
     display: flex;
     margin: 0;
     margin-top: 10px;
@@ -722,6 +758,13 @@ div .review {
     overflow: hidden;
     align-content: center;
     justify-content: space-evenly;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        flex-direction: column;
+    }
 }
 
 .footer-section {
