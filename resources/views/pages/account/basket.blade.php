@@ -1,6 +1,6 @@
 @php use App\Models\Product; @endphp
 @extends('layouts.default')
-@section('title', 'Basket')
+@section('title', 'Your Basket')
 
 
 

@@ -1,6 +1,6 @@
 @php use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
-@section('title', 'Admin-UsersOrder')
+@section('title', 'View Order #' . $order->id)
 
 
 

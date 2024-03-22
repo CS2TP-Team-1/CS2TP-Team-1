@@ -1,6 +1,6 @@
 @php use App\Models\Product;use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
-@section('title', 'Your Return')
+@section('title', 'Your Return #' . $return->id)
 
 @php
     $product = Product::findOrFail($return->product_id);

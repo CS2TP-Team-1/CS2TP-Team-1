@@ -1,6 +1,6 @@
 @php use App\Models\Order;use Illuminate\Support\Facades\File; @endphp
 @extends('layouts.default')
-@section('title', 'Your Order')
+@section('title', 'Your Order #' . $order->id)
 
 @php
     $theOrder = Order::find($order->id);

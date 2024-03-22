@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Edit User')
+@section('title', 'Edit User #' . $user->id)
 
 @section('content')
 <h1>Edit User #{{$user->id}}</h1>

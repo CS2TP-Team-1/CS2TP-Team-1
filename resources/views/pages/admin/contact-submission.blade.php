@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'contact_submission')
+@section('title', 'Contact Form Submissions')
 @php
     use App\Models\ContactForm;
 @endphp

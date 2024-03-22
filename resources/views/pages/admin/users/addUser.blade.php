@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'add-users')
+@section('title', 'Create a New User')
 
 @section('content')
     <div class="AddUser">
