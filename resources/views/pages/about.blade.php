@@ -1,10 +1,13 @@
 @extends('layouts.default')
 @section('title', 'About Us')
+@section('additionalHead')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+@endsection
 
 @section('content')
     <div class="container">
         <div class="about-head">
-            <h1>Welcome to The Jewellry Store </h1>
+            <h1>Welcome to The Jewellery Store </h1>
             <p>
                 Our mission is to redefine your online jewellery shopping experience.
                 Discover the epitome of excellence in every piece and enjoy a journey that reflects our dedication to
