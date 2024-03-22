@@ -8,6 +8,7 @@
                 <h1 class="table-title">
                     Orders Dashboard
                 </h1>
+                <h3>Orders that need processing: {{$processCount[0]}}</h3>
 
                 <form action="{{ route('admin.orders.search') }}" method="GET" class="search-form">
                     <input type="text" id="searchQuery" name="searchQuery" placeholder="Search by Order details..."
@@ -36,66 +37,62 @@
                 @if($orders->isEmpty())
                     <h2>No orders found.</h2>
                 @else
-
+                    <div class="form">
+                        <table class="table-table-stripped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Order Status</th>
+                                <th scope="col">Total Value of Order: £</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                    </div>
+                    <tbody>
                     @foreach($orders as $order)
-
-                    @endforeach
-                @endif
-                <div class="form">
-                    <table class="table-table-stripped">
-                        <thead>
                         <tr>
-                            <th scope="col">Order ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Order Status</th>
-                            <th scope="col">Total Value of Order: £</th>
-                            <th></th>
+                            <th scope="row">{{$order->id}}</th>
+                            <td>@if($order->user == null)
+                                    User Deleted
+                                @else
+                                    {{$order->user->name}}
+                                @endif
+                            </td>
+                            <td>@if($order->user == null)
+                                    User Deleted
+                                @else
+                                    {{$order->user->email}}
+                                @endif
+                            </td>
+                            <td>
+                                <form id="dropStatus" action="{{route('admin.order.updateStatus', $order->id)}}"
+                                      method="post">
+                                    @csrf
+                                    <select name="status" onchange="this.form.submit()">
+                                        <option value="Ordered" @if($order->status == 'Ordered') selected @endif>Ordered
+                                        </option>
+                                        <option value="Processing" @if($order->status == 'Processing') selected @endif>
+                                            Processing
+                                        </option>
+                                        <option value="Shipped" @if($order->status == 'Shipped') selected @endif>Shipped
+                                        </option>
+
+                                    </select>
+                                </form>
+                            </td>
+                            <td>{{$order->totalValue}}</td>
+                            <td>
+                                <a href="{{route('admin.AviewOrder', ['id' => $order->id])}}"><i>View Order</i></a>
+                            </td>
+
                         </tr>
-                        </thead>
-                </div>
-                <tbody>
-                @foreach($orders as $order)
-                    <tr>
-                        <th scope="row">{{$order->id}}</th>
-                        <td>@if($order->user == null)
-                                User Deleted
-                            @else
-                                {{$order->user->name}}
-                            @endif
-                        </td>
-                        <td>@if($order->user == null)
-                                User Deleted
-                            @else
-                                {{$order->user->email}}
-                            @endif
-                        </td>
-                        <td>
-                            <form id="dropStatus" action="{{route('admin.order.updateStatus', $order->id)}}"
-                                  method="post">
-                                @csrf
-                                <select name="status" onchange="this.form.submit()">
-                                    <option value="Ordered" @if($order->status == 'Ordered') selected @endif>Ordered
-                                    </option>
-                                    <option value="Processing" @if($order->status == 'Processing') selected @endif>
-                                        Processing
-                                    </option>
-                                    <option value="Shipped" @if($order->status == 'Shipped') selected @endif>Shipped
-                                    </option>
+                    @endforeach
+                    </tbody>
 
-                                </select>
-                            </form>
-                        </td>
-                        <td>{{$order->totalValue}}</td>
-                        <td>
-                            <a href="{{route('admin.AviewOrder', ['id' => $order->id])}}"><i>View Order</i></a>
-                        </td>
-
-                    </tr>
-                @endforeach
-                </tbody>
-
-                </table>
+                    </table>
+                @endif
             </div>
         </div>
     </section>

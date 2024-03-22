@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ReturnOrder;
@@ -10,12 +9,10 @@ use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\View;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
-use Illuminate\Support\Facades\Auth;
 
 // AdminController contains all functions related to the admin functions (excluding discounts and contact form submissions).
 // Including: Product Dashboard, User Dashboard, Orders Dashboard
@@ -105,7 +102,15 @@ class AdminController extends Controller
             ->orderBy('id', 'asc')
             ->get();
 
-        return View::make('pages.admin.products.products', compact('products'));
+        $lowStockCount = 0;
+        foreach ($products as $product) {
+            if ($product->stock < 10) {
+                $lowStockCount++;
+            }
+        }
+        $lowStockCount = array($lowStockCount);
+
+        return View::make('pages.admin.products.products', compact('products', 'lowStockCount'));
     }
 
     public function productsEditPage($id) // Main edit page
@@ -236,7 +241,15 @@ class AdminController extends Controller
 
         $orders = Order::all();
 
-        return view('pages.admin.orders.orders', compact('orders'));
+        $processCount = 0;
+        foreach ($orders as $order) {
+            if ($order->status == 'Ordered') {
+                $processCount++;
+            }
+        }
+        $processCount = array($processCount);
+
+        return view('pages.admin.orders.orders', compact('orders', 'processCount'));
     }
 
     public function updateorderStatus(Request $request, $id)
@@ -332,14 +345,14 @@ class AdminController extends Controller
 
     // Reviews Dashboard
 
-    public function reviewsDashboard() : \Illuminate\View\View
+    public function reviewsDashboard(): \Illuminate\View\View
     {
         $reviews = Review::all();
 
         return View::make('pages.admin.reviews', compact('reviews'));
     }
 
-    public function deleteReview($id) : RedirectResponse
+    public function deleteReview($id): RedirectResponse
     {
         $review = Review::findOrFail($id);
 

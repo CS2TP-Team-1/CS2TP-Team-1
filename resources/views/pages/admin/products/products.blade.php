@@ -3,6 +3,7 @@
 
 @section('content')
     <h1>Products Dashboard</h1>
+    <h3>Products with Low Stock (<10): {{$lowStockCount[0]}}</h3>
 
     <form action="{{ route('admin.products.search') }}" method="GET" class="search-form">
         <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for jewellery..."
