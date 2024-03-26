@@ -32,9 +32,9 @@
                 @foreach($order->products as $product)
                     @php
                         $imgPath = '/images/products/' .$product->mainImage;
-                        if (!File::exists($imgPath)) {
-                            $imgPath = "/images/image_unavailable.png";
-                        }
+//                        if (!File::exists($imgPath)) {
+//                            $imgPath = "/images/image_unavailable.png";
+//                        }
                     @endphp
                     <tr>
                         <td><img src="{{ $imgPath }}" alt="Image of the Product" width="100px" id="product-view-image">

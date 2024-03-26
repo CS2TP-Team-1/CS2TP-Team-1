@@ -232,7 +232,15 @@ class AdminController extends Controller
 
         $products = $query->get();
 
-        return view('pages.admin.products.products', compact('products'));
+        $lowStockCount = 0;
+        foreach ($products as $product) {
+            if ($product->stock < 10) {
+                $lowStockCount++;
+            }
+        }
+        $lowStockCount = array($lowStockCount);
+
+        return view('pages.admin.products.products', compact('products', 'lowStockCount'));
     }
 
     // Order Dashboard
@@ -292,7 +300,15 @@ class AdminController extends Controller
 
         $orders = $query->get();
 
-        return view('pages.admin.orders.orders', compact('orders'));
+        $processCount = 0;
+        foreach ($orders as $order) {
+            if ($order->status == 'Ordered') {
+                $processCount++;
+            }
+        }
+        $processCount = array($processCount);
+
+        return view('pages.admin.orders.orders', compact('orders', $processCount));
     }
 
     // Returns Dashboard
